@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_Main" Id="{35d3acea-3a59-4b99-bd37-6f9b1ccc82a7}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+///// DETECTOR MOTORS
+/// DETECTOR RY Motion 
+{attribute 'pytmc' := 'pv: QRIX:SC:SSL:MMS'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7047_02_01]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable := TIIB[EL7047_02_01]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT     := TIIB[EL5042_02_02]^FB Inputs Channel 1^Position'}
+    M1: DUT_MotionStage := (sName := 'QRIX:SSL:MMS');
+
+
+
+/// DETECTOR Z Motion
+
+
+///// GRATING MOTORS
+//GRATING Z Motion 	
+
+
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
