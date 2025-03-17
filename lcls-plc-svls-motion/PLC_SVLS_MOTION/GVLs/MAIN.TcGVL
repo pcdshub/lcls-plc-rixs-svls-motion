@@ -3,19 +3,19 @@
   <GVL Name="MAIN" Id="{e237c17d-e3e5-4ea4-b0e8-0acf750b343d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	{attribute 'pytmc' := 'pv: CRIXS:SVLS:DET:MMS:Y'}
+    {attribute 'pytmc' := 'pv: CRIXS:SVLS:DET:MMS:Y'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7047_00_02]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[EL7047_00_02]^STM Status^Status^Digital input 2;
                               .nRawEncoderULINT     := TIIB[EL5042_00_03]^FB Inputs Channel 1^Position'}
     M1: ST_MotionStage := (sName := 'CRIXS:SVLS:DET:MMS:Y');
-	
-	{attribute 'pytmc' := 'pv: CRIXS:SVLS:DET:MMS:Z'}
+
+    {attribute 'pytmc' := 'pv: CRIXS:SVLS:DET:MMS:Z'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7047_00_04]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[EL7047_00_04]^STM Status^Status^Digital input 2;
                               .nRawEncoderULINT     := TIIB[EL5042_00_03]^FB Inputs Channel 2^Position'}
     M2: ST_MotionStage := (sName := 'CRIXS:SVLS:DET:MMS:Z');
-	
-	{attribute 'pytmc' := 'pv: CRIXS:SVLS:GRA:MMS:Y'}
+
+    {attribute 'pytmc' := 'pv: CRIXS:SVLS:GRA:MMS:Y'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[EL7047_00_05]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[EL7047_00_05]^STM Status^Status^Digital input 2;
                               .nRawEncoderULINT     := TIIB[EL5042_00_06]^FB Inputs Channel 1^Position'}
@@ -23,22 +23,22 @@ VAR_GLOBAL
 
 ///Encoder linking for SmarACT stages
 //SLITS X
-	{attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSX:ENC:L'}
-	{attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
-	ENC_X_L : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSX:ENC:L');
-	
-	{attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSX:ENC:R'}
-	{attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
-	ENC_X_R : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSX:ENC:R');
-//SLITS Y	
-	{attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSY:ENC:T'}
-	{attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
-	ENC_Y_T : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSY:ENC:T');
-	
-	{attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSY:ENC:B'}
-	{attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
-	ENC_Y_B : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSY:ENC:B');
-	
+    {attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSX:ENC:L'}
+    {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
+    ENC_X_L : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSX:ENC:L');
+
+    {attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSX:ENC:R'}
+    {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
+    ENC_X_R : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSX:ENC:R');
+//SLITS Y
+    {attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSY:ENC:T'}
+    {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
+    ENC_Y_T : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSY:ENC:T');
+
+    {attribute 'pytmc' := 'pv:	CRIXS:SVLS:SLITSY:ENC:B'}
+    {attribute 'TcLinkTo' := '.nRawEncoderULINT     := TIIB[EL5042_00_07]^FB Inputs Channel 1^Position;'}
+    ENC_Y_B : ST_MotionStage := (sName := 'CRIXS:SVLS:SLITSY:ENC:B');
+
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

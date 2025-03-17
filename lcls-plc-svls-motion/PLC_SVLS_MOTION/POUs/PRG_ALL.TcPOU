@@ -3,10 +3,10 @@
   <POU Name="PRG_ALL" Id="{75ed58c9-4c1e-4540-ad64-65774742672c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_ALL
 VAR
-	fb_DET_Y : FB_MotionStage;
+    fb_DET_Y : FB_MotionStage;
     fb_DET_Z : FB_MotionStage;
     fb_GRA_Y : FB_MotionStage;
-    bInit : BOOl := TRUE;	
+    bInit : BOOl := TRUE;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -26,7 +26,7 @@ END_VAR
     Main.M3.bPowerSelf := TRUE;
     Main.M3.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
     Main.M3.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-    
+
 END_IF
 
 fb_DET_Y(stMotionStage:=Main.M1);
