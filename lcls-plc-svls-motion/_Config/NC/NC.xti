@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CNcSafTaskDef" SubType="0">
+	<NC>
+		<SafTask Priority="4" CycleTime="20000" AmsPort="501" IoAtBegin="true" SafTaskInfo="256">
+			<Name>SVLS_MOTION SAF</Name>
+			<Vars VarGrpType="1" InsertType="1">
+				<Name>Inputs</Name>
+			</Vars>
+			<Vars VarGrpType="2" InsertType="1">
+				<Name>Outputs</Name>
+			</Vars>
+			<Image Id="1" AddrType="1" ImageType="1">
+				<Name>Image</Name>
+			</Image>
+		</SafTask>
+		<SvbTask Priority="8" CycleTime="100000" AmsPort="511">
+			<Name>SVLS_MOTION SVB</Name>
+		</SvbTask>
+		<Axis File="M1_DET_Y.xti" Id="1"/>
+		<Axis File="M2_DET_Z.xti" Id="2"/>
+		<Axis File="M3_GRA_Y.xti" Id="3"/>
+		<Axis File="M4_SLITX_L.xti" Id="4"/>
+		<Axis File="M5_SLITX_R.xti" Id="5"/>
+		<Axis File="M6_SLITY_T.xti" Id="6"/>
+		<Axis File="M7_SLITY_B.xti" Id="7"/>
+	</NC>
+</TcSmItem>
