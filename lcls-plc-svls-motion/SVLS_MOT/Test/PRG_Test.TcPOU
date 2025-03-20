@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <POU Name="PRG_Test" Id="{520dd319-32a4-44da-81fb-95c6b30f9a52}" SpecialFunc="None">
+    <Declaration><![CDATA[
+PROGRAM PRG_Test
+VAR
+    fbCalculateHFromAngle_Test : FB_CalculateHFromAngle_Test;
+
+    AxisReference_ExternalSetpointGenerator_Test1 : AXIS_REF;
+    MotionAxis_ExternalSetpointGenerator_Test1 : FB_MotionAxisNC(
+        AxisReference := AxisReference_ExternalSetpointGenerator_Test1
+    );
+    AxisReference_ExternalSetpointGenerator_Test2 : AXIS_REF;
+    MotionAxis_ExternalSetpointGenerator_Test2 : FB_MotionAxisNC(
+        AxisReference := AxisReference_ExternalSetpointGenerator_Test2
+    );
+    fbExternalSetpointGenerator_Test : FB_ExternalSetpointGenerator_Test(
+        MotionAxis_Test1 := MotionAxis_ExternalSetpointGenerator_Test1,
+        MotionAxis_Test2 := MotionAxis_ExternalSetpointGenerator_Test2
+    );
+
+    AxisReference_HControllerDetAngle_Test1 : AXIS_REF;
+    MotionAxis_HControllerDetAngle_Test1 : FB_MotionAxisNC(
+        AxisReference := AxisReference_HControllerDetAngle_Test1
+    );
+    AxisReference_HControllerDetH_Test1 : AXIS_REF;
+    MotionAxis_HControllerDetH_Test1 : FB_MotionAxisNC(
+        AxisReference := AxisReference_HControllerDetH_Test1
+    );
+    fbHController_Test : FB_HController_Test(
+        MotionAxisDetAngle_Test1 := MotionAxis_HControllerDetAngle_Test1,
+        MotionAxisDetH_Test1 := MotionAxis_HControllerDetH_Test1
+    );
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+MotionAxis_ExternalSetpointGenerator_Test1();
+MotionAxis_ExternalSetpointGenerator_Test2();
+MotionAxis_HControllerDetAngle_Test1();
+MotionAxis_HControllerDetH_Test1();
+
+TcUnit.RUN();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

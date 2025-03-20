@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <Task Name="PlcTask" Id="{d34b47f5-c453-4a9a-9d5f-e68bae1a5656}">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <Task Name="ProductionPlcTask" Id="{d34b47f5-c453-4a9a-9d5f-e68bae1a5656}">
     <!--CycleTime in micro seconds.-->
     <CycleTime>10000</CycleTime>
     <Priority>20</Priority>
     <PouCall>
-      <Name>PRG_ALL</Name>
+      <Name>PRG_Main</Name>
     </PouCall>
     <TaskFBGuid>{7a255156-71f5-41a0-93bd-8ccf5814d57e}</TaskFBGuid>
     <Fb_init>{e58f72dd-bc08-4610-a90b-f58540cb4a2e}</Fb_init>

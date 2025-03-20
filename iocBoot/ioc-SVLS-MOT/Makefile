@@ -1,12 +1,12 @@
-IOC_TOP=/reg/g/pcds/epics/ioc/common/ads-ioc/R0.8.0
+IOC_TOP = C:\Repos\ads-ioc\R0.8.0
 IOC_INSTANCE_PATH := $(shell pwd)
 
 # Set PRODUCTION_IOC to 1 to move from a testing to a production IOC:
 PRODUCTION_IOC := 0
 
 PROJECT_NAME := lcls-plc-svls-motion
-PROJECT_PATH := ../../lcls-plc-svls-motion.tsproj
-PLC := PLC_SVLS_MOTION
+PROJECT_PATH := ../../lcls-plc-svls-motion/lcls-plc-svls-motion.tsproj
+PLC := SVLS_MOT
 
 PYTMC_OPTS :=
 PREFIX := PLC:$(PLC)

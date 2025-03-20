@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <POU Name="FB_ExternalSetpointGenerator_Test" Id="{7ed145d7-0ddc-4b18-b40e-a62840fa4cec}" SpecialFunc="None">
+    <Declaration><![CDATA[
+FUNCTION_BLOCK FB_ExternalSetpointGenerator_Test EXTENDS FB_TestSuite
+VAR
+    iMotionAxis_Test1 : I_MotionAxis;
+    iMotionAxis_Test2 : I_MotionAxis;
+
+    fbExternalSetpointGenerator_Test1 : FB_ExternalSetpointGenerator(
+        iMotionAxis := iMotionAxis_Test1
+    );
+    fbExternalSetpointGenerator_Test2 : FB_ExternalSetpointGenerator(
+        iMotionAxis := iMotionAxis_Test2
+    );
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+TestEnableDisableExpectEnabledDisabled_Test1();
+
+TestSetSetpointsExpectSetpointsSet_Test2();
+]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{2d342be8-9058-46f8-8bf0-fa370cb81949}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+    (* if TRUE, the retain variables are initialized (warm start / cold start)*)
+    bInitRetains	: BOOL;
+    (* if TRUE, the instance afterwards gets moved into the copy code (online change)*)
+    bInCopyCode	: BOOL;
+
+    MotionAxis_Test1 : I_MotionAxis;
+    MotionAxis_Test2 : I_MotionAxis;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+THIS^.iMotionAxis_Test1 := MotionAxis_Test1;
+THIS^.iMotionAxis_Test2 := MotionAxis_Test2;
+
+fbExternalSetpointGenerator_Test1.FB_Init(
+    bInitRetains := FALSE,
+    bInCopyCode := FALSE,
+    iMotionAxis := MotionAxis_Test1
+);
+fbExternalSetpointGenerator_Test2.FB_Init(
+    bInitRetains := FALSE,
+    bInCopyCode := FALSE,
+    iMotionAxis := MotionAxis_Test2
+);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="TestEnableDisableExpectEnabledDisabled_Test1" Id="{fad8b5b7-2846-48b1-8834-ee674c34bd71}">
+      <Declaration><![CDATA[
+METHOD PRIVATE TestEnableDisableExpectEnabledDisabled_Test1
+VAR_INST
+    nTestStep : INT;
+    tonTimeout : TON;
+    tTimeout : TIME := T#1s;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+TEST(__POUNAME());
+
+fbExternalSetpointGenerator_Test1();
+
+CASE nTestStep OF
+    0:
+        IF NOT fbExternalSetpointGenerator_Test1.IsEnabled() THEN
+            // Enable test can begin
+            nTestStep := nTestStep + 1;
+        END_IF
+    1:
+        IF NOT fbExternalSetpointGenerator_Test1.IsEnabled() THEN
+            iMotionAxis_Test1.Power(
+                Enable := TRUE,
+                Enable_Positive := TRUE,
+                Enable_Negative := TRUE
+            );
+            fbExternalSetpointGenerator_Test1.Enable();
+        ELSE
+            // Successfully enabled, move on
+            nTestStep := nTestStep + 1;
+        END_IF
+    2:
+        IF fbExternalSetpointGenerator_Test1.IsEnabled() THEN
+            // Disable test can begin
+            nTestStep := nTestStep + 1;
+        END_IF
+    3:
+        IF fbExternalSetpointGenerator_Test1.IsEnabled() THEN
+            fbExternalSetpointGenerator_Test1.Disable();
+        ELSE
+            // Successfully disabled, move on
+            nTestStep := nTestStep + 1;
+        END_IF
+    4:
+        // Done
+END_CASE
+
+
+IF nTestStep = 4 THEN
+    TEST_FINISHED();
+ELSIF tonTimeout.Q THEN
+    AssertTrue(
+        Condition := FALSE,
+        Message := CONCAT('Timer timed out at step: ', TO_STRING(nTestStep))
+    );
+
+    TEST_FINISHED();
+ELSE
+    tonTimeout(IN := TRUE, PT := tTimeout);
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="TestSetSetpointsExpectSetpointsSet_Test2" Id="{a7d781c0-e36d-468b-a420-cf660ca194b5}">
+      <Declaration><![CDATA[
+METHOD PRIVATE TestSetSetpointsExpectSetpointsSet_Test2
+VAR_INST
+    nTestStep : INT;
+    tonTimeout : TON;
+    tTimeout : TIME := T#1s;
+
+    AxisReference : REFERENCE TO AXIS_REF;
+    fPositionSetpoint : LREAL := 1.0;
+    fVelocitySetpoint : LREAL := 2.0;
+    fAcceleraSetpoint : LREAL := 3.0;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+TEST(__POUNAME());
+
+fbExternalSetpointGenerator_Test2();
+
+CASE nTestStep OF
+    0:
+        IF NOT fbExternalSetpointGenerator_Test2.IsEnabled() THEN
+            iMotionAxis_Test2.Power(
+                Enable := TRUE,
+                Enable_Positive := TRUE,
+                Enable_Negative := TRUE
+            );
+            fbExternalSetpointGenerator_Test2.Enable();
+        ELSE
+            // Successfully enabled, move on
+            nTestStep := nTestStep + 1;
+        END_IF
+    1:
+        IF fbExternalSetpointGenerator_Test2.IsEnabled() THEN
+            // Set Setpoints test Begin
+
+            fbExternalSetpointGenerator_Test2.SetSetpoints(
+                PositionSetpoint := fPositionSetpoint,
+                VelocitySetpoint := fVelocitySetpoint,
+                AcceleraSetpoint := fAcceleraSetpoint,
+            );
+
+            nTestStep := nTestStep + 1;
+        END_IF
+    2:
+        AxisReference REF= iMotionAxis_Test2.GetAxisRef();
+        IF AxisReference.NcToPlc.SetVelo = fVelocitySetpoint THEN
+            AssertEquals_LREAL(
+                Expected := fAcceleraSetpoint,
+                Actual := AxisReference.NcToPlc.SetAcc,
+                Delta := 1e-3,
+                Message := 'Acceleration does not have the expected setpoint.'
+            );
+
+            nTestStep := nTestStep + 1;
+        END_IF
+    3:
+        AxisReference REF= iMotionAxis_Test2.GetAxisRef();
+        IF AxisReference.NcToPlc.ActPos = fPositionSetpoint THEN
+            nTestStep := nTestStep + 1;
+        END_IF
+    4:
+        IF fbExternalSetpointGenerator_Test2.IsEnabled() THEN
+            fbExternalSetpointGenerator_Test2.Disable();
+        ELSE
+            // Successfully disabled, move on
+            nTestStep := nTestStep + 1;
+        END_IF
+    5:
+        // Done
+END_CASE
+
+
+IF nTestStep = 5 THEN
+    TEST_FINISHED();
+ELSIF tonTimeout.Q THEN
+    AssertTrue(
+        Condition := FALSE,
+        Message := CONCAT('Timer timed out at step: ', TO_STRING(nTestStep))
+    );
+
+    TEST_FINISHED();
+ELSE
+    tonTimeout(IN := TRUE, PT := tTimeout);
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

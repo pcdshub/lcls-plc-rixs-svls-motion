@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <POU Name="FB_ExternalSetpointGenerator" Id="{48348351-f54a-4182-b51d-178baa336e3e}" SpecialFunc="None">
+    <Declaration><![CDATA[
+FUNCTION_BLOCK FB_ExternalSetpointGenerator IMPLEMENTS I_ExternalSetpointGenerator
+VAR
+    iMotionAxis : I_MotionAxis;
+    fbPower : MC_Power;
+
+    AxisReference : REFERENCE TO AXIS_REF;
+
+    fbEnableSetPointGenerator : MC_ExtSetPointGenEnable;
+    fbDisableSetPointGenerator : MC_ExtSetPointGenDisable;
+    fbHalt : MC_Halt;
+
+    bEnableBusy : BOOL;
+    bEnableDone : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+AxisReference REF= iMotionAxis.GetAxisRef();
+
+fbEnableSetPointGenerator(
+    Axis := THIS^.AxisReference,
+    Execute := FALSE
+);
+
+fbDisableSetPointGenerator(
+    Axis := THIS^.AxisReference,
+    Execute := FALSE
+);
+
+fbHalt(
+    Axis := THIS^.AxisReference,
+    Execute := FALSE
+);
+]]></ST>
+    </Implementation>
+    <Method Name="Disable" Id="{2405d3c1-712a-4c9d-8b0e-e64f64d46922}">
+      <Declaration><![CDATA[
+METHOD PUBLIC Disable
+VAR_OUTPUT
+    Done : BOOL;
+    Busy : BOOL;
+    Error : BOOL;
+    ErrorID : UDINT;
+    Enabled : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+fbDisableSetPointGenerator(
+    Axis := THIS^.AxisReference,
+    Execute := TRUE,
+    Done => Done,
+    Busy => Busy,
+    Error => Error,
+    ErrorID => ErrorID,
+    Enabled => Enabled
+);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="DisableBusy" Id="{ebc0196e-70f0-4ec8-8965-7bf2af41f9a7}">
+      <Declaration><![CDATA[{warning 'Add property implementation'}
+PROPERTY DisableBusy : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{3c34d3c2-fdc1-4919-924d-806fc91e5052}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+DisableBusy := fbDisableSetPointGenerator.Busy;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="DisableDone" Id="{3ede6098-89b4-4dc5-b10f-3f70168e307e}">
+      <Declaration><![CDATA[{warning 'Add property implementation'}
+PROPERTY DisableDone : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{ac9144d6-7b29-46a3-b5ef-645b7d85779a}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+DisableDone := fbDisableSetPointGenerator.Done;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="Enable" Id="{248900d9-87ae-4693-b478-0b8aa22cc50b}">
+      <Declaration><![CDATA[
+METHOD PUBLIC Enable
+VAR_OUTPUT
+    Done : BOOL;
+    Busy : BOOL;
+    Error : BOOL;
+    ErrorID : UDINT;
+    Enabled : BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+bEnableDone := FALSE;
+bEnableBusy := TRUE;
+
+IF iMotionAxis.PowerIsEnabled THEN
+    fbEnableSetPointGenerator(
+        Axis := THIS^.AxisReference,
+        Execute := TRUE,
+        PositionType := E_PositionType.POSITIONTYPE_ABSOLUTE,
+        Done => bEnableDone,
+        Busy => bEnableBusy,
+        Error => Error,
+        ErrorID => ErrorID,
+        Enabled => Enabled
+    );
+END_IF
+
+Done := bEnableDone;
+bEnableBusy := bEnableBusy;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="EnableBusy" Id="{6da14380-8aec-44a0-b296-4971e0590319}">
+      <Declaration><![CDATA[
+PROPERTY EnableBusy : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{fafba1ec-aa62-4816-9164-d0e808545724}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+EnableBusy := bEnableBusy;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="EnableDone" Id="{fe053b89-d979-4f23-9180-6fbada24cb77}">
+      <Declaration><![CDATA[
+PROPERTY EnableDone : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{8e61fe3c-7012-45e5-b873-8425f2cbec64}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+EnableDone := bEnableDone;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="FB_Init" Id="{9fdaf2df-47d9-4baa-b3d4-f388e1f1371d}">
+      <Declaration><![CDATA[
+METHOD FB_Init: BOOL
+VAR_INPUT
+    bInitRetains: BOOL; // TRUE: the retain variables are initialized (reset warm / reset cold)
+    bInCopyCode: BOOL;  // TRUE: the instance will be copied to the copy code afterward (online change)
+
+    iMotionAxis : I_MotionAxis;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+THIS^.iMotionAxis := iMotionAxis;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Halt" Id="{f67e4245-e771-4009-9436-72c09ac49ef1}">
+      <Declaration><![CDATA[
+METHOD PUBLIC Halt
+VAR_OUTPUT
+    Done : BOOL;
+    Busy : BOOL;
+    Active : BOOL;
+    CommandAborted : BOOL;
+    Error : BOOL;
+    ErrorID : UDINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+fbHalt(
+    Axis := THIS^.AxisReference,
+    Execute := TRUE,
+    Done => Done,
+    Busy => Busy,
+    Active => Active,
+    CommandAborted => CommandAborted,
+    Error => Error,
+    ErrorID => ErrorID
+);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="HaltBusy" Id="{db5ca45d-5fc4-41e8-97b2-88d044c7038b}">
+      <Declaration><![CDATA[PROPERTY HaltBusy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{211a40b7-0841-43b1-9620-818cf3495485}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+HaltBusy := fbHalt.Busy;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="HaltDone" Id="{c1a8896b-673b-4892-91bf-6ca1ffd898c9}">
+      <Declaration><![CDATA[PROPERTY HaltDone : BOOL]]></Declaration>
+      <Get Name="Get" Id="{a21d75a9-7a11-4932-96fe-33576c98315b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+HaltDone := fbHalt.Done;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="IsEnabled" Id="{d118f580-9ab1-4d2f-8e49-7eb2fcd933d6}">
+      <Declaration><![CDATA[
+METHOD PUBLIC IsEnabled : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IsEnabled := AxisReference.NcToPlc.AxisState = 41;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetAcceleraSetpoint" Id="{35f50744-9fb8-4c6b-bc0e-8091dd561e37}">
+      <Declaration><![CDATA[
+METHOD PUBLIC SetAcceleraSetpoint
+VAR_INPUT
+    Setpoint : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+SetSetpoints(
+    PositionSetpoint := THIS^.AxisReference.NcToPlc.SetPos,
+    VelocitySetpoint := THIS^.AxisReference.NcToPlc.SetVelo,
+    AcceleraSetpoint := Setpoint
+);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetPositionSetpoint" Id="{d2ea1ddb-aefd-4201-8f1e-056bbb7a842a}">
+      <Declaration><![CDATA[
+METHOD PUBLIC SetPositionSetpoint
+VAR_INPUT
+    Setpoint : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+SetSetpoints(
+    PositionSetpoint := Setpoint,
+    VelocitySetpoint := THIS^.AxisReference.NcToPlc.SetVelo,
+    AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc
+);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetSetpoints" Id="{f7c477cb-0de8-404f-a125-ae3823ead4c2}">
+      <Declaration><![CDATA[
+METHOD PUBLIC SetSetpoints
+VAR_INPUT
+    PositionSetpoint : LREAL;
+    VelocitySetpoint : LREAL;
+    AcceleraSetpoint : LREAL;
+END_VAR
+VAR
+    nDirection : DINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+IF PositionSetpoint < THIS^.AxisReference.NcToPlc.ActPos THEN
+    nDirection := -1;
+ELSE
+    nDirection := 1;
+END_IF
+
+MC_ExtSetPointGenFeed(
+    Position := PositionSetpoint,
+    Velocity := VelocitySetpoint,
+    Acceleration := AcceleraSetpoint,
+    Direction := nDirection,
+    Axis := THIS^.AxisReference
+);
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SetVelocitySetpoint" Id="{8151fa4c-3612-4a0c-89e6-e25694690391}">
+      <Declaration><![CDATA[
+METHOD PUBLIC SetVelocitySetpoint
+VAR_INPUT
+    Setpoint : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+SetSetpoints(
+    PositionSetpoint := THIS^.AxisReference.NcToPlc.SetPos,
+    VelocitySetpoint := Setpoint,
+    AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc
+);
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
