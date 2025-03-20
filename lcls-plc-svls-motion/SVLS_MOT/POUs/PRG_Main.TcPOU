@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <POU Name="PRG_Main" Id="{75ed58c9-4c1e-4540-ad64-65774742672c}" SpecialFunc="None">
+    <Declaration><![CDATA[
+PROGRAM PRG_Main
+VAR
+    fbDetYAngle : FB_MotionStage;
+    fbDetZ : FB_MotionStage;
+    fbGraY : FB_MotionStage;
+    fbSlitXL : FB_MotionStage;
+    fbSlitXR : FB_MotionStage;
+    fbSlitYT : FB_MotionStage;
+    fbSlitYB : FB_MotionStage;
+    fbDetYH : FB_MotionStage;
+    bInit : BOOL := TRUE;
+
+    fbMotionAxisDetAngle : FB_MotionAxisNC(
+        AxisReference := Main.M1.Axis
+    );
+    fbMotionAxisDetH : FB_MotionAxisNC(
+        AxisReference := Main.M8.Axis
+    );
+    fbCalculateHFromAngle : FB_CalculateHFromAngle(
+        D_tu := 1239.5,
+        R_a := 1200,
+        R_c := 90
+    );
+    fbExternalSetpointGeneratorDetH : FB_ExternalSetpointGenerator(
+        iMotionAxis := fbMotionAxisDetH
+    );
+    fbHController : FB_HController(
+        iMotionAxisDetAngle := fbMotionAxisDetAngle,
+        iCalculateHFromAngle := fbCalculateHFromAngle,
+        iHAxisExternalSetpointGenerator := fbExternalSetpointGeneratorDetH
+    );
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF (bInit) THEN
+    bInit := FALSE;
+
+    Main.M1.bHardwareEnable := TRUE;
+    Main.M1.bPowerSelf := TRUE;
+    Main.M1.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    Main.M1.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+    Main.M2.bHardwareEnable := TRUE;
+    Main.M2.bPowerSelf := TRUE;
+    Main.M2.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    Main.M2.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+    Main.M3.bHardwareEnable := TRUE;
+    Main.M3.bPowerSelf := TRUE;
+    Main.M3.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    Main.M3.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+    Main.M8.bHardwareEnable := TRUE;
+    Main.M8.bPowerSelf := TRUE;
+    Main.M8.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    Main.M8.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+END_IF
+
+IF Main.M1.bBusy THEN
+    Main.M8.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+END_IF
+
+fbDetYAngle(stMotionStage:=Main.M1);
+fbDetZ(stMotionStage:=Main.M2);
+fbGraY(stMotionStage:=Main.M3);
+
+fbSlitXL(stMotionStage:=Main.M4);
+fbSlitXR(stMotionStage:=Main.M5);
+fbSlitYT(stMotionStage:=Main.M6);
+fbSlitYB(stMotionStage:=Main.M7);
+
+fbDetYH(stMotionStage:=Main.M8);
+
+fbMotionAxisDetAngle();
+fbMotionAxisDetH();
+fbExternalSetpointGeneratorDetH();
+fbHController();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

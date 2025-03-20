@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <Task Name="TestPlcTask" Id="{27cf5555-25ff-4789-9e6b-b702fef1d5ee}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>1</Priority>
+    <PouCall>
+      <Name>PRG_Test</Name>
+    </PouCall>
+    <TaskFBGuid>{382839a4-3cde-48e2-83d9-0a921d1c0829}</TaskFBGuid>
+    <Fb_init>{aa776e65-c04c-403d-93db-18528b0558e8}</Fb_init>
+    <Fb_exit>{bed03210-17e9-4f99-a9fa-3c686ad8d2f3}</Fb_exit>
+    <CycleUpdate>{e4dae013-7b46-450d-9a57-718bf49c57a9}</CycleUpdate>
+    <PostCycleUpdate>{e42478d2-12c2-4fb3-b583-9e3c3a21d41b}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
