@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <POU Name="FB_HController" Id="{aa256504-dbce-4b10-a9b8-ece4e52985f5}" SpecialFunc="None">
+    <Declaration><![CDATA[
+FUNCTION_BLOCK FB_HController IMPLEMENTS I_HController
+VAR
+    iMotionAxisDetAngle : I_MotionAxis;
+    iCalculateHFromAngle : I_CalculateHFromAngle;
+    iHAxisExternalSetpointGenerator : I_ExternalSetpointGenerator;
+
+    // Link to H Axis position feedback
+    fHPositionMeasured : LREAL;
+    fHVelocityMeasured : LREAL;
+    fHAcceleraMeasured : LREAL;
+
+    fHPositionSetpoint : LREAL;
+    fHVelocitySetpoint : LREAL;
+    fHAcceleraSetpoint : LREAL;
+
+    tofOffDelay : TOF;
+    tOffDelay : TIME := T#100ms;
+
+    nDriveDetAngleVelocityCommand AT %I* : UINT;
+    nEncoderCounts AT %Q* : ULINT; // nm/count
+    nEncoderCountsSmall AT %Q* : UDINT; // nm/count
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fHPositionMeasured := iCalculateHFromAngle.CalculateH(
+    Radians := DEG_TO_RAD(iMotionAxisDetAngle.MeasuredPosition)
+);
+
+nEncoderCounts := TO_ULINT(fHPositionMeasured * 1e6);
+nEncoderCountsSmall := TO_UDINT(nEncoderCounts);
+
+fHPositionSetpoint := iCalculateHFromAngle.CalculateH(
+    Radians := DEG_TO_RAD(iMotionAxisDetAngle.SetpointPosition)
+);
+
+tofOffDelay(IN := iMotionAxisDetAngle.MoveAbsoluteBusy, PT := tOffDelay);
+
+IF tofOffDelay.Q AND NOT iHAxisExternalSetpointGenerator.IsEnabled() THEN
+    iHAxisExternalSetpointGenerator.Enable();
+ELSIF tofOffDelay.Q AND iHAxisExternalSetpointGenerator.IsEnabled() THEN
+    // Update setpoint command cyclically
+    iHAxisExternalSetpointGenerator.SetSetpoints(
+        PositionSetpoint := fHPositionSetpoint,
+        VelocitySetpoint := fHVelocitySetpoint,
+        AcceleraSetpoint := fHAcceleraSetpoint
+    );
+ELSIF iHAxisExternalSetpointGenerator.IsEnabled() THEN
+    iHAxisExternalSetpointGenerator.Halt();
+
+    IF iHAxisExternalSetpointGenerator.HaltDone THEN
+        iHAxisExternalSetpointGenerator.Disable();
+    END_IF
+END_IF
+]]></ST>
+    </Implementation>
+    <Method Name="FB_Init" Id="{411c437b-e74e-4a25-8ab5-d2a195e88b34}">
+      <Declaration><![CDATA[
+METHOD FB_Init: BOOL
+VAR_INPUT
+    bInitRetains: BOOL; // TRUE: the retain variables are initialized (reset warm / reset cold)
+    bInCopyCode: BOOL;  // TRUE: the instance will be copied to the copy code afterward (online change)
+
+    iMotionAxisDetAngle : I_MotionAxis;
+    iCalculateHFromAngle : I_CalculateHFromAngle;
+    iHAxisExternalSetpointGenerator : I_ExternalSetpointGenerator;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+THIS^.iMotionAxisDetAngle := iMotionAxisDetAngle;
+THIS^.iCalculateHFromAngle := iCalculateHFromAngle;
+THIS^.iHAxisExternalSetpointGenerator := iHAxisExternalSetpointGenerator;
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

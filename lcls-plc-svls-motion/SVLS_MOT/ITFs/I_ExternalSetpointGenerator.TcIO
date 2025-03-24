@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+  <Itf Name="I_ExternalSetpointGenerator" Id="{256ff4ab-16a6-4272-805e-f8c2c4343ca7}">
+    <Declaration><![CDATA[INTERFACE I_ExternalSetpointGenerator
+]]></Declaration>
+    <Method Name="Disable" Id="{1f93fc3c-1418-47fc-ac86-a566b1fee5ff}">
+      <Declaration><![CDATA[
+METHOD Disable
+VAR_OUTPUT
+    Done : BOOL;
+    Busy : BOOL;
+    Error : BOOL;
+    ErrorID : UDINT;
+    Enabled : BOOL;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="DisableBusy" Id="{9fb201ef-e8a1-4ec5-88ca-604c23f88aa2}">
+      <Declaration><![CDATA[PROPERTY DisableBusy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{2a6d1d0d-f6a2-44bf-9775-1fe73ccecf74}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="DisableDone" Id="{fc5e48ee-b3a8-4bff-a257-64f175da12fc}">
+      <Declaration><![CDATA[PROPERTY DisableDone : BOOL]]></Declaration>
+      <Get Name="Get" Id="{a4a35d4f-1aec-4e8e-a296-eefaec70efdb}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="Enable" Id="{5879e138-2b2e-4380-8b6f-7002c85d15b0}">
+      <Declaration><![CDATA[
+METHOD Enable
+VAR_OUTPUT
+    Done : BOOL;
+    Busy : BOOL;
+    Error : BOOL;
+    ErrorID : UDINT;
+    Enabled : BOOL;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="EnableBusy" Id="{0decd41e-537f-4cfd-8d69-e42d83825ef9}">
+      <Declaration><![CDATA[PROPERTY EnableBusy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{4630aa56-3cd3-44fb-b693-9fca8f02191b}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="EnableDone" Id="{929f91bd-806b-4bad-9fe1-43e79d9f9645}">
+      <Declaration><![CDATA[PROPERTY EnableDone : BOOL]]></Declaration>
+      <Get Name="Get" Id="{a5a72456-1883-4324-b8f5-9b823fa32a1b}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="Halt" Id="{84ade41b-2dca-4d65-a351-2bb3a51aefb4}">
+      <Declaration><![CDATA[
+METHOD Halt
+VAR_OUTPUT
+    Done : BOOL;
+    Busy : BOOL;
+    Active : BOOL;
+    CommandAborted : BOOL;
+    Error : BOOL;
+    ErrorID : UDINT;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="HaltBusy" Id="{020b31a1-469d-48cb-920b-684056a0f9fa}">
+      <Declaration><![CDATA[PROPERTY HaltBusy : BOOL]]></Declaration>
+      <Get Name="Get" Id="{24a606bc-d706-4870-90d6-1ed182880c09}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Property Name="HaltDone" Id="{7321c2cb-3723-4833-8fa7-0f267407315b}">
+      <Declaration><![CDATA[PROPERTY HaltDone : BOOL]]></Declaration>
+      <Get Name="Get" Id="{a5411a2b-9662-4b7f-bdf4-c3ee078c1ca5}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="IsEnabled" Id="{cf2be58d-de83-47be-9f57-f4460ca6763f}">
+      <Declaration><![CDATA[METHOD IsEnabled : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="SetAcceleraSetpoint" Id="{4ebad5ae-3852-4642-8c9b-5e716adcfad0}">
+      <Declaration><![CDATA[
+METHOD SetAcceleraSetpoint
+VAR_INPUT
+    Setpoint : LREAL;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="SetPositionSetpoint" Id="{f7ebbd29-ed8b-479e-ad3e-974d575d8bcf}">
+      <Declaration><![CDATA[
+METHOD SetPositionSetpoint
+VAR_INPUT
+    Setpoint : LREAL;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="SetSetpoints" Id="{5ba30d0b-50f3-40c9-8cff-d9ede3d0f1e0}">
+      <Declaration><![CDATA[
+METHOD SetSetpoints
+VAR_INPUT
+    PositionSetpoint : LREAL;
+    VelocitySetpoint : LREAL;
+    AcceleraSetpoint : LREAL;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="SetVelocitySetpoint" Id="{2e9418d5-d761-41de-8a6f-f12b0c8e9919}">
+      <Declaration><![CDATA[
+METHOD SetVelocitySetpoint
+VAR_INPUT
+    Setpoint : LREAL;
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>
