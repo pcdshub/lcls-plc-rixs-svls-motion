@@ -33,6 +33,9 @@
     <Compile Include="ITFs\I_MotionAxis.TcIO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\FBs\FB_ExternalSetpointGenerator.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -45,10 +48,10 @@
     <Compile Include="POUs\FBs\FB_MotionAxisNC.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ProductionPlcTask.TcTTO">
+    <Compile Include="POUs\PRG_Main.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_Main.TcPOU">
+    <Compile Include="ProductionPlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TestPlcTask.TcTTO">
@@ -152,7 +155,7 @@
       <Resolution>Tc2_Math, 3.4.4.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc2_MC2">
-      <Resolution>Tc2_MC2, 3.3.68.0 (Beckhoff Automation GmbH)</Resolution>
+      <Resolution>Tc2_MC2, 3.3.65.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc2_ModbusSrv">
       <Resolution>Tc2_ModbusSrv, 3.5.1.0 (Beckhoff Automation GmbH)</Resolution>

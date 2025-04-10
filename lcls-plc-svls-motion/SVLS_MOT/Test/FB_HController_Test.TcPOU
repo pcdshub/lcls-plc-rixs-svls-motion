@@ -84,11 +84,11 @@ TEST(__POUNAME());
 IF bToggle THEN
     bToggle := FALSE;
     nDetAngleEncoderComState_Test1 := 2#0000_0000_0000_0000;
-    nDetAngleEncoderState1_Test1 := 2#1010_0000_0000_0100;
+    nDetAngleEncoderState1_Test1 := 2#1000_0000_0000_0100;
 ELSE
     bToggle := TRUE;
     nDetAngleEncoderComState_Test1 := 2#0000_0000_0000_0010;
-    nDetAngleEncoderState1_Test1 := 2#1110_0000_0000_0100;
+    nDetAngleEncoderState1_Test1 := 2#1100_0000_0000_0100;
 END_IF
 
 fbExternalSetpointGenerator_Test1();
@@ -96,6 +96,11 @@ fbHController_Test1();
 
 CASE nTestStep OF
     0:
+		MotionAxisDetAngle_Test1.Reset();
+		MotionAxisDetH_Test1.Reset();
+
+        nTestStep := nTestStep + 1;
+	1:
         MotionAxisDetAngle_Test1.Power(
             Enable := TRUE,
             Enable_Positive := TRUE,
@@ -108,11 +113,11 @@ CASE nTestStep OF
         );
 
         nTestStep := nTestStep + 1;
-    1:
+    2:
         IF MotionAxisDetAngle_Test1.PowerIsEnabled THEN
             nTestStep := nTestStep + 1;
         END_IF
-    2:
+    3:
         fTargetHAnglePositionDegrees := 5.0;
         fTargetHAnglePositionRadians := DEG_TO_RAD(fTargetHAnglePositionDegrees);
 
@@ -122,30 +127,76 @@ CASE nTestStep OF
         );
 
         nTestStep := nTestStep + 1;
-    3:
+    4:
+        IF fbExternalSetpointGenerator_Test1.isEnabled() THEN
+            nTestStep := nTestStep + 1;
+        END_IF
+		
+        nTestStep := nTestStep + 1;
+	5:
         IF MotionAxisDetAngle_Test1.MeasuredPosition = fTargetHAnglePositionDegrees THEN
             nTestStep := nTestStep + 1;
         END_IF
-    4:
+    6:
         fExpectedHPosition := fbCalculateHFromAngle_Test1.CalculateH(
             Radians := fTargetHAnglePositionRadians
         );
         IF ABS(MotionAxisDetH_Test1.MeasuredPosition - fExpectedHPosition) <= fAllowedDelta THEN
             nTestStep := nTestStep + 1;
         END_IF
-    5:
+    7:
+		IF MotionAxisDetAngle_Test1.MoveAbsoluteDone AND NOT fbExternalSetpointGenerator_Test1.IsEnabled() THEN
+        	nTestStep := nTestStep + 1;
+		END_IF
+	8:
+        fTargetHAnglePositionDegrees := 0.0;
+        fTargetHAnglePositionRadians := DEG_TO_RAD(fTargetHAnglePositionDegrees);
+
+        MotionAxisDetAngle_Test1.MoveAbsolute(
+            Position := fTargetHAnglePositionDegrees,
+            Velocity := 2.0
+        );
+
+        nTestStep := nTestStep + 1;
+    9:
+        IF fbExternalSetpointGenerator_Test1.isEnabled() THEN
+            nTestStep := nTestStep + 1;
+        END_IF
+		
+        nTestStep := nTestStep + 1;
+	10:
+        IF MotionAxisDetAngle_Test1.MeasuredPosition = fTargetHAnglePositionDegrees THEN
+            nTestStep := nTestStep + 1;
+        END_IF
+	11:
+        fExpectedHPosition := fbCalculateHFromAngle_Test1.CalculateH(
+            Radians := fTargetHAnglePositionRadians
+        );
+        IF ABS(MotionAxisDetH_Test1.MeasuredPosition - fExpectedHPosition) <= fAllowedDelta THEN
+            nTestStep := nTestStep + 1;
+        END_IF
+	12:
+		IF NOT fbExternalSetpointGenerator_Test1.IsEnabled() THEN
+            nTestStep := nTestStep + 1;
+		END_IF
+	13:
         // Done
 END_CASE
 
-
-IF nTestStep = 5 THEN
+IF nTestStep = 13 THEN
     TEST_FINISHED();
 ELSIF tonTimeout.Q THEN
     AssertTrue(
         Condition := FALSE,
         Message := CONCAT('Timer timed out at step: ', TO_STRING(nTestStep))
     );
-
+    TEST_FINISHED();
+ELSIF MotionAxisDetAngle_Test1.PowerError OR MotionAxisDetAngle_Test1.MoveAbsoluteError
+	OR MotionAxisDetH_Test1.PowerError OR MotionAxisDetH_Test1.MoveAbsoluteError THEN
+    AssertTrue(
+        Condition := FALSE,
+        Message := CONCAT('Error returned by axis on step: ', TO_STRING(nTestStep))
+    );
     TEST_FINISHED();
 ELSE
     tonTimeout(IN := TRUE, PT := tTimeout);
@@ -153,5 +204,51 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_HController_Test">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HController_Test.FB_init">
+      <LineId Id="3" Count="16" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_HController_Test.TestIntegrationExpectFunctional_Test1">
+      <LineId Id="3" Count="17" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="127" Count="1" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="21" Count="25" />
+      <LineId Id="139" Count="2" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="142" Count="0" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="48" Count="9" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="105" Count="7" />
+      <LineId Id="143" Count="5" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="86" Count="9" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="129" Count="1" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="59" Count="1" />
+      <LineId Id="62" Count="2" />
+      <LineId Id="115" Count="0" />
+      <LineId Id="66" Count="3" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="117" Count="0" />
+      <LineId Id="119" Count="4" />
+      <LineId Id="116" Count="0" />
+      <LineId Id="72" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

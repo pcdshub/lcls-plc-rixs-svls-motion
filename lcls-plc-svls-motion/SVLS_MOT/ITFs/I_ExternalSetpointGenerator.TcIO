@@ -51,6 +51,12 @@ END_VAR
         <Declaration><![CDATA[]]></Declaration>
       </Get>
     </Property>
+    <Property Name="EnableError" Id="{c9799f06-8fb5-4bf9-abe4-13cc65439287}">
+      <Declaration><![CDATA[PROPERTY EnableError : BOOL]]></Declaration>
+      <Get Name="Get" Id="{8f92eae8-ac82-497b-8369-a096f348a007}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
     <Method Name="Halt" Id="{84ade41b-2dca-4d65-a351-2bb3a51aefb4}">
       <Declaration><![CDATA[
 METHOD Halt
@@ -77,9 +83,8 @@ END_VAR
       </Get>
     </Property>
     <Method Name="IsEnabled" Id="{cf2be58d-de83-47be-9f57-f4460ca6763f}">
-      <Declaration><![CDATA[METHOD IsEnabled : BOOL
-VAR_INPUT
-END_VAR
+      <Declaration><![CDATA[
+METHOD IsEnabled : BOOL
 ]]></Declaration>
     </Method>
     <Method Name="SetAcceleraSetpoint" Id="{4ebad5ae-3852-4642-8c9b-5e716adcfad0}">
@@ -88,6 +93,10 @@ METHOD SetAcceleraSetpoint
 VAR_INPUT
     Setpoint : LREAL;
 END_VAR
+VAR_OUTPUT
+	Error : BOOL;
+	ErrorMsg : T_MaxString;
+END_VAR
 ]]></Declaration>
     </Method>
     <Method Name="SetPositionSetpoint" Id="{f7ebbd29-ed8b-479e-ad3e-974d575d8bcf}">
@@ -95,6 +104,10 @@ END_VAR
 METHOD SetPositionSetpoint
 VAR_INPUT
     Setpoint : LREAL;
+END_VAR
+VAR_OUTPUT
+	Error : BOOL;
+	ErrorMsg : T_MaxString;
 END_VAR
 ]]></Declaration>
     </Method>
@@ -106,6 +119,10 @@ VAR_INPUT
     VelocitySetpoint : LREAL;
     AcceleraSetpoint : LREAL;
 END_VAR
+VAR_OUTPUT
+	Error : BOOL;
+	ErrorMsg : T_MaxString;
+END_VAR
 ]]></Declaration>
     </Method>
     <Method Name="SetVelocitySetpoint" Id="{2e9418d5-d761-41de-8a6f-f12b0c8e9919}">
@@ -113,6 +130,10 @@ END_VAR
 METHOD SetVelocitySetpoint
 VAR_INPUT
     Setpoint : LREAL;
+END_VAR
+VAR_OUTPUT
+	Error : BOOL;
+	ErrorMsg : T_MaxString;
 END_VAR
 ]]></Declaration>
     </Method>

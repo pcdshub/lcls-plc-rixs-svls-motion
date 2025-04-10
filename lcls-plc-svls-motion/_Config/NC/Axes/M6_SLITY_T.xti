@@ -1566,19 +1566,4 @@ External Setpoint Generation:
 			</Var>
 		</Vars>
 	</Axis>
-	<Mappings>
-		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL5042_00_08">
-				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
-				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState" Size="1"/>
-				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Inputs Channel 1^Position"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Diag" Size="1" OffsA="12"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Error" Size="1" OffsA="1"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Input cycle counter" Size="2" OffsA="14"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Ready" Size="1" OffsA="2"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^TxPDO State" Size="1" OffsA="13"/>
-				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Warning" Size="1"/>
-			</OwnerB>
-		</OwnerA>
-	</Mappings>
 </TcSmItem>

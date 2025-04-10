@@ -19,18 +19,23 @@ VAR
         MotionAxis_Test2 := MotionAxis_ExternalSetpointGenerator_Test2
     );
 
-    AxisReference_HControllerDetAngle_Test1 : AXIS_REF;
+	stMotionStage_HControllerDetAngle_Test1 : ST_MotionStage;
+	stMotionStage_HControllerDetH_Test1 : ST_MotionStage;
+
+    //AxisReference_HControllerDetAngle_Test1 : AXIS_REF;
     MotionAxis_HControllerDetAngle_Test1 : FB_MotionAxisNC(
-        AxisReference := AxisReference_HControllerDetAngle_Test1
+        AxisReference := stMotionStage_HControllerDetAngle_Test1.Axis
     );
-    AxisReference_HControllerDetH_Test1 : AXIS_REF;
+    //AxisReference_HControllerDetH_Test1 : AXIS_REF;
     MotionAxis_HControllerDetH_Test1 : FB_MotionAxisNC(
-        AxisReference := AxisReference_HControllerDetH_Test1
+        AxisReference := stMotionStage_HControllerDetH_Test1.Axis
     );
     fbHController_Test : FB_HController_Test(
         MotionAxisDetAngle_Test1 := MotionAxis_HControllerDetAngle_Test1,
         MotionAxisDetH_Test1 := MotionAxis_HControllerDetH_Test1
     );
+	fbMotionStage_HControllerDetAngle_Test1 : FB_MotionStage;
+	fbMotionStage_HControllerDetH_Test1 : FB_MotionStage;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -40,8 +45,17 @@ MotionAxis_ExternalSetpointGenerator_Test2();
 MotionAxis_HControllerDetAngle_Test1();
 MotionAxis_HControllerDetH_Test1();
 
+fbMotionStage_HControllerDetAngle_Test1(stMotionStage := stMotionStage_HControllerDetAngle_Test1);
+fbMotionStage_HControllerDetH_Test1(stMotionStage := stMotionStage_HControllerDetH_Test1);
+
 TcUnit.RUN();
 ]]></ST>
     </Implementation>
+    <LineIds Name="PRG_Test">
+      <LineId Id="3" Count="4" />
+      <LineId Id="12" Count="2" />
+      <LineId Id="8" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

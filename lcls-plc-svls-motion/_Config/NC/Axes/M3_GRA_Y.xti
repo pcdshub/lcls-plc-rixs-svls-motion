@@ -1444,7 +1444,9 @@ External Setpoint Generation:
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
-			<EncPara ScaleFactorNumerator="5e-05" Offset="-15.3476" MaxCount="#xffffffff" MaxCountHighDWord="#x0000001f" ReferenceSystem="1">
+			<EncPara ScaleFactorNumerator="5e-05" Offset="-15.3476" MaxCount="#xffffffff" MaxCountHighDWord="#x0000001f">
+				<SoftEndMinControl Enable="true" Range="4.9"/>
+				<SoftEndMaxControl Enable="true" Range="0.9"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1575,7 +1577,7 @@ External Setpoint Generation:
 	</Axis>
 	<Mappings>
 		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL5042_00_06">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_01_00^EL5042_01_05-GRT_Y-SP5">
 				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
 				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState" Size="1"/>
 				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Inputs Channel 1^Position"/>
@@ -1586,7 +1588,7 @@ External Setpoint Generation:
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^TxPDO State" Size="1" OffsA="13"/>
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Warning" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL7047_00_05">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_01_00^EL7047_01_04-GRT_Y">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Motor stall" Size="1" OffsA="7"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>

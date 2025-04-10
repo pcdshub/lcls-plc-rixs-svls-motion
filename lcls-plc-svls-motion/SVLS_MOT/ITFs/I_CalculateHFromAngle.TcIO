@@ -15,5 +15,18 @@ VAR_OUTPUT
 END_VAR
 ]]></Declaration>
     </Method>
+    <Method Name="CalculateHVelocity" Id="{d309911d-27d4-4e4d-b3a1-8943968a718b}">
+      <Declaration><![CDATA[
+METHOD CalculateHVelocity : LREAL
+VAR_INPUT
+    Radians : LREAL;
+    RadiansPerSecond : LREAL;
+END_VAR
+VAR_OUTPUT
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
+END_VAR
+]]></Declaration>
+    </Method>
   </Itf>
 </TcPlcObject>

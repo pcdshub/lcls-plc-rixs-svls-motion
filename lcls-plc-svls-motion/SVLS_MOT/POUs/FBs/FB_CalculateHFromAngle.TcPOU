@@ -47,7 +47,7 @@ a := R_a * COS(Radians);
 b := D_tu - a;
 c := b / R_c;
 
-IF c = 0 THEN
+IF c < -1.0 OR c > 1.0 THEN
     Error := TRUE;
     ErrorMsg := CONCAT('Invalid angle. Value: ', TO_STRING(Radians));
     RETURN;
@@ -74,6 +74,45 @@ CalculateH := R_a * SIN(Angle) - SQRT(sqrt_operand);
 *)]]></ST>
       </Implementation>
     </Method>
+    <Method Name="CalculateHVelocity" Id="{89257994-1c93-484a-b82b-9d06729c69ae}">
+      <Declaration><![CDATA[
+METHOD CalculateHVelocity : LREAL
+VAR_INPUT
+	Radians : LREAL;
+    RadiansPerSecond : LREAL;
+END_VAR
+VAR_OUTPUT
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
+END_VAR
+VAR
+	A : LREAL;
+	b : LREAL;
+	b_dot : LREAL;
+	C : LREAL;
+	D : LREAL;
+	fNumberToSqrt : LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+A := R_a;
+b := Radians;
+b_dot := RadiansPerSecond;
+C := R_c;
+D := D_tu;
+fNumberToSqrt := 1 - EXPT((D - (A * COS(b))/C), 2);
+
+IF fNumberToSqrt <= 0 THEN
+	Error := TRUE;
+	ErrorMsg := 'number to sqrt was 0 or less than 0.';
+	RETURN;
+END_IF
+
+CalculateHVelocity := A * b_dot * (COS(b) - (SIN(b)*(D - (COS(b))/C))/(SQRT(fNumberToSqrt)));
+]]></ST>
+      </Implementation>
+    </Method>
     <Method Name="FB_Init" Id="{444f3093-180c-431a-926e-ed544cc28fa6}">
       <Declaration><![CDATA[
 METHOD FB_Init: BOOL
@@ -94,5 +133,25 @@ THIS^.R_a := R_a;
 ]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_CalculateHFromAngle">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle.CalculateH">
+      <LineId Id="3" Count="34" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle.CalculateHVelocity">
+      <LineId Id="1" Count="5" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="13" Count="1" />
+      <LineId Id="7" Count="2" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle.FB_Init">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

@@ -12,8 +12,11 @@ VAR
     AxisReference_PLCtoNC_ControlDWord : MC.PLCTONC_AXIS_REF_CTRL;
 
     fbMcReset : MC_Reset;
+	bCommandedReset : BOOL;
+	
     fbMcPower : MC_Power;
 
+    bCommandedMoveAbsolute : BOOL;
     fbMcMoveAbsolute : MC_MoveAbsolute;
 
     bMostRecentMoveAbsoluteDone : BOOL;
@@ -30,16 +33,26 @@ MEMCPY(
 );
 
 fbMcReset(
-    Axis := AxisReference,
-    Execute := FALSE
+	Axis := AxisReference,
+	Execute := bCommandedReset
 );
+bCommandedReset := FALSE;
 
 fbMcPower(Axis := AxisReference);
 
+// IF bCommandedMoveAbsolute THEN
+// 	ADSLOGSTR(
+// 		msgCtrlMask := ADSLOG_MSGTYPE_ERROR,
+// 		msgFmtStr := 'Commanded move absolute.',
+// 		strArg := ''
+// 	);
+// END_IF
+
 fbMcMoveAbsolute(
-    Axis := AxisReference,
-    Execute := FALSE
+	Axis := AxisReference,
+	Execute := bCommandedMoveAbsolute
 );
+bCommandedMoveAbsolute := FALSE;
 
 IF THIS^.fbMcMoveAbsolute.Done THEN
     THIS^.bMostRecentMoveAbsoluteDone := TRUE;
@@ -146,23 +159,26 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
-bMostRecentMoveAbsoluteDone := FALSE;
-
+IF NOT MoveAbsoluteBusy THEN
+	bMostRecentMoveAbsoluteDone := FALSE;
+	
+	bCommandedMoveAbsolute := TRUE;
+END_IF
+	
 THIS^.fbMcMoveAbsolute(
-    Axis := THIS^.AxisReference,
-    Execute := TRUE,
-    Position := Position,
-    Velocity := Velocity,
-    Acceleration := Acceleration,
-    Deceleration := Deceleration,
-    Jerk := Jerk,
-    BufferMode := BufferMode,
-    Done => Done,
-    Busy => Busy,
-    Active => Active,
-    CommandAborted => CommandAborted,
-    Error => Error,
-    ErrorID => ErrorID
+	Axis := THIS^.AxisReference,
+	Position := Position,
+	Velocity := Velocity,
+	Acceleration := Acceleration,
+	Deceleration := Deceleration,
+	Jerk := Jerk,
+	BufferMode := BufferMode,
+	Done => Done,
+	Busy => Busy,
+	Active => Active,
+	CommandAborted => CommandAborted,
+	Error => Error,
+	ErrorID => ErrorID
 );
 
 ErrorStr := '';
@@ -443,9 +459,10 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
+bCommandedReset := TRUE;
+
 THIS^.fbMcReset(
     Axis := THIS^.AxisReference,
-    Execute := TRUE,
     Done => Done,
     Busy => Busy,
     Error => Error,
@@ -539,5 +556,158 @@ ErrorStr := '';
 ]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_MotionAxisNC">
+      <LineId Id="27" Count="7" />
+      <LineId Id="38" Count="4" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="44" Count="1" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="68" Count="3" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="60" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.FB_Init">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.GetAxisRef">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.GetPowerOverride">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MeasuredAcceleration.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MeasuredPosition.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MeasuredVelocity.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsolute">
+      <LineId Id="28" Count="0" />
+      <LineId Id="3" Count="1" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="6" Count="1" />
+      <LineId Id="9" Count="14" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteBusy.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteDone.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteError.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteErrorID.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteTargetAcceleration.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteTargetDeceleration.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteTargetJerk.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteTargetPosition.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.MoveAbsoluteTargetVelocity.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.NegativeMotionIsEnabled.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PositiveMotionIsEnabled.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.Power">
+      <LineId Id="3" Count="15" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PowerError.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PowerErrorID.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PowerErrorIDToStr">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PowerIsEnabled.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PowerOverride.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.PowerStatus.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.Reset">
+      <LineId Id="43" Count="2" />
+      <LineId Id="4" Count="1" />
+      <LineId Id="7" Count="3" />
+      <LineId Id="36" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.SetpointAcceleration.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.SetpointJerk.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.SetpointPosition.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.SetpointVelocity.Get">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_MotionAxisNC.SetPowerOverride">
+      <LineId Id="3" Count="10" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
