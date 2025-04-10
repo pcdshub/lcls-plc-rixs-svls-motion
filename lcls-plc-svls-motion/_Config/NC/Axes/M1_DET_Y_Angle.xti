@@ -1438,7 +1438,7 @@ External Setpoint Generation:
 		</ProjectVariant>
 		<AxisPara>
 			<General UnitName="Degree"/>
-			<Dynamic AccelerationMaximum="0.572958" DecelerationMaximum="0.572958"/>
+			<Dynamic AccelerationMaximum="0.572958" DecelerationMaximum="0.572958" Acceleration="0.57" Deceleration="0.57"/>
 			<Velo Maximum="0.02"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>

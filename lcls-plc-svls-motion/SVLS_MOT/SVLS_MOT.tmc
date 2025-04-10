@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance2" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{3B3FDCDA-09CB-9F92-3EC9-9A66A5128991}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance2" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{F7D44521-FC58-F017-E8F0-4512A8820767}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_Standard">TOF</Name>
@@ -9007,6 +9007,2013 @@
         <Property>
           <Name>PouType</Name>
           <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_System">T_AmsNetID</Name>
+      <Comment> TwinCAT AMS netID address string. </Comment>
+      <BitSize>192</BitSize>
+      <BaseType>STRING(23)</BaseType>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisParameter</Name>
+      <BitSize>1632</BitSize>
+      <SubItem>
+        <Name>PARAMSTRUCT</Name>
+        <Type>UDINT</Type>
+        <Comment> NC ADS Index Offsets for Axis Parameters </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>0</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ID</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+        <Default>
+          <Value>1</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>NAME</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+        <Default>
+          <Value>2</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>AXISTYPE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>96</BitOffs>
+        <Default>
+          <Value>3</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CYCLETIME</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>128</BitOffs>
+        <Default>
+          <Value>4</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>UNITNAME</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>160</BitOffs>
+        <Default>
+          <Value>5</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOREFSEARCH</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>192</BitOffs>
+        <Default>
+          <Value>6</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOSYNCSEARCH</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>224</BitOffs>
+        <Default>
+          <Value>7</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOSLOWMANUAL</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>256</BitOffs>
+        <Default>
+          <Value>8</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOFASTMANUAL</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>288</BitOffs>
+        <Default>
+          <Value>9</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOFAST</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>320</BitOffs>
+        <Default>
+          <Value>10</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>POSAREAENABLE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>352</BitOffs>
+        <Default>
+          <Value>15</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>POSAREARANGE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>384</BitOffs>
+        <Default>
+          <Value>16</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MOTCNTRLENABLE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>416</BitOffs>
+        <Default>
+          <Value>17</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MOTCNTRLTIME</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>448</BitOffs>
+        <Default>
+          <Value>18</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>LOOPENABLE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>480</BitOffs>
+        <Default>
+          <Value>19</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>LOOPDISTANCE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>512</BitOffs>
+        <Default>
+          <Value>20</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TARGETPOSENA</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>544</BitOffs>
+        <Default>
+          <Value>21</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TARGETPOSRANGE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>576</BitOffs>
+        <Default>
+          <Value>22</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TARGETPOSTIME</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>608</BitOffs>
+        <Default>
+          <Value>23</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>PULSDISTPOS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>640</BitOffs>
+        <Default>
+          <Value>24</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>PULSDISTNEG</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>672</BitOffs>
+        <Default>
+          <Value>25</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>FADINGACCELERATION</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>704</BitOffs>
+        <Default>
+          <Value>29</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>FASTAXISSTOPSIGNALTYPE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>736</BitOffs>
+        <Default>
+          <Value>30</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>UNITFLAGS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>768</BitOffs>
+        <Default>
+          <Value>38</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOMAXIMUM</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>800</BitOffs>
+        <Default>
+          <Value>39</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MOTCNTRLRANGE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>832</BitOffs>
+        <Default>
+          <Value>40</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>PEHCONTROLENA</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>864</BitOffs>
+        <Default>
+          <Value>41</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>PEHCONTROLTIME</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>896</BitOffs>
+        <Default>
+          <Value>42</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>BACKLASHCOMPENA</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>928</BitOffs>
+        <Default>
+          <Value>43</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>BACKLASH</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>960</BitOffs>
+        <Default>
+          <Value>44</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DATAPERSISTENCE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>992</BitOffs>
+        <Default>
+          <Value>48</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>HWAMSADDR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1024</BitOffs>
+        <Default>
+          <Value>49</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>HWCHNNO</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1056</BitOffs>
+        <Default>
+          <Value>50</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>APPLICATIONREQUEST</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1088</BitOffs>
+        <Default>
+          <Value>51</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ACC</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1120</BitOffs>
+        <Default>
+          <Value>257</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DEC</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1152</BitOffs>
+        <Default>
+          <Value>258</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>JERK</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1184</BitOffs>
+        <Default>
+          <Value>259</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DELAY</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1216</BitOffs>
+        <Default>
+          <Value>260</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>OVERRIDETYPE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1248</BitOffs>
+        <Default>
+          <Value>261</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>VELOJUMPFACTOR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1280</BitOffs>
+        <Default>
+          <Value>262</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>REDUCTIONFEEDBACK</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1312</BitOffs>
+        <Default>
+          <Value>263</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TOLERANCEBALLAUXAXIS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1344</BitOffs>
+        <Default>
+          <Value>264</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MAXPOSDEVIATIONAUXAXIS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1376</BitOffs>
+        <Default>
+          <Value>265</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>FASTACC</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1408</BitOffs>
+        <Default>
+          <Value>266</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>FASTDEC</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1440</BitOffs>
+        <Default>
+          <Value>267</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>FASTJERK</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1472</BitOffs>
+        <Default>
+          <Value>268</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>REF_POS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1504</BitOffs>
+        <Default>
+          <Value>65795</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ENCSEARCHDIR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1536</BitOffs>
+        <Default>
+          <Value>65793</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ENCSYNCDIR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1568</BitOffs>
+        <Default>
+          <Value>65794</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ENCREFMODE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>1600</BitOffs>
+        <Default>
+          <Value>65799</Value>
+        </Default>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_AxisParameter</Name>
+      <BitSize>1664</BitSize>
+      <SubItem>
+        <Name>IDXGRP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>16384</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>IDXOFFS</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisParameter</Type>
+        <BitSize>1632</BitSize>
+        <BitOffs>32</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisState</Name>
+      <BitSize>832</BitSize>
+      <SubItem>
+        <Name>ONLINESTRUCT</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>0</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ERROR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+        <Default>
+          <Value>1</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETTASKCYCLE</Name>
+        <Type>UDINT</Type>
+        <Comment>
+	ACTPOS							= TCNC_IDXOFFS_AXmappedENC | 0x00000002;	// 0x00010002;
+	ACTVELO						= TCNC_IDXOFFS_AXmappedENC | 0x00000005;	// 0x00010005;
+	ACTACC							= TCNC_IDXOFFS_AXmappedENC | 0x00000006;	// 0x00010006;
+	MODULOACTPOS				= TCNC_IDXOFFS_AXmappedENC | 0x00000003;	// 0x00010003;
+	MODULOACTTURNS				= TCNC_IDXOFFS_AXmappedENC | 0x00000004;	// 0x00010004;
+	ACTINCREMENTS				= TCNC_IDXOFFS_AXmappedENC | 0x00000007;	// 0x00010007;
+</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+        <Default>
+          <Value>9</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETPOS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>96</BitOffs>
+        <Default>
+          <Value>10</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETVELO</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>128</BitOffs>
+        <Default>
+          <Value>14</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETACC</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>160</BitOffs>
+        <Default>
+          <Value>15</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MODULOSETPOS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>192</BitOffs>
+        <Default>
+          <Value>11</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MODULOSETTURNS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>224</BitOffs>
+        <Default>
+          <Value>12</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETDIR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>256</BitOffs>
+        <Default>
+          <Value>13</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TARGETPOSITION</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>288</BitOffs>
+        <Default>
+          <Value>19</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>REMAININGTIMEANDPOS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>320</BitOffs>
+        <Default>
+          <Value>20</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STOPINFORMATION</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>352</BitOffs>
+        <Default>
+          <Value>24</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETTASKCYCLE_WITHOUTCORR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>384</BitOffs>
+        <Default>
+          <Value>25</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETPOS_WITHOUTCORR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>416</BitOffs>
+        <Default>
+          <Value>26</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETVELO_WITHOUTCORR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>448</BitOffs>
+        <Default>
+          <Value>30</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETACC_WITHOUTCORR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>480</BitOffs>
+        <Default>
+          <Value>31</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETDIR_WITHOUTCORR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>512</BitOffs>
+        <Default>
+          <Value>29</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>COUPLESTATE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>544</BitOffs>
+        <Default>
+          <Value>32</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLPARAMS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>576</BitOffs>
+        <Default>
+          <Value>34</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLFACTOR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>608</BitOffs>
+        <Default>
+          <Value>35</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>AXISCTRLLOOPIDX</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>640</BitOffs>
+        <Default>
+          <Value>36</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>AXISSETPOINTGENIDX</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>672</BitOffs>
+        <Default>
+          <Value>37</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLCHARACVALUES</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>704</BitOffs>
+        <Default>
+          <Value>38</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CAMINFO</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>736</BitOffs>
+        <Default>
+          <Value>39</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CAMSTATUS</Name>
+        <Type>UDINT</Type>
+        <Comment> activation status etc. </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>768</BitOffs>
+        <Default>
+          <Value>40</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ENCODERINITIALIZATIONDONE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>800</BitOffs>
+        <Default>
+          <Value>65560</Value>
+        </Default>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_AxisState</Name>
+      <BitSize>864</BitSize>
+      <SubItem>
+        <Name>IDXGRP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>16640</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>IDXOFFS</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisState</Type>
+        <BitSize>832</BitSize>
+        <BitOffs>32</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisFunctions</Name>
+      <BitSize>1824</BitSize>
+      <SubItem>
+        <Name>RESET</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>1</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STOP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+        <Default>
+          <Value>2</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CLEAR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+        <Default>
+          <Value>3</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>EMERGENCYSTOP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>96</BitOffs>
+        <Default>
+          <Value>4</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>PARAMETRIZEDSTOP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>128</BitOffs>
+        <Default>
+          <Value>5</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>INITIALIZE</Name>
+        <Type>UDINT</Type>
+        <Comment> Initialize Axis </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>160</BitOffs>
+        <Default>
+          <Value>7</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ORIENTEDSTOP</Name>
+        <Type>UDINT</Type>
+        <Comment> 19.04.04 issue #2470 </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>192</BitOffs>
+        <Default>
+          <Value>9</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CALIBR</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>224</BitOffs>
+        <Default>
+          <Value>16</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>NEWTARGPOS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>256</BitOffs>
+        <Default>
+          <Value>17</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>NEWTARGPOSANDVELO</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>288</BitOffs>
+        <Default>
+          <Value>18</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CHANGEDYNAMICPARAM</Name>
+        <Type>UDINT</Type>
+        <Comment> NEU: Neue Dynamikparameter (Acc;Dec) fuer Positionierung </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>320</BitOffs>
+        <Default>
+          <Value>21</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>UNIVERSALSTART</Name>
+        <Type>UDINT</Type>
+        <Comment> 05.03.07: new 'axis start and restart' command with buffer mode (issue #2786+#3276) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>352</BitOffs>
+        <Default>
+          <Value>22</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SLAVEUNIVERSALSTART</Name>
+        <Type>UDINT</Type>
+        <Comment> 24.02.09: decoupling command with succeding universal axis start commanded to a slave axis </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>384</BitOffs>
+        <Default>
+          <Value>23</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>RELEASEAXISLOCK</Name>
+        <Type>UDINT</Type>
+        <Comment> 10.12.18 release axis lock for motion commands </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>416</BitOffs>
+        <Default>
+          <Value>24</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETEXTERNALERROR</Name>
+        <Type>UDINT</Type>
+        <Comment> 06.10.04: Externen Achsfehler setzen (Laufzeitfehler) issue #2665 </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>448</BitOffs>
+        <Default>
+          <Value>25</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETPOS</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>480</BitOffs>
+        <Default>
+          <Value>26</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETCALFLAG</Name>
+        <Type>UDINT</Type>
+        <Comment> "ist referenziert"-Flag setzen </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>512</BitOffs>
+        <Default>
+          <Value>27</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETACTPOS</Name>
+        <Type>UDINT</Type>
+        <Comment> nur Istwertsetzen ohne Sollwertaenderung !!! </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>544</BitOffs>
+        <Default>
+          <Value>28</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETDRIVEPOS</Name>
+        <Type>UDINT</Type>
+        <Comment> antriebsseitiges Istwertsetzen </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>576</BitOffs>
+        <Default>
+          <Value>29</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETENCODERSCALING</Name>
+        <Type>UDINT</Type>
+        <Comment> 17.07.08: "Fliegende Änderung des Skalierungsfaktors" </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>608</BitOffs>
+        <Default>
+          <Value>30</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>SETPOSONTHEFLY</Name>
+        <Type>UDINT</Type>
+        <Comment> 29.11.05: "Fliegendes Istwert Setzen" (betrifft Ist - und Sollwert) (issue #3017) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>640</BitOffs>
+        <Default>
+          <Value>31</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>START</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>672</BitOffs>
+        <Default>
+          <Value>32</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STARTEXT</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>704</BitOffs>
+        <Default>
+          <Value>33</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STARTVELOCHANGE</Name>
+        <Type>UDINT</Type>
+        <Comment> special function for MMW </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>736</BitOffs>
+        <Default>
+          <Value>34</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ENABLEEXTGEN</Name>
+        <Type>UDINT</Type>
+        <Comment> enable/start external setpoint values </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>768</BitOffs>
+        <Default>
+          <Value>35</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DISABLEEXTGEN</Name>
+        <Type>UDINT</Type>
+        <Comment> disable/stop external setpoint values </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>800</BitOffs>
+        <Default>
+          <Value>36</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>REVERSINGSEQUENCE</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>832</BitOffs>
+        <Default>
+          <Value>37</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STARTDRVOUT</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>864</BitOffs>
+        <Default>
+          <Value>38</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STOPDRVOUT</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>896</BitOffs>
+        <Default>
+          <Value>39</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CHANGEDRVOUT</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>928</BitOffs>
+        <Default>
+          <Value>40</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>JUMPTOOVERRIDE</Name>
+        <Type>UDINT</Type>
+        <Comment> 04.11.04: jump to actual override value and froze them until change (issue #2697) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>960</BitOffs>
+        <Default>
+          <Value>41</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>EXTSETGENUNIVERSALSTART</Name>
+        <Type>UDINT</Type>
+        <Comment> 23.11.10: deactivation of external setpoint generator with succeding universal axis start command </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>992</BitOffs>
+        <Default>
+          <Value>43</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>UNIVERSALTORQUESTART</Name>
+        <Type>UDINT</Type>
+        <Comment> 20181210 Fap -  new 'axis torque control start and restart' command with buffer mode </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1024</BitOffs>
+        <Default>
+          <Value>45</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STARTSCOM</Name>
+        <Type>UDINT</Type>
+        <Comment> start superposition (position compensation) - 21.12.04: nun auch als 'ReadWrite'-Kommando </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1056</BitOffs>
+        <Default>
+          <Value>48</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STOPSCOM</Name>
+        <Type>UDINT</Type>
+        <Comment> stop superposition (position compensation) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1088</BitOffs>
+        <Default>
+          <Value>49</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>PHASINGREQEUST</Name>
+        <Type>UDINT</Type>
+        <Comment> start/stop the additional phasing set point generator used for a master/slave phase shift </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1120</BitOffs>
+        <Default>
+          <Value>52</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>REINITIALIZEENCODER</Name>
+        <Type>UDINT</Type>
+        <Comment> reinitialization of encoder including position </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1152</BitOffs>
+        <Default>
+          <Value>59</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPL</Name>
+        <Type>UDINT</Type>
+        <Comment> Achse koppeln </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1184</BitOffs>
+        <Default>
+          <Value>64</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DECPL</Name>
+        <Type>UDINT</Type>
+        <Comment> Achse entkoppeln (und optional neue Endposition mit neuer Geschwindigkeit) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1216</BitOffs>
+        <Default>
+          <Value>65</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLCHANGE</Name>
+        <Type>UDINT</Type>
+        <Comment> Achse Koppelparams ändern </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1248</BitOffs>
+        <Default>
+          <Value>66</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TABCPLCHANGE</Name>
+        <Type>UDINT</Type>
+        <Comment> 3x TabSlaveAxe Tabelle-Koppelparams ändern </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1280</BitOffs>
+        <Default>
+          <Value>67</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>STOPSLAVE</Name>
+        <Type>UDINT</Type>
+        <Comment> Slave-Stop (Diagonal-Slave / Flying Saw) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1312</BitOffs>
+        <Default>
+          <Value>68</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLTAB</Name>
+        <Type>UDINT</Type>
+        <Comment> TabSlaveAxe Koppelparams setzen </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1344</BitOffs>
+        <Default>
+          <Value>69</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TABSLVACTIVCOR</Name>
+        <Type>UDINT</Type>
+        <Comment> 2x TabSlaveAxe Korrekturtabelle aktivieren (mit/ohne Aktivierungsposition) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1376</BitOffs>
+        <Default>
+          <Value>70</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TABSLVLEAVECYC</Name>
+        <Type>UDINT</Type>
+        <Comment> TabSlaveAxe	Monozyklische Tabelle beenden </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1408</BitOffs>
+        <Default>
+          <Value>71</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TABSLVCOROFFSET</Name>
+        <Type>UDINT</Type>
+        <Comment> TabSlaveAxe	Letzter Korrektur Offset </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1440</BitOffs>
+        <Default>
+          <Value>72</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>TABSLVSCALING</Name>
+        <Type>UDINT</Type>
+        <Comment> NEU: Slave-Skalierung der Solo-Tabellenkopplung setzen </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1472</BitOffs>
+        <Default>
+          <Value>73</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLSOLOTAB</Name>
+        <Type>UDINT</Type>
+        <Comment> Solo Tabellen Kopplung </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1504</BitOffs>
+        <Default>
+          <Value>74</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CPLSYNCHRONIZING</Name>
+        <Type>UDINT</Type>
+        <Comment> Slave Synchronizing Generator ('GearInPos' and 'GearInVelo') </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1536</BitOffs>
+        <Default>
+          <Value>75</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CAMSCALING</Name>
+        <Type>UDINT</Type>
+        <Comment> Slave Change CAM Scaling (Aenderung der Tabellenskalierung) (issue #2514) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1568</BitOffs>
+        <Default>
+          <Value>77</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DISABLE</Name>
+        <Type>UDINT</Type>
+        <Comment> Achse sperren </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1600</BitOffs>
+        <Default>
+          <Value>80</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>ENABLE</Name>
+        <Type>UDINT</Type>
+        <Comment> Achse reaktivieren </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1632</BitOffs>
+        <Default>
+          <Value>81</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CHANGEAXISCTRLLOOP</Name>
+        <Type>UDINT</Type>
+        <Comment> NEU: Aenderung des aktiven Achsregelkreises </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1664</BitOffs>
+        <Default>
+          <Value>82</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DRIVEDISABLE</Name>
+        <Type>UDINT</Type>
+        <Comment> Drive-Output der Achse sperren </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1696</BitOffs>
+        <Default>
+          <Value>96</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DRIVEENABLE</Name>
+        <Type>UDINT</Type>
+        <Comment> Drive-Output der Achse reaktivieren </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1728</BitOffs>
+        <Default>
+          <Value>97</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>RELEASEBRAKE</Name>
+        <Type>UDINT</Type>
+        <Comment> Feststellbremse loesen (Eil/Schleich-Gruppe) </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1760</BitOffs>
+        <Default>
+          <Value>98</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>RECONFIGURATE</Name>
+        <Type>UDINT</Type>
+        <Comment> Achse zurueckfuehren in eigene PTP-Gruppe </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1792</BitOffs>
+        <Default>
+          <Value>112</Value>
+        </Default>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_AxisFunctions</Name>
+      <BitSize>1856</BitSize>
+      <SubItem>
+        <Name>IDXGRP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>16896</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>IDXOFFS</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisFunctions</Type>
+        <BitSize>1824</BitSize>
+        <BitOffs>32</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_Axis</Name>
+      <BitSize>4384</BitSize>
+      <SubItem>
+        <Name>Parameter</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_AxisParameter</Type>
+        <BitSize>1664</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>State</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_AxisState</Type>
+        <BitSize>864</BitSize>
+        <BitOffs>1664</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>Functions</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_AxisFunctions</Type>
+        <BitSize>1856</BitSize>
+        <BitOffs>2528</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableParameter</Name>
+      <BitSize>192</BitSize>
+      <SubItem>
+        <Name>MFREADCHARACVALUES</Name>
+        <Type>UDINT</Type>
+        <Comment> read characteristic values of a motion function </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>80</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>WRITETABROWS</Name>
+        <Type>UDINT</Type>
+        <Comment> write table </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+        <Default>
+          <Value>16777216</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>WRITEMFTABROWS</Name>
+        <Type>UDINT</Type>
+        <Comment> write motion function table </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+        <Default>
+          <Value>83886080</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>MFREADTAB</Name>
+        <Type>UDINT</Type>
+        <Comment> read motion function as data table </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>96</BitOffs>
+        <Default>
+          <Value>34</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>READSLAVEDYNAMICS</Name>
+        <Type>UDINT</Type>
+        <Comment> read slave table position, velocity and acceleration related to a master position </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>128</BitOffs>
+        <Default>
+          <Value>35</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>READMASTERPOSITION</Name>
+        <Type>UDINT</Type>
+        <Comment> read master table position related  to slave position </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>160</BitOffs>
+        <Default>
+          <Value>36</Value>
+        </Default>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_TableParameter</Name>
+      <BitSize>224</BitSize>
+      <SubItem>
+        <Name>IDXGRP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>40960</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>IDXOFFS</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableParameter</Type>
+        <BitSize>192</BitSize>
+        <BitOffs>32</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableFunctions</Name>
+      <BitSize>96</BitSize>
+      <SubItem>
+        <Name>CREATETAB</Name>
+        <Type>UDINT</Type>
+        <Comment> create table</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>65536</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>CREATEMOTIONTAB</Name>
+        <Type>UDINT</Type>
+        <Comment> create motion function table</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+        <Default>
+          <Value>65552</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>DELETETAB</Name>
+        <Type>UDINT</Type>
+        <Comment> delete tables </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+        <Default>
+          <Value>131072</Value>
+        </Default>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_TableFunctions</Name>
+      <BitSize>128</BitSize>
+      <SubItem>
+        <Name>IDXGRP</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+        <Default>
+          <Value>41472</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>IDXOFFS</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableFunctions</Type>
+        <BitSize>96</BitSize>
+        <BitOffs>32</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_NCADS_Table</Name>
+      <BitSize>352</BitSize>
+      <SubItem>
+        <Name>Parameter</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_TableParameter</Type>
+        <BitSize>224</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>Functions</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_TableFunctions</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>224</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_System">T_AmsPort</Name>
+      <Comment> TwinCAT AMS port address. </Comment>
+      <BitSize>16</BitSize>
+      <BaseType>UINT</BaseType>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_System">ADSRDDEVINFO</Name>
+      <Comment> ADS read device info command. </Comment>
+      <BitSize>1344</BitSize>
+      <SubItem>
+        <Name>NETID</Name>
+        <Type Namespace="Tc2_System">T_AmsNetID</Type>
+        <Comment> Ams net id </Comment>
+        <BitSize>192</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>PORT</Name>
+        <Type Namespace="Tc2_System">T_AmsPort</Type>
+        <Comment> Ads communication port </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>256</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>RDINFO</Name>
+        <Type>BOOL</Type>
+        <Comment> Rising edge starts command execution </Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>272</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>TMOUT</Name>
+        <Type>TIME</Type>
+        <Comment> Maximum time allowed for the execution of this ADS command </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>288</BitOffs>
+        <Default>
+          <DateTime>5000</DateTime>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>BUSY</Name>
+        <Type>BOOL</Type>
+        <Comment> Busy flag </Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>ERR</Name>
+        <Type>BOOL</Type>
+        <Comment> Error flag </Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>328</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>ERRID</Name>
+        <Type>UDINT</Type>
+        <Comment> ADS error code </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>352</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>DEVNAME</Name>
+        <Type>STRING(19)</Type>
+        <Comment> Device name </Comment>
+        <BitSize>160</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>DEVVER</Name>
+        <Type>UDINT</Type>
+        <Comment> Device version </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>544</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+        <Property>
+          <Name>hide_all_locals</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_TCMCGLOBAL</Name>
+      <Comment>	Global constants and parameters </Comment>
+      <BitSize>7168</BitSize>
+      <SubItem>
+        <Name>NCPORT_TCMC</Name>
+        <Type>UINT</Type>
+        <Comment> 20110511 type changed from INT to UINT </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>64</BitOffs>
+        <Default>
+          <Value>500</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCPORT_TCMC_COUPLING</Name>
+        <Type>UINT</Type>
+        <Comment> 20110511 type changed from INT to UINT </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>80</BitOffs>
+        <Default>
+          <Value>500</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCNETID_TCMC</Name>
+        <Type Namespace="Tc2_System">T_AmsNetID</Type>
+        <BitSize>192</BitSize>
+        <BitOffs>96</BitOffs>
+        <Default>
+          <String/>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCPORT_TCMC_CAM</Name>
+        <Type>UINT</Type>
+        <Comment> 20110511 type changed from INT to UINT </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>288</BitOffs>
+        <Default>
+          <Value>500</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCPORT_TCMC_CAM_FAST</Name>
+        <Type>UINT</Type>
+        <Comment> 20150728 KSt added </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>304</BitOffs>
+        <Default>
+          <Value>500</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCNETID_TCMC_CAM</Name>
+        <Type Namespace="Tc2_System">T_AmsNetID</Type>
+        <BitSize>192</BitSize>
+        <BitOffs>320</BitOffs>
+        <Default>
+          <String/>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCPORT_TCMC_SUPERPOSITION</Name>
+        <Type>UINT</Type>
+        <Comment> 20140930 KSt added </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>512</BitOffs>
+        <Default>
+          <Value>501</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCPORT_TCMC_RESET</Name>
+        <Type>UINT</Type>
+        <Comment> 20211019 KSt added </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>528</BitOffs>
+        <Default>
+          <Value>500</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NcDeviceInfoTcMainVersion</Name>
+        <Type>DWORD</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>544</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NcDeviceInfoTcSubVersion</Name>
+        <Type>DWORD</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>576</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NcDeviceInfoNcDriverVersion</Name>
+        <Type>DWORD</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>608</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NcDeviceInfoNcVersion</Name>
+        <Type>DWORD</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>640</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NcDeviceInfoNcName</Name>
+        <Type>STRING(19)</Type>
+        <BitSize>160</BitSize>
+        <BitOffs>672</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Axis</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_Axis</Type>
+        <Comment> IDXGRP and IDXOFFS constants of axis parameter/status/functions </Comment>
+        <BitSize>4384</BitSize>
+        <BitOffs>832</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>suppress_warning_0</Name>
+            <Value>C0228</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Table</Name>
+        <Type Namespace="Tc2_MC2">_ST_NCADS_Table</Type>
+        <Comment> IDXGRP and IDXOFFS constants of table parameter/status/functions </Comment>
+        <BitSize>352</BitSize>
+        <BitOffs>5216</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>suppress_warning_0</Name>
+            <Value>C0228</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>NCPORT_TCNCCAMMING_TABLEFUNCTION</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>5568</BitOffs>
+        <Default>
+          <Value>500</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>tTargetPosTimeOut</Name>
+        <Type>TIME</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>5600</BitOffs>
+        <Default>
+          <DateTime>6000</DateTime>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>tADSTimeOut</Name>
+        <Type>TIME</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>5632</BitOffs>
+        <Default>
+          <DateTime>1000</DateTime>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>tStopMonitoringTimeOut</Name>
+        <Type>TIME</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>5664</BitOffs>
+        <Default>
+          <DateTime>100</DateTime>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>NCTOPLC_FEEDBACK_MAXWAITCYCLES</Name>
+        <Type>INT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>5696</BitOffs>
+        <Default>
+          <Value>10</Value>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>fbADSRDDEVINFO</Name>
+        <Type Namespace="Tc2_System">ADSRDDEVINFO</Type>
+        <BitSize>1344</BitSize>
+        <BitOffs>5760</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>DeviceVersion</Name>
+        <Type>DWORD</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>7104</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>Init</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>7136</BitOffs>
+      </SubItem>
+      <Action>
+        <Name>ReadDeviceInfo</Name>
+      </Action>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+        <Property>
+          <Name>conditionalshow</Name>
         </Property>
       </Properties>
     </DataType>
@@ -18136,12 +20143,6 @@ External Setpoint Generation:
       </SubItem>
     </DataType>
     <DataType>
-      <Name Namespace="Tc2_System">T_AmsNetID</Name>
-      <Comment> TwinCAT AMS netID address string. </Comment>
-      <BitSize>192</BitSize>
-      <BaseType>STRING(23)</BaseType>
-    </DataType>
-    <DataType>
       <Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
       <BitSize>48</BitSize>
       <BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -18164,12 +20165,6 @@ External Setpoint Generation:
       <Comment> TwinCAT AMS netID address bytes. </Comment>
       <BitSize>48</BitSize>
       <BaseType GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</BaseType>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_System">T_AmsPort</Name>
-      <Comment> TwinCAT AMS port address. </Comment>
-      <BitSize>16</BitSize>
-      <BaseType>UINT</BaseType>
     </DataType>
     <DataType>
       <Name Namespace="Tc2_MC2">E_NcDriveType</Name>
@@ -30155,32 +32150,32 @@ External Setpoint Generation:
         <Name>bBusy</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <GetCodeOffs>172053344</GetCodeOffs>
+        <GetCodeOffs>172053368</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>bError</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <GetCodeOffs>172053416</GetCodeOffs>
+        <GetCodeOffs>172053440</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>hrErrorCode</Name>
         <Type GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</Type>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172053432</GetCodeOffs>
+        <GetCodeOffs>172053456</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>nStringSize</Name>
         <Type>UDINT</Type>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172053392</GetCodeOffs>
+        <GetCodeOffs>172053416</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>sResult</Name>
         <Type>STRING(255)</Type>
         <Comment> result [UTF-8 STRING]</Comment>
         <BitSize>2048</BitSize>
-        <GetCodeOffs>172053424</GetCodeOffs>
+        <GetCodeOffs>172053448</GetCodeOffs>
         <Properties>
           <Property>
             <Name>TcEncoding</Name>
@@ -30327,7 +32322,7 @@ External Setpoint Generation:
         </Property>
         <Property>
           <Name>VTableOffset</Name>
-          <Value>172033016</Value>
+          <Value>172033040</Value>
         </Property>
         <Property>
           <Name>VfInitVTableIndex</Name>
@@ -31556,15 +33551,15 @@ External Setpoint Generation:
         <Name>nSourceId</Name>
         <Type>UDINT</Type>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172053008</GetCodeOffs>
-        <SetCodeOffs>172053160</SetCodeOffs>
+        <GetCodeOffs>172053032</GetCodeOffs>
+        <SetCodeOffs>172053184</SetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>sSourceName</Name>
         <Type>STRING(255)</Type>
         <BitSize>2048</BitSize>
-        <GetCodeOffs>172053136</GetCodeOffs>
-        <SetCodeOffs>172053096</SetCodeOffs>
+        <GetCodeOffs>172053160</GetCodeOffs>
+        <SetCodeOffs>172053120</SetCodeOffs>
         <Properties>
           <Property>
             <Name>TcEncoding</Name>
@@ -32000,15 +33995,15 @@ External Setpoint Generation:
         <Name>nId</Name>
         <Type>UDINT</Type>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172053232</GetCodeOffs>
-        <SetCodeOffs>172053280</SetCodeOffs>
+        <GetCodeOffs>172053256</GetCodeOffs>
+        <SetCodeOffs>172053304</SetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>sName</Name>
         <Type>STRING(255)</Type>
         <BitSize>2048</BitSize>
-        <GetCodeOffs>172053304</GetCodeOffs>
-        <SetCodeOffs>172053328</SetCodeOffs>
+        <GetCodeOffs>172053328</GetCodeOffs>
+        <SetCodeOffs>172053352</SetCodeOffs>
         <Properties>
           <Property>
             <Name>TcEncoding</Name>
@@ -32288,31 +34283,31 @@ External Setpoint Generation:
         <Name>eSeverity</Name>
         <Type GUID="{B57D3F4A-0836-49B0-81C3-BED5F4817EC9}">TcEventSeverity</Type>
         <BitSize>16</BitSize>
-        <GetCodeOffs>172053552</GetCodeOffs>
+        <GetCodeOffs>172053576</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>ipSourceInfo</Name>
         <Type Namespace="LCLS_General.Tc3_EventLogger">I_TcSourceInfo</Type>
         <BitSize>64</BitSize>
-        <GetCodeOffs>172053512</GetCodeOffs>
+        <GetCodeOffs>172053536</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>nEventId</Name>
         <Type>UDINT</Type>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172053688</GetCodeOffs>
+        <GetCodeOffs>172053712</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>nUniqueId</Name>
         <Type>UDINT</Type>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172053696</GetCodeOffs>
+        <GetCodeOffs>172053720</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>sEventClassName</Name>
         <Type>STRING(255)</Type>
         <BitSize>2048</BitSize>
-        <GetCodeOffs>172053608</GetCodeOffs>
+        <GetCodeOffs>172053632</GetCodeOffs>
         <Properties>
           <Property>
             <Name>TcEncoding</Name>
@@ -32324,7 +34319,7 @@ External Setpoint Generation:
         <Name>sEventText</Name>
         <Type>STRING(255)</Type>
         <BitSize>2048</BitSize>
-        <GetCodeOffs>172053704</GetCodeOffs>
+        <GetCodeOffs>172053728</GetCodeOffs>
         <Properties>
           <Property>
             <Name>TcEncoding</Name>
@@ -32917,7 +34912,7 @@ External Setpoint Generation:
         <Name>nTimeSent</Name>
         <Type>ULINT</Type>
         <BitSize>64</BitSize>
-        <GetCodeOffs>172053760</GetCodeOffs>
+        <GetCodeOffs>172053784</GetCodeOffs>
         <Properties>
           <Property>
             <Name>TcDisplayTypeGUID</Name>
@@ -35244,7 +37239,7 @@ External Setpoint Generation:
     </DataType>
     <DataType>
       <Name>FB_HController</Name>
-      <BitSize>832</BitSize>
+      <BitSize>1024</BitSize>
       <Implements>I_HController</Implements>
       <SubItem>
         <Name>iMotionAxisDetAngle</Name>
@@ -35271,41 +37266,53 @@ External Setpoint Generation:
         <BitOffs>320</BitOffs>
       </SubItem>
       <SubItem>
-        <Name>fHPositionMeasured</Name>
-        <Type>LREAL</Type>
+        <Name>bDetHMoveAbsoluteBusy</Name>
+        <Type ReferenceTo="true">BOOL</Type>
         <BitSize>64</BitSize>
         <BitOffs>384</BitOffs>
       </SubItem>
       <SubItem>
-        <Name>fHPositionSetpoint</Name>
+        <Name>fHPositionMeasured</Name>
         <Type>LREAL</Type>
         <BitSize>64</BitSize>
         <BitOffs>448</BitOffs>
       </SubItem>
       <SubItem>
-        <Name>fHPositionGain</Name>
+        <Name>fHPositionSetpoint</Name>
         <Type>LREAL</Type>
         <BitSize>64</BitSize>
         <BitOffs>512</BitOffs>
       </SubItem>
       <SubItem>
-        <Name>fHPositionAdjustmentIntegration</Name>
+        <Name>fHPositionGain</Name>
         <Type>LREAL</Type>
         <BitSize>64</BitSize>
         <BitOffs>576</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fHPositionAdjustmentIntegration</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>640</BitOffs>
       </SubItem>
       <SubItem>
         <Name>nEncoderCounts</Name>
         <Type>ULINT</Type>
         <Comment> nm/count</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>640</BitOffs>
+        <BitOffs>704</BitOffs>
       </SubItem>
       <SubItem>
         <Name>rtMoveCmdTrigger</Name>
         <Type Namespace="Tc2_Standard">R_TRIG</Type>
         <BitSize>128</BitSize>
-        <BitOffs>704</BitOffs>
+        <BitOffs>768</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>ftResetTrigger</Name>
+        <Type Namespace="Tc2_Standard">F_TRIG</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>896</BitOffs>
       </SubItem>
       <Properties>
         <Property>
@@ -44121,14 +46128,14 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type>BOOL</Type>
         <Comment> is TRUE if a buffer is available.</Comment>
         <BitSize>8</BitSize>
-        <GetCodeOffs>172060096</GetCodeOffs>
+        <GetCodeOffs>172060120</GetCodeOffs>
       </PropertyItem>
       <PropertyItem>
         <Name>nBufferSize</Name>
         <Type>UDINT</Type>
         <Comment> current buffer size in bytes.</Comment>
         <BitSize>32</BitSize>
-        <GetCodeOffs>172060000</GetCodeOffs>
+        <GetCodeOffs>172060024</GetCodeOffs>
       </PropertyItem>
       <Method>
         <Name RpcEnable="plc" VTableIndex="3">__getnBufferSize</Name>
@@ -45224,7 +47231,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type Namespace="lcls_twincat_motion.Tc3_IPCDiag.Tc3_DynamicMemory">I_DynMem_Manager</Type>
         <Comment> dynamic memory manager used in the Tc3_IPCDiag library</Comment>
         <BitSize>64</BitSize>
-        <GetCodeOffs>172060248</GetCodeOffs>
+        <GetCodeOffs>172060272</GetCodeOffs>
       </PropertyItem>
       <Method>
         <Name>GetParameterByIdx</Name>
@@ -45940,7 +47947,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type Namespace="lcls_twincat_motion.Tc3_IPCDiag.Tc3_DynamicMemory">I_DynMem_Manager</Type>
         <Comment> dynamic memory manager used in the Tc3_IPCDiag library</Comment>
         <BitSize>64</BitSize>
-        <GetCodeOffs>172060360</GetCodeOffs>
+        <GetCodeOffs>172060384</GetCodeOffs>
       </PropertyItem>
       <Method>
         <Name>Clear</Name>
@@ -46875,2001 +48882,6 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Property>
           <Name>PouType</Name>
           <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisParameter</Name>
-      <BitSize>1632</BitSize>
-      <SubItem>
-        <Name>PARAMSTRUCT</Name>
-        <Type>UDINT</Type>
-        <Comment> NC ADS Index Offsets for Axis Parameters </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>0</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ID</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-        <Default>
-          <Value>1</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>NAME</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-        <Default>
-          <Value>2</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>AXISTYPE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>96</BitOffs>
-        <Default>
-          <Value>3</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CYCLETIME</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>128</BitOffs>
-        <Default>
-          <Value>4</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>UNITNAME</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>160</BitOffs>
-        <Default>
-          <Value>5</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOREFSEARCH</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>192</BitOffs>
-        <Default>
-          <Value>6</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOSYNCSEARCH</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>224</BitOffs>
-        <Default>
-          <Value>7</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOSLOWMANUAL</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>256</BitOffs>
-        <Default>
-          <Value>8</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOFASTMANUAL</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>288</BitOffs>
-        <Default>
-          <Value>9</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOFAST</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>320</BitOffs>
-        <Default>
-          <Value>10</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>POSAREAENABLE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>352</BitOffs>
-        <Default>
-          <Value>15</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>POSAREARANGE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>384</BitOffs>
-        <Default>
-          <Value>16</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MOTCNTRLENABLE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>416</BitOffs>
-        <Default>
-          <Value>17</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MOTCNTRLTIME</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>448</BitOffs>
-        <Default>
-          <Value>18</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>LOOPENABLE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>480</BitOffs>
-        <Default>
-          <Value>19</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>LOOPDISTANCE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>512</BitOffs>
-        <Default>
-          <Value>20</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TARGETPOSENA</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>544</BitOffs>
-        <Default>
-          <Value>21</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TARGETPOSRANGE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>576</BitOffs>
-        <Default>
-          <Value>22</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TARGETPOSTIME</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>608</BitOffs>
-        <Default>
-          <Value>23</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>PULSDISTPOS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>640</BitOffs>
-        <Default>
-          <Value>24</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>PULSDISTNEG</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>672</BitOffs>
-        <Default>
-          <Value>25</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>FADINGACCELERATION</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>704</BitOffs>
-        <Default>
-          <Value>29</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>FASTAXISSTOPSIGNALTYPE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>736</BitOffs>
-        <Default>
-          <Value>30</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>UNITFLAGS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>768</BitOffs>
-        <Default>
-          <Value>38</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOMAXIMUM</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>800</BitOffs>
-        <Default>
-          <Value>39</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MOTCNTRLRANGE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>832</BitOffs>
-        <Default>
-          <Value>40</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>PEHCONTROLENA</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>864</BitOffs>
-        <Default>
-          <Value>41</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>PEHCONTROLTIME</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>896</BitOffs>
-        <Default>
-          <Value>42</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>BACKLASHCOMPENA</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>928</BitOffs>
-        <Default>
-          <Value>43</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>BACKLASH</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>960</BitOffs>
-        <Default>
-          <Value>44</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DATAPERSISTENCE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>992</BitOffs>
-        <Default>
-          <Value>48</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>HWAMSADDR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1024</BitOffs>
-        <Default>
-          <Value>49</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>HWCHNNO</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1056</BitOffs>
-        <Default>
-          <Value>50</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>APPLICATIONREQUEST</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1088</BitOffs>
-        <Default>
-          <Value>51</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ACC</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1120</BitOffs>
-        <Default>
-          <Value>257</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DEC</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1152</BitOffs>
-        <Default>
-          <Value>258</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>JERK</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1184</BitOffs>
-        <Default>
-          <Value>259</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DELAY</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1216</BitOffs>
-        <Default>
-          <Value>260</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>OVERRIDETYPE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1248</BitOffs>
-        <Default>
-          <Value>261</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>VELOJUMPFACTOR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1280</BitOffs>
-        <Default>
-          <Value>262</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>REDUCTIONFEEDBACK</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1312</BitOffs>
-        <Default>
-          <Value>263</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TOLERANCEBALLAUXAXIS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1344</BitOffs>
-        <Default>
-          <Value>264</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MAXPOSDEVIATIONAUXAXIS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1376</BitOffs>
-        <Default>
-          <Value>265</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>FASTACC</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1408</BitOffs>
-        <Default>
-          <Value>266</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>FASTDEC</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1440</BitOffs>
-        <Default>
-          <Value>267</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>FASTJERK</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1472</BitOffs>
-        <Default>
-          <Value>268</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>REF_POS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1504</BitOffs>
-        <Default>
-          <Value>65795</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ENCSEARCHDIR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1536</BitOffs>
-        <Default>
-          <Value>65793</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ENCSYNCDIR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1568</BitOffs>
-        <Default>
-          <Value>65794</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ENCREFMODE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>1600</BitOffs>
-        <Default>
-          <Value>65799</Value>
-        </Default>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_AxisParameter</Name>
-      <BitSize>1664</BitSize>
-      <SubItem>
-        <Name>IDXGRP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>16384</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>IDXOFFS</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisParameter</Type>
-        <BitSize>1632</BitSize>
-        <BitOffs>32</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisState</Name>
-      <BitSize>832</BitSize>
-      <SubItem>
-        <Name>ONLINESTRUCT</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>0</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ERROR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-        <Default>
-          <Value>1</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETTASKCYCLE</Name>
-        <Type>UDINT</Type>
-        <Comment>
-	ACTPOS							= TCNC_IDXOFFS_AXmappedENC | 0x00000002;	// 0x00010002;
-	ACTVELO						= TCNC_IDXOFFS_AXmappedENC | 0x00000005;	// 0x00010005;
-	ACTACC							= TCNC_IDXOFFS_AXmappedENC | 0x00000006;	// 0x00010006;
-	MODULOACTPOS				= TCNC_IDXOFFS_AXmappedENC | 0x00000003;	// 0x00010003;
-	MODULOACTTURNS				= TCNC_IDXOFFS_AXmappedENC | 0x00000004;	// 0x00010004;
-	ACTINCREMENTS				= TCNC_IDXOFFS_AXmappedENC | 0x00000007;	// 0x00010007;
-</Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-        <Default>
-          <Value>9</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETPOS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>96</BitOffs>
-        <Default>
-          <Value>10</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETVELO</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>128</BitOffs>
-        <Default>
-          <Value>14</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETACC</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>160</BitOffs>
-        <Default>
-          <Value>15</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MODULOSETPOS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>192</BitOffs>
-        <Default>
-          <Value>11</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MODULOSETTURNS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>224</BitOffs>
-        <Default>
-          <Value>12</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETDIR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>256</BitOffs>
-        <Default>
-          <Value>13</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TARGETPOSITION</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>288</BitOffs>
-        <Default>
-          <Value>19</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>REMAININGTIMEANDPOS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>320</BitOffs>
-        <Default>
-          <Value>20</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STOPINFORMATION</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>352</BitOffs>
-        <Default>
-          <Value>24</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETTASKCYCLE_WITHOUTCORR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>384</BitOffs>
-        <Default>
-          <Value>25</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETPOS_WITHOUTCORR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>416</BitOffs>
-        <Default>
-          <Value>26</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETVELO_WITHOUTCORR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>448</BitOffs>
-        <Default>
-          <Value>30</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETACC_WITHOUTCORR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>480</BitOffs>
-        <Default>
-          <Value>31</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETDIR_WITHOUTCORR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>512</BitOffs>
-        <Default>
-          <Value>29</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>COUPLESTATE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>544</BitOffs>
-        <Default>
-          <Value>32</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLPARAMS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>576</BitOffs>
-        <Default>
-          <Value>34</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLFACTOR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>608</BitOffs>
-        <Default>
-          <Value>35</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>AXISCTRLLOOPIDX</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>640</BitOffs>
-        <Default>
-          <Value>36</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>AXISSETPOINTGENIDX</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>672</BitOffs>
-        <Default>
-          <Value>37</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLCHARACVALUES</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>704</BitOffs>
-        <Default>
-          <Value>38</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CAMINFO</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>736</BitOffs>
-        <Default>
-          <Value>39</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CAMSTATUS</Name>
-        <Type>UDINT</Type>
-        <Comment> activation status etc. </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>768</BitOffs>
-        <Default>
-          <Value>40</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ENCODERINITIALIZATIONDONE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>800</BitOffs>
-        <Default>
-          <Value>65560</Value>
-        </Default>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_AxisState</Name>
-      <BitSize>864</BitSize>
-      <SubItem>
-        <Name>IDXGRP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>16640</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>IDXOFFS</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisState</Type>
-        <BitSize>832</BitSize>
-        <BitOffs>32</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisFunctions</Name>
-      <BitSize>1824</BitSize>
-      <SubItem>
-        <Name>RESET</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>1</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STOP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-        <Default>
-          <Value>2</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CLEAR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-        <Default>
-          <Value>3</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>EMERGENCYSTOP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>96</BitOffs>
-        <Default>
-          <Value>4</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>PARAMETRIZEDSTOP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>128</BitOffs>
-        <Default>
-          <Value>5</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>INITIALIZE</Name>
-        <Type>UDINT</Type>
-        <Comment> Initialize Axis </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>160</BitOffs>
-        <Default>
-          <Value>7</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ORIENTEDSTOP</Name>
-        <Type>UDINT</Type>
-        <Comment> 19.04.04 issue #2470 </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>192</BitOffs>
-        <Default>
-          <Value>9</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CALIBR</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>224</BitOffs>
-        <Default>
-          <Value>16</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>NEWTARGPOS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>256</BitOffs>
-        <Default>
-          <Value>17</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>NEWTARGPOSANDVELO</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>288</BitOffs>
-        <Default>
-          <Value>18</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CHANGEDYNAMICPARAM</Name>
-        <Type>UDINT</Type>
-        <Comment> NEU: Neue Dynamikparameter (Acc;Dec) fuer Positionierung </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>320</BitOffs>
-        <Default>
-          <Value>21</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>UNIVERSALSTART</Name>
-        <Type>UDINT</Type>
-        <Comment> 05.03.07: new 'axis start and restart' command with buffer mode (issue #2786+#3276) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>352</BitOffs>
-        <Default>
-          <Value>22</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SLAVEUNIVERSALSTART</Name>
-        <Type>UDINT</Type>
-        <Comment> 24.02.09: decoupling command with succeding universal axis start commanded to a slave axis </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>384</BitOffs>
-        <Default>
-          <Value>23</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>RELEASEAXISLOCK</Name>
-        <Type>UDINT</Type>
-        <Comment> 10.12.18 release axis lock for motion commands </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>416</BitOffs>
-        <Default>
-          <Value>24</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETEXTERNALERROR</Name>
-        <Type>UDINT</Type>
-        <Comment> 06.10.04: Externen Achsfehler setzen (Laufzeitfehler) issue #2665 </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>448</BitOffs>
-        <Default>
-          <Value>25</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETPOS</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>480</BitOffs>
-        <Default>
-          <Value>26</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETCALFLAG</Name>
-        <Type>UDINT</Type>
-        <Comment> "ist referenziert"-Flag setzen </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>512</BitOffs>
-        <Default>
-          <Value>27</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETACTPOS</Name>
-        <Type>UDINT</Type>
-        <Comment> nur Istwertsetzen ohne Sollwertaenderung !!! </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>544</BitOffs>
-        <Default>
-          <Value>28</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETDRIVEPOS</Name>
-        <Type>UDINT</Type>
-        <Comment> antriebsseitiges Istwertsetzen </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>576</BitOffs>
-        <Default>
-          <Value>29</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETENCODERSCALING</Name>
-        <Type>UDINT</Type>
-        <Comment> 17.07.08: "Fliegende Änderung des Skalierungsfaktors" </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>608</BitOffs>
-        <Default>
-          <Value>30</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>SETPOSONTHEFLY</Name>
-        <Type>UDINT</Type>
-        <Comment> 29.11.05: "Fliegendes Istwert Setzen" (betrifft Ist - und Sollwert) (issue #3017) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>640</BitOffs>
-        <Default>
-          <Value>31</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>START</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>672</BitOffs>
-        <Default>
-          <Value>32</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STARTEXT</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>704</BitOffs>
-        <Default>
-          <Value>33</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STARTVELOCHANGE</Name>
-        <Type>UDINT</Type>
-        <Comment> special function for MMW </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>736</BitOffs>
-        <Default>
-          <Value>34</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ENABLEEXTGEN</Name>
-        <Type>UDINT</Type>
-        <Comment> enable/start external setpoint values </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>768</BitOffs>
-        <Default>
-          <Value>35</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DISABLEEXTGEN</Name>
-        <Type>UDINT</Type>
-        <Comment> disable/stop external setpoint values </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>800</BitOffs>
-        <Default>
-          <Value>36</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>REVERSINGSEQUENCE</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>832</BitOffs>
-        <Default>
-          <Value>37</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STARTDRVOUT</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>864</BitOffs>
-        <Default>
-          <Value>38</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STOPDRVOUT</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>896</BitOffs>
-        <Default>
-          <Value>39</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CHANGEDRVOUT</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>928</BitOffs>
-        <Default>
-          <Value>40</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>JUMPTOOVERRIDE</Name>
-        <Type>UDINT</Type>
-        <Comment> 04.11.04: jump to actual override value and froze them until change (issue #2697) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>960</BitOffs>
-        <Default>
-          <Value>41</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>EXTSETGENUNIVERSALSTART</Name>
-        <Type>UDINT</Type>
-        <Comment> 23.11.10: deactivation of external setpoint generator with succeding universal axis start command </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>992</BitOffs>
-        <Default>
-          <Value>43</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>UNIVERSALTORQUESTART</Name>
-        <Type>UDINT</Type>
-        <Comment> 20181210 Fap -  new 'axis torque control start and restart' command with buffer mode </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1024</BitOffs>
-        <Default>
-          <Value>45</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STARTSCOM</Name>
-        <Type>UDINT</Type>
-        <Comment> start superposition (position compensation) - 21.12.04: nun auch als 'ReadWrite'-Kommando </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1056</BitOffs>
-        <Default>
-          <Value>48</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STOPSCOM</Name>
-        <Type>UDINT</Type>
-        <Comment> stop superposition (position compensation) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1088</BitOffs>
-        <Default>
-          <Value>49</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>PHASINGREQEUST</Name>
-        <Type>UDINT</Type>
-        <Comment> start/stop the additional phasing set point generator used for a master/slave phase shift </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1120</BitOffs>
-        <Default>
-          <Value>52</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>REINITIALIZEENCODER</Name>
-        <Type>UDINT</Type>
-        <Comment> reinitialization of encoder including position </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1152</BitOffs>
-        <Default>
-          <Value>59</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPL</Name>
-        <Type>UDINT</Type>
-        <Comment> Achse koppeln </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1184</BitOffs>
-        <Default>
-          <Value>64</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DECPL</Name>
-        <Type>UDINT</Type>
-        <Comment> Achse entkoppeln (und optional neue Endposition mit neuer Geschwindigkeit) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1216</BitOffs>
-        <Default>
-          <Value>65</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLCHANGE</Name>
-        <Type>UDINT</Type>
-        <Comment> Achse Koppelparams ändern </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1248</BitOffs>
-        <Default>
-          <Value>66</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TABCPLCHANGE</Name>
-        <Type>UDINT</Type>
-        <Comment> 3x TabSlaveAxe Tabelle-Koppelparams ändern </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1280</BitOffs>
-        <Default>
-          <Value>67</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>STOPSLAVE</Name>
-        <Type>UDINT</Type>
-        <Comment> Slave-Stop (Diagonal-Slave / Flying Saw) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1312</BitOffs>
-        <Default>
-          <Value>68</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLTAB</Name>
-        <Type>UDINT</Type>
-        <Comment> TabSlaveAxe Koppelparams setzen </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1344</BitOffs>
-        <Default>
-          <Value>69</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TABSLVACTIVCOR</Name>
-        <Type>UDINT</Type>
-        <Comment> 2x TabSlaveAxe Korrekturtabelle aktivieren (mit/ohne Aktivierungsposition) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1376</BitOffs>
-        <Default>
-          <Value>70</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TABSLVLEAVECYC</Name>
-        <Type>UDINT</Type>
-        <Comment> TabSlaveAxe	Monozyklische Tabelle beenden </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1408</BitOffs>
-        <Default>
-          <Value>71</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TABSLVCOROFFSET</Name>
-        <Type>UDINT</Type>
-        <Comment> TabSlaveAxe	Letzter Korrektur Offset </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1440</BitOffs>
-        <Default>
-          <Value>72</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>TABSLVSCALING</Name>
-        <Type>UDINT</Type>
-        <Comment> NEU: Slave-Skalierung der Solo-Tabellenkopplung setzen </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1472</BitOffs>
-        <Default>
-          <Value>73</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLSOLOTAB</Name>
-        <Type>UDINT</Type>
-        <Comment> Solo Tabellen Kopplung </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1504</BitOffs>
-        <Default>
-          <Value>74</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CPLSYNCHRONIZING</Name>
-        <Type>UDINT</Type>
-        <Comment> Slave Synchronizing Generator ('GearInPos' and 'GearInVelo') </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1536</BitOffs>
-        <Default>
-          <Value>75</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CAMSCALING</Name>
-        <Type>UDINT</Type>
-        <Comment> Slave Change CAM Scaling (Aenderung der Tabellenskalierung) (issue #2514) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1568</BitOffs>
-        <Default>
-          <Value>77</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DISABLE</Name>
-        <Type>UDINT</Type>
-        <Comment> Achse sperren </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1600</BitOffs>
-        <Default>
-          <Value>80</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>ENABLE</Name>
-        <Type>UDINT</Type>
-        <Comment> Achse reaktivieren </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1632</BitOffs>
-        <Default>
-          <Value>81</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CHANGEAXISCTRLLOOP</Name>
-        <Type>UDINT</Type>
-        <Comment> NEU: Aenderung des aktiven Achsregelkreises </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1664</BitOffs>
-        <Default>
-          <Value>82</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DRIVEDISABLE</Name>
-        <Type>UDINT</Type>
-        <Comment> Drive-Output der Achse sperren </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1696</BitOffs>
-        <Default>
-          <Value>96</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DRIVEENABLE</Name>
-        <Type>UDINT</Type>
-        <Comment> Drive-Output der Achse reaktivieren </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1728</BitOffs>
-        <Default>
-          <Value>97</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>RELEASEBRAKE</Name>
-        <Type>UDINT</Type>
-        <Comment> Feststellbremse loesen (Eil/Schleich-Gruppe) </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1760</BitOffs>
-        <Default>
-          <Value>98</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>RECONFIGURATE</Name>
-        <Type>UDINT</Type>
-        <Comment> Achse zurueckfuehren in eigene PTP-Gruppe </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>1792</BitOffs>
-        <Default>
-          <Value>112</Value>
-        </Default>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_AxisFunctions</Name>
-      <BitSize>1856</BitSize>
-      <SubItem>
-        <Name>IDXGRP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>16896</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>IDXOFFS</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_AxisFunctions</Type>
-        <BitSize>1824</BitSize>
-        <BitOffs>32</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_Axis</Name>
-      <BitSize>4384</BitSize>
-      <SubItem>
-        <Name>Parameter</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_AxisParameter</Type>
-        <BitSize>1664</BitSize>
-        <BitOffs>0</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>State</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_AxisState</Type>
-        <BitSize>864</BitSize>
-        <BitOffs>1664</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>Functions</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_AxisFunctions</Type>
-        <BitSize>1856</BitSize>
-        <BitOffs>2528</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableParameter</Name>
-      <BitSize>192</BitSize>
-      <SubItem>
-        <Name>MFREADCHARACVALUES</Name>
-        <Type>UDINT</Type>
-        <Comment> read characteristic values of a motion function </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>80</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>WRITETABROWS</Name>
-        <Type>UDINT</Type>
-        <Comment> write table </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-        <Default>
-          <Value>16777216</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>WRITEMFTABROWS</Name>
-        <Type>UDINT</Type>
-        <Comment> write motion function table </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-        <Default>
-          <Value>83886080</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>MFREADTAB</Name>
-        <Type>UDINT</Type>
-        <Comment> read motion function as data table </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>96</BitOffs>
-        <Default>
-          <Value>34</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>READSLAVEDYNAMICS</Name>
-        <Type>UDINT</Type>
-        <Comment> read slave table position, velocity and acceleration related to a master position </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>128</BitOffs>
-        <Default>
-          <Value>35</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>READMASTERPOSITION</Name>
-        <Type>UDINT</Type>
-        <Comment> read master table position related  to slave position </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>160</BitOffs>
-        <Default>
-          <Value>36</Value>
-        </Default>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_TableParameter</Name>
-      <BitSize>224</BitSize>
-      <SubItem>
-        <Name>IDXGRP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>40960</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>IDXOFFS</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableParameter</Type>
-        <BitSize>192</BitSize>
-        <BitOffs>32</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableFunctions</Name>
-      <BitSize>96</BitSize>
-      <SubItem>
-        <Name>CREATETAB</Name>
-        <Type>UDINT</Type>
-        <Comment> create table</Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>65536</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>CREATEMOTIONTAB</Name>
-        <Type>UDINT</Type>
-        <Comment> create motion function table</Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-        <Default>
-          <Value>65552</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>DELETETAB</Name>
-        <Type>UDINT</Type>
-        <Comment> delete tables </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-        <Default>
-          <Value>131072</Value>
-        </Default>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_TableFunctions</Name>
-      <BitSize>128</BitSize>
-      <SubItem>
-        <Name>IDXGRP</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-        <Default>
-          <Value>41472</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>IDXOFFS</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_IDXOFFS_TableFunctions</Type>
-        <BitSize>96</BitSize>
-        <BitOffs>32</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_NCADS_Table</Name>
-      <BitSize>352</BitSize>
-      <SubItem>
-        <Name>Parameter</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_TableParameter</Type>
-        <BitSize>224</BitSize>
-        <BitOffs>0</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>Functions</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_TableFunctions</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>224</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_System">ADSRDDEVINFO</Name>
-      <Comment> ADS read device info command. </Comment>
-      <BitSize>1344</BitSize>
-      <SubItem>
-        <Name>NETID</Name>
-        <Type Namespace="Tc2_System">T_AmsNetID</Type>
-        <Comment> Ams net id </Comment>
-        <BitSize>192</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>PORT</Name>
-        <Type Namespace="Tc2_System">T_AmsPort</Type>
-        <Comment> Ads communication port </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>256</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>RDINFO</Name>
-        <Type>BOOL</Type>
-        <Comment> Rising edge starts command execution </Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>272</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>TMOUT</Name>
-        <Type>TIME</Type>
-        <Comment> Maximum time allowed for the execution of this ADS command </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>288</BitOffs>
-        <Default>
-          <DateTime>5000</DateTime>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>BUSY</Name>
-        <Type>BOOL</Type>
-        <Comment> Busy flag </Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>320</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>ERR</Name>
-        <Type>BOOL</Type>
-        <Comment> Error flag </Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>328</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>ERRID</Name>
-        <Type>UDINT</Type>
-        <Comment> ADS error code </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>352</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>DEVNAME</Name>
-        <Type>STRING(19)</Type>
-        <Comment> Device name </Comment>
-        <BitSize>160</BitSize>
-        <BitOffs>384</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>DEVVER</Name>
-        <Type>UDINT</Type>
-        <Comment> Device version </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>544</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-        <Property>
-          <Name>hide_all_locals</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_TCMCGLOBAL</Name>
-      <Comment>	Global constants and parameters </Comment>
-      <BitSize>7168</BitSize>
-      <SubItem>
-        <Name>NCPORT_TCMC</Name>
-        <Type>UINT</Type>
-        <Comment> 20110511 type changed from INT to UINT </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>64</BitOffs>
-        <Default>
-          <Value>500</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCPORT_TCMC_COUPLING</Name>
-        <Type>UINT</Type>
-        <Comment> 20110511 type changed from INT to UINT </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>80</BitOffs>
-        <Default>
-          <Value>500</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCNETID_TCMC</Name>
-        <Type Namespace="Tc2_System">T_AmsNetID</Type>
-        <BitSize>192</BitSize>
-        <BitOffs>96</BitOffs>
-        <Default>
-          <String/>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCPORT_TCMC_CAM</Name>
-        <Type>UINT</Type>
-        <Comment> 20110511 type changed from INT to UINT </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>288</BitOffs>
-        <Default>
-          <Value>500</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCPORT_TCMC_CAM_FAST</Name>
-        <Type>UINT</Type>
-        <Comment> 20150728 KSt added </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>304</BitOffs>
-        <Default>
-          <Value>500</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCNETID_TCMC_CAM</Name>
-        <Type Namespace="Tc2_System">T_AmsNetID</Type>
-        <BitSize>192</BitSize>
-        <BitOffs>320</BitOffs>
-        <Default>
-          <String/>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCPORT_TCMC_SUPERPOSITION</Name>
-        <Type>UINT</Type>
-        <Comment> 20140930 KSt added </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>512</BitOffs>
-        <Default>
-          <Value>501</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCPORT_TCMC_RESET</Name>
-        <Type>UINT</Type>
-        <Comment> 20211019 KSt added </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>528</BitOffs>
-        <Default>
-          <Value>500</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NcDeviceInfoTcMainVersion</Name>
-        <Type>DWORD</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>544</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NcDeviceInfoTcSubVersion</Name>
-        <Type>DWORD</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>576</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NcDeviceInfoNcDriverVersion</Name>
-        <Type>DWORD</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>608</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NcDeviceInfoNcVersion</Name>
-        <Type>DWORD</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>640</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NcDeviceInfoNcName</Name>
-        <Type>STRING(19)</Type>
-        <BitSize>160</BitSize>
-        <BitOffs>672</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Axis</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_Axis</Type>
-        <Comment> IDXGRP and IDXOFFS constants of axis parameter/status/functions </Comment>
-        <BitSize>4384</BitSize>
-        <BitOffs>832</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>suppress_warning_0</Name>
-            <Value>C0228</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Table</Name>
-        <Type Namespace="Tc2_MC2">_ST_NCADS_Table</Type>
-        <Comment> IDXGRP and IDXOFFS constants of table parameter/status/functions </Comment>
-        <BitSize>352</BitSize>
-        <BitOffs>5216</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>suppress_warning_0</Name>
-            <Value>C0228</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>NCPORT_TCNCCAMMING_TABLEFUNCTION</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>5568</BitOffs>
-        <Default>
-          <Value>500</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>tTargetPosTimeOut</Name>
-        <Type>TIME</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>5600</BitOffs>
-        <Default>
-          <DateTime>6000</DateTime>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>tADSTimeOut</Name>
-        <Type>TIME</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>5632</BitOffs>
-        <Default>
-          <DateTime>1000</DateTime>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>tStopMonitoringTimeOut</Name>
-        <Type>TIME</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>5664</BitOffs>
-        <Default>
-          <DateTime>100</DateTime>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>NCTOPLC_FEEDBACK_MAXWAITCYCLES</Name>
-        <Type>INT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>5696</BitOffs>
-        <Default>
-          <Value>10</Value>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>fbADSRDDEVINFO</Name>
-        <Type Namespace="Tc2_System">ADSRDDEVINFO</Type>
-        <BitSize>1344</BitSize>
-        <BitOffs>5760</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>DeviceVersion</Name>
-        <Type>DWORD</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>7104</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>Init</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>7136</BitOffs>
-      </SubItem>
-      <Action>
-        <Name>ReadDeviceInfo</Name>
-      </Action>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-        <Property>
-          <Name>conditionalshow</Name>
         </Property>
       </Properties>
     </DataType>
@@ -70383,7 +70395,7 @@ contributing fast faults, unless the FFO is currently vetoed.
       <SubItem>
         <Name Static="true">fbHController</Name>
         <Type>FB_HController</Type>
-        <BitSize>832</BitSize>
+        <BitSize>1024</BitSize>
       </SubItem>
     </DataType>
     <DataType>
@@ -70497,7 +70509,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Default>
           <SubItem>
             <Name>.sName</Name>
-            <String>CRIXS:SVLS:DET:MMS:Y</String>
+            <String>CRIXS:SVLS:DET:MMS:Y_Angle</String>
           </SubItem>
         </Default>
         <Properties>
@@ -70579,7 +70591,7 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Name>TcLinkTo</Name>
             <Value>.bLimitForwardEnable  := TIIB[EL7047_01_01-DET_Y]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[EL7047_01_01-DET_Y]^STM Status^Status^Digital input 2;
-							  .nRawEncoderULINT     := TIPC^SVLS_MOT^SVLS_MOT Instance^ProductionPlcTask Outputs^PRG_Main.fbHController.nEncoderCounts</Value>
+                              .nRawEncoderULINT     := TIPC^SVLS_MOT^SVLS_MOT Instance^ProductionPlcTask Outputs^PRG_Main.fbHController.nEncoderCounts</Value>
           </Property>
         </Properties>
       </SubItem>
@@ -70636,45 +70648,45 @@ contributing fast faults, unless the FFO is currently vetoed.
           <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
           <Name>TestPlcTask Inputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PRG_Test.AxisReference_ExternalSetpointGenerator_Test1.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1308125632</BitOffs>
+            <BitOffs>1308125824</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.AxisReference_ExternalSetpointGenerator_Test2.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1308148416</BitOffs>
+            <BitOffs>1308148608</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1341776512</BitOffs>
+            <BitOffs>1341776704</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.bLimitForwardEnable</Name>
             <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341784512</BitOffs>
+            <BitOffs>1341784704</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.bLimitBackwardEnable</Name>
             <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341784520</BitOffs>
+            <BitOffs>1341784712</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.bHome</Name>
             <Comment> NO Home Switch: TRUE if at home</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341784528</BitOffs>
+            <BitOffs>1341784720</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.bHardwareEnable</Name>
@@ -70693,62 +70705,62 @@ contributing fast faults, unless the FFO is currently vetoed.
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1341784544</BitOffs>
+            <BitOffs>1341784736</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.nRawEncoderULINT</Name>
             <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1341784576</BitOffs>
+            <BitOffs>1341784768</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.nRawEncoderUINT</Name>
             <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
-            <BitOffs>1341784640</BitOffs>
+            <BitOffs>1341784832</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.nRawEncoderINT</Name>
             <Comment> Raw encoder IO for INT (LVDT)</Comment>
             <BitSize>16</BitSize>
             <BaseType>INT</BaseType>
-            <BitOffs>1341784656</BitOffs>
+            <BitOffs>1341784848</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.nRawEncoderDINT</Name>
             <Comment> Raw encoder IO for INT (EL5072 LVDT)</Comment>
             <BitSize>32</BitSize>
             <BaseType>DINT</BaseType>
-            <BitOffs>1341784672</BitOffs>
+            <BitOffs>1341784864</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1341802496</BitOffs>
+            <BitOffs>1341802688</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.bLimitForwardEnable</Name>
             <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341810496</BitOffs>
+            <BitOffs>1341810688</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.bLimitBackwardEnable</Name>
             <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341810504</BitOffs>
+            <BitOffs>1341810696</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.bHome</Name>
             <Comment> NO Home Switch: TRUE if at home</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341810512</BitOffs>
+            <BitOffs>1341810704</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.bHardwareEnable</Name>
@@ -70767,110 +70779,110 @@ contributing fast faults, unless the FFO is currently vetoed.
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1341810528</BitOffs>
+            <BitOffs>1341810720</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.nRawEncoderULINT</Name>
             <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1341810560</BitOffs>
+            <BitOffs>1341810752</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.nRawEncoderUINT</Name>
             <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
-            <BitOffs>1341810624</BitOffs>
+            <BitOffs>1341810816</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.nRawEncoderINT</Name>
             <Comment> Raw encoder IO for INT (LVDT)</Comment>
             <BitSize>16</BitSize>
             <BaseType>INT</BaseType>
-            <BitOffs>1341810640</BitOffs>
+            <BitOffs>1341810832</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.nRawEncoderDINT</Name>
             <Comment> Raw encoder IO for INT (EL5072 LVDT)</Comment>
             <BitSize>32</BitSize>
             <BaseType>DINT</BaseType>
-            <BitOffs>1341810656</BitOffs>
+            <BitOffs>1341810848</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbMotionStage_HControllerDetAngle_Test1.fbDriveVirtual.MasterAxis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1375447488</BitOffs>
+            <BitOffs>1375447680</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbMotionStage_HControllerDetH_Test1.fbDriveVirtual.MasterAxis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1375777088</BitOffs>
+            <BitOffs>1375777280</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
           <Name>TestPlcTask Outputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PRG_Test.AxisReference_ExternalSetpointGenerator_Test1.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1308124608</BitOffs>
+            <BitOffs>1308124800</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.AxisReference_ExternalSetpointGenerator_Test2.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1308147392</BitOffs>
+            <BitOffs>1308147584</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1341775488</BitOffs>
+            <BitOffs>1341775680</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1.bBrakeRelease</Name>
             <Comment> NC Brake Output: TRUE to release brake</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341784536</BitOffs>
+            <BitOffs>1341784728</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1341801472</BitOffs>
+            <BitOffs>1341801664</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1.bBrakeRelease</Name>
             <Comment> NC Brake Output: TRUE to release brake</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1341810520</BitOffs>
+            <BitOffs>1341810712</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbMotionStage_HControllerDetAngle_Test1.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1375446464</BitOffs>
+            <BitOffs>1375446656</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbMotionStage_HControllerDetH_Test1.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1375776064</BitOffs>
+            <BitOffs>1375776256</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
           <Name>TestPlcTask Internal</Name>
           <ContextId>0</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>GVL_Logger.bTrickleTripped</Name>
             <Comment> Global trickle trip flag</Comment>
@@ -71215,6 +71227,31 @@ contributing fast faults, unless the FFO is currently vetoed.
             <BitOffs>641691648</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>Global_Variables.TcMcGlobal</Name>
+            <BitSize>7168</BitSize>
+            <BaseType Namespace="Tc2_MC2">_TCMCGLOBAL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>642740032</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>Global_Variables.DEFAULT_HOME_POSITION</Name>
+            <BitSize>64</BitSize>
+            <BaseType>LREAL</BaseType>
+            <Default>
+              <Value>1E+307</Value>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>642747200</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>GVL_Param_TcUnit.MaxNumberOfTestSuites</Name>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
@@ -71435,63 +71472,63 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Name>PRG_Test.AxisReference_ExternalSetpointGenerator_Test1</Name>
             <BitSize>9088</BitSize>
             <BaseType Namespace="Tc2_MC2">AXIS_REF</BaseType>
-            <BitOffs>1308124544</BitOffs>
+            <BitOffs>1308124736</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.MotionAxis_ExternalSetpointGenerator_Test1</Name>
             <BitSize>13696</BitSize>
             <BaseType>FB_MotionAxisNC</BaseType>
-            <BitOffs>1308133632</BitOffs>
+            <BitOffs>1308133824</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.AxisReference_ExternalSetpointGenerator_Test2</Name>
             <BitSize>9088</BitSize>
             <BaseType Namespace="Tc2_MC2">AXIS_REF</BaseType>
-            <BitOffs>1308147328</BitOffs>
+            <BitOffs>1308147520</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.MotionAxis_ExternalSetpointGenerator_Test2</Name>
             <BitSize>13696</BitSize>
             <BaseType>FB_MotionAxisNC</BaseType>
-            <BitOffs>1308156416</BitOffs>
+            <BitOffs>1308156608</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetAngle_Test1</Name>
             <BitSize>25984</BitSize>
             <BaseType Namespace="lcls_twincat_motion">ST_MotionStage</BaseType>
-            <BitOffs>1341775424</BitOffs>
+            <BitOffs>1341775616</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.stMotionStage_HControllerDetH_Test1</Name>
             <BitSize>25984</BitSize>
             <BaseType Namespace="lcls_twincat_motion">ST_MotionStage</BaseType>
-            <BitOffs>1341801408</BitOffs>
+            <BitOffs>1341801600</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.MotionAxis_HControllerDetAngle_Test1</Name>
             <Comment>AxisReference_HControllerDetAngle_Test1 : AXIS_REF;</Comment>
             <BitSize>13696</BitSize>
             <BaseType>FB_MotionAxisNC</BaseType>
-            <BitOffs>1341827392</BitOffs>
+            <BitOffs>1341827584</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.MotionAxis_HControllerDetH_Test1</Name>
             <Comment>AxisReference_HControllerDetH_Test1 : AXIS_REF;</Comment>
             <BitSize>13696</BitSize>
             <BaseType>FB_MotionAxisNC</BaseType>
-            <BitOffs>1341841088</BitOffs>
+            <BitOffs>1341841280</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbMotionStage_HControllerDetAngle_Test1</Name>
             <BitSize>329600</BitSize>
             <BaseType Namespace="lcls_twincat_motion">FB_MotionStage</BaseType>
-            <BitOffs>1375444864</BitOffs>
+            <BitOffs>1375445056</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbMotionStage_HControllerDetH_Test1</Name>
             <BitSize>329600</BitSize>
             <BaseType Namespace="lcls_twincat_motion">FB_MotionStage</BaseType>
-            <BitOffs>1375774464</BitOffs>
+            <BitOffs>1375774656</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskPouOid_TestPlcTask</Name>
@@ -71505,7 +71542,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376209888</BitOffs>
+            <BitOffs>1376210080</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._AppInfo</Name>
@@ -71519,7 +71556,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376209920</BitOffs>
+            <BitOffs>1376210112</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskInfo</Name>
@@ -71537,7 +71574,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376211968</BitOffs>
+            <BitOffs>1376212160</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskOid_TestPlcTask</Name>
@@ -71551,7 +71588,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376215040</BitOffs>
+            <BitOffs>1376215232</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList.__TestPlcTask</Name>
@@ -71572,14 +71609,14 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376215232</BitOffs>
+            <BitOffs>1376215424</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="InputDst" CreateSymbols="true">16</AreaNo>
           <Name>ProductionPlcTask Inputs</Name>
           <ContextId>1</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PRG_Main.fbDetYAngle.fbDriveVirtual.MasterAxis.NcToPlc</Name>
             <BitSize>2048</BitSize>
@@ -71608,28 +71645,28 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Name>Main.M1.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1376106752</BitOffs>
+            <BitOffs>1376106944</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.bLimitForwardEnable</Name>
             <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376114752</BitOffs>
+            <BitOffs>1376114944</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.bLimitBackwardEnable</Name>
             <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376114760</BitOffs>
+            <BitOffs>1376114952</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.bHome</Name>
             <Comment> NO Home Switch: TRUE if at home</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376114768</BitOffs>
+            <BitOffs>1376114960</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.bHardwareEnable</Name>
@@ -71648,62 +71685,62 @@ contributing fast faults, unless the FFO is currently vetoed.
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1376114784</BitOffs>
+            <BitOffs>1376114976</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.nRawEncoderULINT</Name>
             <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1376114816</BitOffs>
+            <BitOffs>1376115008</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.nRawEncoderUINT</Name>
             <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
-            <BitOffs>1376114880</BitOffs>
+            <BitOffs>1376115072</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.nRawEncoderINT</Name>
             <Comment> Raw encoder IO for INT (LVDT)</Comment>
             <BitSize>16</BitSize>
             <BaseType>INT</BaseType>
-            <BitOffs>1376114896</BitOffs>
+            <BitOffs>1376115088</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.nRawEncoderDINT</Name>
             <Comment> Raw encoder IO for INT (EL5072 LVDT)</Comment>
             <BitSize>32</BitSize>
             <BaseType>DINT</BaseType>
-            <BitOffs>1376114912</BitOffs>
+            <BitOffs>1376115104</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1376132736</BitOffs>
+            <BitOffs>1376132928</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.bLimitForwardEnable</Name>
             <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376140736</BitOffs>
+            <BitOffs>1376140928</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.bLimitBackwardEnable</Name>
             <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376140744</BitOffs>
+            <BitOffs>1376140936</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.bHome</Name>
             <Comment> NO Home Switch: TRUE if at home</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376140752</BitOffs>
+            <BitOffs>1376140944</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.bHardwareEnable</Name>
@@ -71722,62 +71759,62 @@ contributing fast faults, unless the FFO is currently vetoed.
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1376140768</BitOffs>
+            <BitOffs>1376140960</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.nRawEncoderULINT</Name>
             <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1376140800</BitOffs>
+            <BitOffs>1376140992</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.nRawEncoderUINT</Name>
             <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
-            <BitOffs>1376140864</BitOffs>
+            <BitOffs>1376141056</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.nRawEncoderINT</Name>
             <Comment> Raw encoder IO for INT (LVDT)</Comment>
             <BitSize>16</BitSize>
             <BaseType>INT</BaseType>
-            <BitOffs>1376140880</BitOffs>
+            <BitOffs>1376141072</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.nRawEncoderDINT</Name>
             <Comment> Raw encoder IO for INT (EL5072 LVDT)</Comment>
             <BitSize>32</BitSize>
             <BaseType>DINT</BaseType>
-            <BitOffs>1376140896</BitOffs>
+            <BitOffs>1376141088</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1376158720</BitOffs>
+            <BitOffs>1376158912</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.bLimitForwardEnable</Name>
             <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376166720</BitOffs>
+            <BitOffs>1376166912</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.bLimitBackwardEnable</Name>
             <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376166728</BitOffs>
+            <BitOffs>1376166920</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.bHome</Name>
             <Comment> NO Home Switch: TRUE if at home</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376166736</BitOffs>
+            <BitOffs>1376166928</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.bHardwareEnable</Name>
@@ -71796,62 +71833,62 @@ contributing fast faults, unless the FFO is currently vetoed.
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1376166752</BitOffs>
+            <BitOffs>1376166944</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.nRawEncoderULINT</Name>
             <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1376166784</BitOffs>
+            <BitOffs>1376166976</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.nRawEncoderUINT</Name>
             <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
-            <BitOffs>1376166848</BitOffs>
+            <BitOffs>1376167040</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.nRawEncoderINT</Name>
             <Comment> Raw encoder IO for INT (LVDT)</Comment>
             <BitSize>16</BitSize>
             <BaseType>INT</BaseType>
-            <BitOffs>1376166864</BitOffs>
+            <BitOffs>1376167056</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.nRawEncoderDINT</Name>
             <Comment> Raw encoder IO for INT (EL5072 LVDT)</Comment>
             <BitSize>32</BitSize>
             <BaseType>DINT</BaseType>
-            <BitOffs>1376166880</BitOffs>
+            <BitOffs>1376167072</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</BaseType>
-            <BitOffs>1376184704</BitOffs>
+            <BitOffs>1376184896</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.bLimitForwardEnable</Name>
             <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376192704</BitOffs>
+            <BitOffs>1376192896</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.bLimitBackwardEnable</Name>
             <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376192712</BitOffs>
+            <BitOffs>1376192904</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.bHome</Name>
             <Comment> NO Home Switch: TRUE if at home</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376192720</BitOffs>
+            <BitOffs>1376192912</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.bHardwareEnable</Name>
@@ -71870,42 +71907,42 @@ contributing fast faults, unless the FFO is currently vetoed.
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1376192736</BitOffs>
+            <BitOffs>1376192928</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.nRawEncoderULINT</Name>
             <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1376192768</BitOffs>
+            <BitOffs>1376192960</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.nRawEncoderUINT</Name>
             <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
-            <BitOffs>1376192832</BitOffs>
+            <BitOffs>1376193024</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.nRawEncoderINT</Name>
             <Comment> Raw encoder IO for INT (LVDT)</Comment>
             <BitSize>16</BitSize>
             <BaseType>INT</BaseType>
-            <BitOffs>1376192848</BitOffs>
+            <BitOffs>1376193040</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.nRawEncoderDINT</Name>
             <Comment> Raw encoder IO for INT (EL5072 LVDT)</Comment>
             <BitSize>32</BitSize>
             <BaseType>DINT</BaseType>
-            <BitOffs>1376192864</BitOffs>
+            <BitOffs>1376193056</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">17</AreaNo>
           <Name>ProductionPlcTask Outputs</Name>
           <ContextId>1</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PRG_Main.fbDetYAngle.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
@@ -71935,66 +71972,66 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Comment> nm/count</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1274533376</BitOffs>
+            <BitOffs>1274533440</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1376105728</BitOffs>
+            <BitOffs>1376105920</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M1.bBrakeRelease</Name>
             <Comment> NC Brake Output: TRUE to release brake</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376114776</BitOffs>
+            <BitOffs>1376114968</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1376131712</BitOffs>
+            <BitOffs>1376131904</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2.bBrakeRelease</Name>
             <Comment> NC Brake Output: TRUE to release brake</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376140760</BitOffs>
+            <BitOffs>1376140952</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1376157696</BitOffs>
+            <BitOffs>1376157888</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3.bBrakeRelease</Name>
             <Comment> NC Brake Output: TRUE to release brake</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376166744</BitOffs>
+            <BitOffs>1376166936</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</BaseType>
-            <BitOffs>1376183680</BitOffs>
+            <BitOffs>1376183872</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8.bBrakeRelease</Name>
             <Comment> NC Brake Output: TRUE to release brake</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1376192728</BitOffs>
+            <BitOffs>1376192920</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="Internal" CreateSymbols="true">19</AreaNo>
           <Name>ProductionPlcTask Internal</Name>
           <ContextId>1</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PRG_Main.bInit</Name>
             <BitSize>8</BitSize>
@@ -72042,7 +72079,7 @@ contributing fast faults, unless the FFO is currently vetoed.
           </Symbol>
           <Symbol>
             <Name>PRG_Main.fbHController</Name>
-            <BitSize>832</BitSize>
+            <BitSize>1024</BitSize>
             <BaseType>FB_HController</BaseType>
             <BitOffs>1274532736</BitOffs>
           </Symbol>
@@ -72053,7 +72090,7 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Default>
               <SubItem>
                 <Name>.sName</Name>
-                <String>CRIXS:SVLS:DET:MMS:Y</String>
+                <String>CRIXS:SVLS:DET:MMS:Y_Angle</String>
               </SubItem>
             </Default>
             <Properties>
@@ -72071,7 +72108,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376105664</BitOffs>
+            <BitOffs>1376105856</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M2</Name>
@@ -72098,7 +72135,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376131648</BitOffs>
+            <BitOffs>1376131840</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M3</Name>
@@ -72125,7 +72162,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376157632</BitOffs>
+            <BitOffs>1376157824</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M8</Name>
@@ -72147,13 +72184,13 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcLinkTo</Name>
                 <Value>.bLimitForwardEnable  := TIIB[EL7047_01_01-DET_Y]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable := TIIB[EL7047_01_01-DET_Y]^STM Status^Status^Digital input 2;
-							  .nRawEncoderULINT     := TIPC^SVLS_MOT^SVLS_MOT Instance^ProductionPlcTask Outputs^PRG_Main.fbHController.nEncoderCounts</Value>
+                              .nRawEncoderULINT     := TIPC^SVLS_MOT^SVLS_MOT Instance^ProductionPlcTask Outputs^PRG_Main.fbHController.nEncoderCounts</Value>
               </Property>
               <Property>
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376183616</BitOffs>
+            <BitOffs>1376183808</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskPouOid_ProductionPlcTask</Name>
@@ -72167,7 +72204,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376215072</BitOffs>
+            <BitOffs>1376215264</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskOid_ProductionPlcTask</Name>
@@ -72181,7 +72218,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376215104</BitOffs>
+            <BitOffs>1376215296</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList.__ProductionPlcTask</Name>
@@ -72202,32 +72239,32 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376216128</BitOffs>
+            <BitOffs>1376216320</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">33</AreaNo>
           <Name>PlcTask Outputs</Name>
           <ContextId>2</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PRG_Test.fbHController_Test.nDetAngleEncoderState1_Test1</Name>
             <BitSize>16</BitSize>
             <BaseType>WORD</BaseType>
-            <BitOffs>1375444800</BitOffs>
+            <BitOffs>1375444992</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbHController_Test.nDetAngleEncoderComState_Test1</Name>
             <BitSize>16</BitSize>
             <BaseType>WORD</BaseType>
-            <BitOffs>1375444816</BitOffs>
+            <BitOffs>1375445008</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="Internal" CreateSymbols="true">35</AreaNo>
           <Name>PlcTask Internal</Name>
           <ContextId>2</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>DefaultGlobals.stSys</Name>
             <Comment>Included for you</Comment>
@@ -77692,31 +77729,6 @@ contributing fast faults, unless the FFO is currently vetoed.
             <BitOffs>642739744</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>Global_Variables.TcMcGlobal</Name>
-            <BitSize>7168</BitSize>
-            <BaseType Namespace="Tc2_MC2">_TCMCGLOBAL</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>642740032</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>Global_Variables.DEFAULT_HOME_POSITION</Name>
-            <BitSize>64</BitSize>
-            <BaseType>LREAL</BaseType>
-            <Default>
-              <Value>1E+307</Value>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>642747200</BitOffs>
-          </Symbol>
-          <Symbol>
             <Name>Global_Variables.DEFAULT_BACKLASHVALUE</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
@@ -78440,19 +78452,19 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Name>PRG_Test.fbCalculateHFromAngle_Test</Name>
             <BitSize>33574912</BitSize>
             <BaseType>FB_CalculateHFromAngle_Test</BaseType>
-            <BitOffs>1274549632</BitOffs>
+            <BitOffs>1274549824</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbExternalSetpointGenerator_Test</Name>
             <BitSize>33605312</BitSize>
             <BaseType>FB_ExternalSetpointGenerator_Test</BaseType>
-            <BitOffs>1308170112</BitOffs>
+            <BitOffs>1308170304</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Test.fbHController_Test</Name>
             <BitSize>33590080</BitSize>
             <BaseType>FB_HController_Test</BaseType>
-            <BitOffs>1341854784</BitOffs>
+            <BitOffs>1341854976</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_PreventOnlineChangeGvl.PlcProfilerConfigChecksum</Name>
@@ -78466,7 +78478,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376105088</BitOffs>
+            <BitOffs>1376105280</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask</Name>
@@ -78480,7 +78492,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376215136</BitOffs>
+            <BitOffs>1376215328</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskOid_PlcTask</Name>
@@ -78494,7 +78506,7 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376215168</BitOffs>
+            <BitOffs>1376215360</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList.__PlcTask</Name>
@@ -78515,14 +78527,14 @@ contributing fast faults, unless the FFO is currently vetoed.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>1376217024</BitOffs>
+            <BitOffs>1376217216</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="RetainSrc" CreateSymbols="true">36</AreaNo>
           <Name>PlcTask Retains</Name>
           <ContextId>2</ContextId>
-          <ByteSize>207486976</ByteSize>
+          <ByteSize>207421440</ByteSize>
           <Symbol>
             <Name>PMPS_GVL.SuccessfulPreemption</Name>
             <Comment> Any time BPTM applies a new BP request which is confirmed</Comment>
@@ -78605,7 +78617,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2025-04-09T17:27:21</Value>
+          <Value>2025-04-10T12:05:25</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>

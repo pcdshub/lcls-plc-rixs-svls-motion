@@ -25,7 +25,8 @@ VAR
         iMotionAxisDetAngle := fbMotionAxisDetAngle,
         iCalculateHFromAngle := fbCalculateHFromAngle,
         stMotionStageAxisDetAngle := Main.M1,
-        stMotionStageAxisDetH := Main.M8
+        stMotionStageAxisDetH := Main.M8,
+        bDetHMoveAbsoluteBusy := fbDetYH.fbDriveVirtual.fbMoveAbsolute.Busy
     );
 END_VAR
 ]]></Declaration>

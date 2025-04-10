@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13" ClassName="CDevEthernetProtocolNvDef" SubType="112" TcProjectVariant="Production">
+	<Device Id="4" DevType="112" AmsPort="28676" AmsNetId="172.21.140.150.5.1">
+		<Name>__FILENAME__</Name>
+		<AddressInfo>
+			<Pnp>
+				<DeviceDesc>igb1 (TwinCAT Intel Ethernet Adapter)</DeviceDesc>
+				<DeviceName>igb1</DeviceName>
+				<DeviceData>000000000000</DeviceData>
+			</Pnp>
+		</AddressInfo>
+		<Image Id="5" AddrType="1" ImageType="1">
+			<Name>Image</Name>
+		</Image>
+		<Ethernet DeviceDesc="igb1 (TwinCAT Intel Ethernet Adapter)"/>
+		<Eap EapDeviceGuid="{D614ABF6-E9B8-4883-9FFE-E7D5739E424C}"/>
+	</Device>
+</TcSmItem>
