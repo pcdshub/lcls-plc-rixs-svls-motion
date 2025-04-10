@@ -7,10 +7,6 @@ VAR
     fbDetYAngle : FB_MotionStage;
     fbDetZ : FB_MotionStage;
     fbGraY : FB_MotionStage;
-    fbSlitXL : FB_MotionStage;
-    fbSlitXR : FB_MotionStage;
-    fbSlitYT : FB_MotionStage;
-    fbSlitYB : FB_MotionStage;
     fbDetYH : FB_MotionStage;
     bInit : BOOL := TRUE;
 
@@ -25,19 +21,17 @@ VAR
         R_a := 1200,
         R_c := 90
     );
-    fbExternalSetpointGeneratorDetH : FB_ExternalSetpointGenerator(
-        iMotionAxis := fbMotionAxisDetH
-    );
     fbHController : FB_HController(
         iMotionAxisDetAngle := fbMotionAxisDetAngle,
         iCalculateHFromAngle := fbCalculateHFromAngle,
-        iHAxisExternalSetpointGenerator := fbExternalSetpointGeneratorDetH
+        stMotionStageAxisDetAngle := Main.M1,
+        stMotionStageAxisDetH := Main.M8
     );
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-IF (bInit) THEN
+IF bInit THEN
     bInit := FALSE;
 
     Main.M1.bHardwareEnable := TRUE;
@@ -61,25 +55,11 @@ IF (bInit) THEN
     Main.M8.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 END_IF
 
-IF Main.M1.bBusy THEN
-    Main.M8.nEnableMode := ENUM_StageEnableMode.ALWAYS;
-END_IF
-
 fbDetYAngle(stMotionStage:=Main.M1);
+fbHController();
+fbDetYH(stMotionStage:=Main.M8);
 fbDetZ(stMotionStage:=Main.M2);
 fbGraY(stMotionStage:=Main.M3);
-
-fbSlitXL(stMotionStage:=Main.M4);
-fbSlitXR(stMotionStage:=Main.M5);
-fbSlitYT(stMotionStage:=Main.M6);
-fbSlitYB(stMotionStage:=Main.M7);
-
-fbDetYH(stMotionStage:=Main.M8);
-
-fbMotionAxisDetAngle();
-fbMotionAxisDetH();
-fbExternalSetpointGeneratorDetH();
-fbHController();
 ]]></ST>
     </Implementation>
   </POU>

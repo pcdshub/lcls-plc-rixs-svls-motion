@@ -183,7 +183,7 @@ END_VAR
 ]]></Declaration>
     </Method>
     <Property Name="SetpointAcceleration" Id="{96d69b8a-074d-4ee2-83da-9ba3d145bc42}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY SetpointAcceleration : LREAL
 ]]></Declaration>
       <Get Name="Get" Id="{664de77c-602b-4799-9af8-41ed191314bd}">
@@ -191,7 +191,7 @@ PROPERTY SetpointAcceleration : LREAL
       </Get>
     </Property>
     <Property Name="SetpointJerk" Id="{52ba8748-9943-4e0f-80ab-781b0227e2d4}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY SetpointJerk : LREAL
 ]]></Declaration>
       <Get Name="Get" Id="{6f4270e7-4109-4b62-936d-01d3124dcb37}">
@@ -199,7 +199,7 @@ PROPERTY SetpointJerk : LREAL
       </Get>
     </Property>
     <Property Name="SetpointPosition" Id="{5b3af725-cd8d-439c-aea8-05e694f19feb}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY SetpointPosition : LREAL
 ]]></Declaration>
       <Get Name="Get" Id="{1af69962-684c-42ac-977e-e412309c457b}">
@@ -207,7 +207,7 @@ PROPERTY SetpointPosition : LREAL
       </Get>
     </Property>
     <Property Name="SetpointVelocity" Id="{0aed105f-084d-4362-bfb3-e91c2b94410b}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY SetpointVelocity : LREAL
 ]]></Declaration>
       <Get Name="Get" Id="{17353fd9-d464-42ba-af24-dd45833e9d25}">

@@ -1438,12 +1438,14 @@ External Setpoint Generation:
 		</ProjectVariant>
 		<AxisPara>
 			<Dynamic AccelerationMaximum="50" DecelerationMaximum="50" Acceleration="50" Deceleration="50"/>
-			<Velo RefSearch="0.1" RefSync="0.1" SlowManual="0.025" FastManual="0.05" Maximum="0.5"/>
+			<Velo RefSearch="0.1" RefSync="0.1" SlowManual="0.25" FastManual="0.5" Maximum="0.5"/>
 			<TargetPosControl Range="0.01"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
-			<EncPara ScaleFactorNumerator="5e-05" MaxCount="#xffffffff" MaxCountHighDWord="#x0000001f" ReferenceSystem="1">
+			<EncPara ScaleFactorNumerator="5e-05" Offset="-6871872.3264" MaxCount="#xffffffff" MaxCountHighDWord="#x0000001f">
+				<SoftEndMinControl Enable="true" Range="-49.25"/>
+				<SoftEndMaxControl Enable="true" Range="49.25"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1553,7 +1555,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PosDiffControl Range="0.003"/>
+				<PosDiffControl Enable="false" Range="0.03"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
@@ -1574,7 +1576,7 @@ External Setpoint Generation:
 	</Axis>
 	<Mappings>
 		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL5042_00_03">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_01_00^EL5042_01_02-DET_Y-DET_Z">
 				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
 				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState" Size="1"/>
 				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Inputs Channel 2^Position"/>
@@ -1585,7 +1587,7 @@ External Setpoint Generation:
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^TxPDO State" Size="1" OffsA="13"/>
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Warning" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL7047_00_04">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_01_00^EL7047_01_03-DET_Z">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Motor stall" Size="1" OffsA="7"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>

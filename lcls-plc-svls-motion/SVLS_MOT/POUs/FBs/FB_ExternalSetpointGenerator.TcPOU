@@ -3,14 +3,23 @@
   <POU Name="FB_ExternalSetpointGenerator" Id="{48348351-f54a-4182-b51d-178baa336e3e}" SpecialFunc="None">
     <Declaration><![CDATA[
 FUNCTION_BLOCK FB_ExternalSetpointGenerator IMPLEMENTS I_ExternalSetpointGenerator
+VAR CONSTANT
+    nOFFSET_TO_NCTOPLC_AXIS_REF_STATE : LWORD := 0;
+END_VAR
 VAR
     iMotionAxis : I_MotionAxis;
-    fbPower : MC_Power;
 
     AxisReference : REFERENCE TO AXIS_REF;
 
+    AxisReference_NcToPlc_StateDWord : NCTOPLC_AXIS_REF_STATE;
+
+    bEnableCommanded : BOOL;
     fbEnableSetPointGenerator : MC_ExtSetPointGenEnable;
+
+    bDisableCommanded : BOOL;
     fbDisableSetPointGenerator : MC_ExtSetPointGenDisable;
+
+    bHaltCommanded : BOOL;
     fbHalt : MC_Halt;
 
     bEnableBusy : BOOL;
@@ -21,20 +30,29 @@ END_VAR
       <ST><![CDATA[
 AxisReference REF= iMotionAxis.GetAxisRef();
 
+MEMCPY(
+    ADR(AxisReference_NcToPlc_StateDWord),
+    ADR(AxisReference.NcToPlc) + nOFFSET_TO_NCTOPLC_AXIS_REF_STATE,
+    SIZEOF(AxisReference_NcToPlc_StateDWord)
+);
+
 fbEnableSetPointGenerator(
     Axis := THIS^.AxisReference,
-    Execute := FALSE
+    Execute := bEnableCommanded
 );
+bEnableCommanded := FALSE;
 
 fbDisableSetPointGenerator(
     Axis := THIS^.AxisReference,
-    Execute := FALSE
+    Execute := bDisableCommanded
 );
+bDisableCommanded := FALSE;
 
 fbHalt(
     Axis := THIS^.AxisReference,
-    Execute := FALSE
+    Execute := bHaltCommanded
 );
+bHaltCommanded := FALSE;
 ]]></ST>
     </Implementation>
     <Method Name="Disable" Id="{2405d3c1-712a-4c9d-8b0e-e64f64d46922}">
@@ -50,9 +68,10 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
+bDisableCommanded := TRUE;
+
 fbDisableSetPointGenerator(
     Axis := THIS^.AxisReference,
-    Execute := TRUE,
     Done => Done,
     Busy => Busy,
     Error => Error,
@@ -63,7 +82,7 @@ fbDisableSetPointGenerator(
       </Implementation>
     </Method>
     <Property Name="DisableBusy" Id="{ebc0196e-70f0-4ec8-8965-7bf2af41f9a7}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY DisableBusy : BOOL
 ]]></Declaration>
       <Get Name="Get" Id="{3c34d3c2-fdc1-4919-924d-806fc91e5052}">
@@ -76,7 +95,7 @@ DisableBusy := fbDisableSetPointGenerator.Busy;
       </Get>
     </Property>
     <Property Name="DisableDone" Id="{3ede6098-89b4-4dc5-b10f-3f70168e307e}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY DisableDone : BOOL
 ]]></Declaration>
       <Get Name="Get" Id="{ac9144d6-7b29-46a3-b5ef-645b7d85779a}">
@@ -101,24 +120,19 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
-bEnableDone := FALSE;
-bEnableBusy := TRUE;
-
-IF iMotionAxis.PowerIsEnabled THEN
-    fbEnableSetPointGenerator(
-        Axis := THIS^.AxisReference,
-        Execute := TRUE,
-        PositionType := E_PositionType.POSITIONTYPE_ABSOLUTE,
-        Done => bEnableDone,
-        Busy => bEnableBusy,
-        Error => Error,
-        ErrorID => ErrorID,
-        Enabled => Enabled
-    );
+IF iMotionAxis.PowerIsEnabled AND iMotionAxis.PositiveMotionIsEnabled AND iMotionAxis.NegativeMotionIsEnabled THEN
+    bEnableCommanded := TRUE;
 END_IF
 
-Done := bEnableDone;
-bEnableBusy := bEnableBusy;
+fbEnableSetPointGenerator(
+    Axis := THIS^.AxisReference,
+    PositionType := E_PositionType.POSITIONTYPE_ABSOLUTE,
+    Done => bEnableDone,
+    Busy => bEnableBusy,
+    Error => Error,
+    ErrorID => ErrorID,
+    Enabled => Enabled
+);
 ]]></ST>
       </Implementation>
     </Method>
@@ -130,7 +144,7 @@ PROPERTY EnableBusy : BOOL
         <Declaration><![CDATA[]]></Declaration>
         <Implementation>
           <ST><![CDATA[
-EnableBusy := bEnableBusy;
+EnableBusy := fbEnableSetPointGenerator.Busy;
 ]]></ST>
         </Implementation>
       </Get>
@@ -143,7 +157,20 @@ PROPERTY EnableDone : BOOL
         <Declaration><![CDATA[]]></Declaration>
         <Implementation>
           <ST><![CDATA[
-EnableDone := bEnableDone;
+EnableDone := fbEnableSetPointGenerator.Done;
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="EnableError" Id="{aa38d092-dd85-4db1-8c2f-5f772a359ac6}">
+      <Declaration><![CDATA[
+PROPERTY EnableError : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{1d8a418c-a427-43b4-a6b4-02816c244598}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[
+EnableError := fbEnableSetPointGenerator.Error;
 ]]></ST>
         </Implementation>
       </Get>
@@ -219,7 +246,7 @@ METHOD PUBLIC IsEnabled : BOOL
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
-IsEnabled := AxisReference.NcToPlc.AxisState = 41;
+IsEnabled := AxisReference_NcToPlc_StateDWord.14 AND fbEnableSetPointGenerator.Enabled;
 ]]></ST>
       </Implementation>
     </Method>
@@ -229,13 +256,19 @@ METHOD PUBLIC SetAcceleraSetpoint
 VAR_INPUT
     Setpoint : LREAL;
 END_VAR
+VAR_OUTPUT
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
+END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
 SetSetpoints(
     PositionSetpoint := THIS^.AxisReference.NcToPlc.SetPos,
     VelocitySetpoint := THIS^.AxisReference.NcToPlc.SetVelo,
-    AcceleraSetpoint := Setpoint
+    AcceleraSetpoint := Setpoint,
+    Error => Error,
+    ErrorMsg => ErrorMsg
 );
 ]]></ST>
       </Implementation>
@@ -246,13 +279,19 @@ METHOD PUBLIC SetPositionSetpoint
 VAR_INPUT
     Setpoint : LREAL;
 END_VAR
+VAR_OUTPUT
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
+END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
 SetSetpoints(
     PositionSetpoint := Setpoint,
     VelocitySetpoint := THIS^.AxisReference.NcToPlc.SetVelo,
-    AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc
+    AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc,
+    Error => Error,
+    ErrorMsg => ErrorMsg
 );
 ]]></ST>
       </Implementation>
@@ -265,16 +304,38 @@ VAR_INPUT
     VelocitySetpoint : LREAL;
     AcceleraSetpoint : LREAL;
 END_VAR
+VAR_OUTPUT
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
+END_VAR
 VAR
     nDirection : DINT;
 END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
+IF NOT THIS^.iMotionAxis.PowerIsEnabled THEN
+    Error := TRUE;
+    ErrorMsg := 'Cannot set external setpoint due to axis power being disabled.';
+    RETURN;
+END_IF
+
 IF PositionSetpoint < THIS^.AxisReference.NcToPlc.ActPos THEN
     nDirection := -1;
 ELSE
     nDirection := 1;
+END_IF
+
+IF nDirection = 1 AND NOT THIS^.iMotionAxis.PositiveMotionIsEnabled THEN
+    Error := TRUE;
+    ErrorMsg := 'Cannot set setpoint in the positive direction because positive motion is disabled.';
+    RETURN;
+END_IF
+
+IF nDirection = -1 AND NOT THIS^.iMotionAxis.NegativeMotionIsEnabled THEN
+    Error := TRUE;
+    ErrorMsg := 'Cannot set setpoint in the negative direction because negative motion is disabled.';
+    RETURN;
 END_IF
 
 MC_ExtSetPointGenFeed(
@@ -293,13 +354,19 @@ METHOD PUBLIC SetVelocitySetpoint
 VAR_INPUT
     Setpoint : LREAL;
 END_VAR
+VAR_OUTPUT
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
+END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
 SetSetpoints(
     PositionSetpoint := THIS^.AxisReference.NcToPlc.SetPos,
     VelocitySetpoint := Setpoint,
-    AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc
+    AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc,
+    Error => Error,
+    ErrorMsg => ErrorMsg
 );
 ]]></ST>
       </Implementation>

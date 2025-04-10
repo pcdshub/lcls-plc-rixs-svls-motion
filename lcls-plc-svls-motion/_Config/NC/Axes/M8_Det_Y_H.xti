@@ -1437,14 +1437,15 @@ External Setpoint Generation:
 			</Variant>
 		</ProjectVariant>
 		<AxisPara>
-			<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="100" Deceleration="100" Jerk="1000"/>
-			<Velo RefSearch="1" RefSync="1" SlowManual="0.5" FastManual="1" Maximum="1"/>
-			<PositionAreaControl Range="0.1"/>
-			<TargetPosControl Range="0.1"/>
+			<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="1" Deceleration="1" Jerk="10"/>
+			<Velo RefSearch="0.1" RefSync="0.1" SlowManual="0.25" FastManual="0.45" Maximum="0.25"/>
+			<PositionAreaControl Enable="false" Range="1"/>
+			<TargetPosControl Range="1" Time="1"/>
 			<OtherSettings AllowMotionCmdToSlave="true" AllowMotionCmdToExtSetGenAxis="true" PulseDistancePos="1" PulseDistanceNeg="1"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
-			<EncPara MaxCount="#xffffffff" MaxCountHighDWord="#x0000001f">
+			<EncPara ScaleFactorNumerator="1e-06" MaxCount="#xffffffff" MaxCountHighDWord="#x0000001f">
+				<FilterTime TVelo="1"/>
 				<SoftEndMinControl Enable="true" Range="80.9"/>
 				<SoftEndMaxControl Enable="true" Range="259.5"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
@@ -1484,7 +1485,7 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="24">
 			<DrvPara>
-				<Analog VeloReferenz="1" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="0.5" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1556,7 +1557,8 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PosDiffControl Range="0.1"/>
+				<PosDiffControl Enable="false" Range="0.1"/>
+				<PID PosKp="0"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
@@ -1577,7 +1579,7 @@ External Setpoint Generation:
 	</Axis>
 	<Mappings>
 		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL5042_00_03">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_01_00^EL5042_01_02-DET_Y-DET_Z">
 				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
 				<Link VarA="Enc^Inputs^In^nComState" VarB="WcState^WcState" Size="1"/>
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Diag" Size="1" OffsA="12"/>
@@ -1587,7 +1589,7 @@ External Setpoint Generation:
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^TxPDO State" Size="1" OffsA="13"/>
 				<Link VarA="Enc^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Warning" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^EL7047_00_02">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^EK1200_01_00^EL7047_01_01-DET_Y">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Error" Size="1" OffsA="3"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Motor stall" Size="1" OffsA="7"/>
 				<Link VarA="Drive^Inputs^In^nState1" VarB="STM Status^Status^Moving negative" Size="1" OffsA="5"/>

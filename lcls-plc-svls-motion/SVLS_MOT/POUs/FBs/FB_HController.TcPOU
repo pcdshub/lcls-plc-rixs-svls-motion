@@ -6,23 +6,18 @@ FUNCTION_BLOCK FB_HController IMPLEMENTS I_HController
 VAR
     iMotionAxisDetAngle : I_MotionAxis;
     iCalculateHFromAngle : I_CalculateHFromAngle;
-    iHAxisExternalSetpointGenerator : I_ExternalSetpointGenerator;
+    stMotionStageAxisDetAngle : REFERENCE TO ST_MotionStage;
+    stMotionStageAxisDetH : REFERENCE TO ST_MotionStage;
 
-    // Link to H Axis position feedback
     fHPositionMeasured : LREAL;
-    fHVelocityMeasured : LREAL;
-    fHAcceleraMeasured : LREAL;
-
     fHPositionSetpoint : LREAL;
-    fHVelocitySetpoint : LREAL;
-    fHAcceleraSetpoint : LREAL;
 
-    tofOffDelay : TOF;
-    tOffDelay : TIME := T#100ms;
+    fHPositionGain : LREAL;
+    fHPositionAdjustmentIntegration : LREAL;
 
-    nDriveDetAngleVelocityCommand AT %I* : UINT;
     nEncoderCounts AT %Q* : ULINT; // nm/count
-    nEncoderCountsSmall AT %Q* : UDINT; // nm/count
+
+    rtMoveCmdTrigger : R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -31,30 +26,23 @@ fHPositionMeasured := iCalculateHFromAngle.CalculateH(
     Radians := DEG_TO_RAD(iMotionAxisDetAngle.MeasuredPosition)
 );
 
-nEncoderCounts := TO_ULINT(fHPositionMeasured * 1e6);
-nEncoderCountsSmall := TO_UDINT(nEncoderCounts);
+nEncoderCounts := TO_ULINT(fHPositionMeasured * 1E6);
 
 fHPositionSetpoint := iCalculateHFromAngle.CalculateH(
     Radians := DEG_TO_RAD(iMotionAxisDetAngle.SetpointPosition)
 );
 
-tofOffDelay(IN := iMotionAxisDetAngle.MoveAbsoluteBusy, PT := tOffDelay);
+rtMoveCmdTrigger(CLK := stMotionStageAxisDetAngle.bExecute);
 
-IF tofOffDelay.Q AND NOT iHAxisExternalSetpointGenerator.IsEnabled() THEN
-    iHAxisExternalSetpointGenerator.Enable();
-ELSIF tofOffDelay.Q AND iHAxisExternalSetpointGenerator.IsEnabled() THEN
-    // Update setpoint command cyclically
-    iHAxisExternalSetpointGenerator.SetSetpoints(
-        PositionSetpoint := fHPositionSetpoint,
-        VelocitySetpoint := fHVelocitySetpoint,
-        AcceleraSetpoint := fHAcceleraSetpoint
+IF rtMoveCmdTrigger.Q THEN
+    stMotionStageAxisDetH.bMoveCmd := TRUE;
+    stMotionStageAxisDetH.fPosition := iCalculateHFromAngle.CalculateH(
+        Radians := DEG_TO_RAD(stMotionStageAxisDetAngle.fPosition)
     );
-ELSIF iHAxisExternalSetpointGenerator.IsEnabled() THEN
-    iHAxisExternalSetpointGenerator.Halt();
+END_IF
 
-    IF iHAxisExternalSetpointGenerator.HaltDone THEN
-        iHAxisExternalSetpointGenerator.Disable();
-    END_IF
+IF NOT stMotionStageAxisDetH.bBusy THEN
+    stMotionStageAxisDetAngle.bExecute := FALSE;
 END_IF
 ]]></ST>
     </Implementation>
@@ -67,14 +55,16 @@ VAR_INPUT
 
     iMotionAxisDetAngle : I_MotionAxis;
     iCalculateHFromAngle : I_CalculateHFromAngle;
-    iHAxisExternalSetpointGenerator : I_ExternalSetpointGenerator;
+    stMotionStageAxisDetAngle : REFERENCE TO ST_MotionStage;
+    stMotionStageAxisDetH : REFERENCE TO ST_MotionStage;
 END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
 THIS^.iMotionAxisDetAngle := iMotionAxisDetAngle;
 THIS^.iCalculateHFromAngle := iCalculateHFromAngle;
-THIS^.iHAxisExternalSetpointGenerator := iHAxisExternalSetpointGenerator;
+THIS^.stMotionStageAxisDetAngle REF= stMotionStageAxisDetAngle;
+THIS^.stMotionStageAxisDetH REF= stMotionStageAxisDetH;
 ]]></ST>
       </Implementation>
     </Method>

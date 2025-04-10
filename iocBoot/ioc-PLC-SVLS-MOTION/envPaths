@@ -1,2 +1,0 @@
-epicsEnvSet("IOC_TOP", "/c/Users/divyak/Documents/Github_Files/lcls-plc-rixs-svls-motion/lcls-plc-svls-motion/iocBoot/ioc-PLC-SVLS-MOTION")
-epicsEnvSet("IOC_DATA", "/cds/data/iocData")

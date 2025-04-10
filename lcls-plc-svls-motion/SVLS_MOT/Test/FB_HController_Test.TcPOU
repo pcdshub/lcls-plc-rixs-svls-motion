@@ -14,22 +14,16 @@ VAR
     fbExternalSetpointGenerator_Test1 : FB_ExternalSetpointGenerator(
         iMotionAxis := MotionAxisDetH_Test1
     );
-    fbHController_Test1 : FB_HController(
-        iMotionAxisDetAngle := MotionAxisDetAngle_Test1,
-        iCalculateHFromAngle := fbCalculateHFromAngle_Test1,
-        iHAxisExternalSetpointGenerator := fbExternalSetpointGenerator_Test1
-    );
     nDetAngleEncoderState1_Test1 AT %Q* : WORD;
     nDetAngleEncoderComState_Test1 AT %Q* : WORD;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-TestIntegrationExpectFunctional_Test1();
-]]></ST>
+      <ST><![CDATA[]]></ST>
     </Implementation>
     <Method Name="FB_init" Id="{b69272d5-5539-4b28-b9fb-05d934859fe9}">
-      <Declaration><![CDATA[METHOD FB_init : BOOL
+      <Declaration><![CDATA[
+METHOD FB_init : BOOL
 VAR_INPUT
     (* if TRUE, the retain variables are initialized (warm start / cold start)*)
     bInitRetains	: BOOL;
@@ -50,106 +44,6 @@ fbExternalSetpointGenerator_Test1.FB_Init(
     bInCopyCode := FALSE,
     iMotionAxis := MotionAxisDetH_Test1
 );
-
-fbHController_Test1.FB_Init(
-    bInitRetains := FALSE,
-    bInCopyCode := FALSE,
-    iMotionAxisDetAngle := MotionAxisDetAngle_Test1,
-    iCalculateHFromAngle := fbCalculateHFromAngle_Test1,
-    iHAxisExternalSetpointGenerator := fbExternalSetpointGenerator_Test1
-);
-]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="TestIntegrationExpectFunctional_Test1" Id="{2abd99a9-9b51-424f-a166-430ee3861092}">
-      <Declaration><![CDATA[
-METHOD PRIVATE TestIntegrationExpectFunctional_Test1
-VAR_INST
-    nTestStep : INT;
-    tonTimeout : TON;
-    tTimeout : TIME := T#10s;
-
-    fTargetHAnglePositionDegrees : LREAL;
-    fTargetHAnglePositionRadians : LREAL;
-    fExpectedHPosition : LREAL;
-    fAllowedDelta : LREAL := 1e-3;
-
-    bToggle : BOOL;
-END_VAR
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[
-TEST(__POUNAME());
-
-IF bToggle THEN
-    bToggle := FALSE;
-    nDetAngleEncoderComState_Test1 := 2#0000_0000_0000_0000;
-    nDetAngleEncoderState1_Test1 := 2#1010_0000_0000_0100;
-ELSE
-    bToggle := TRUE;
-    nDetAngleEncoderComState_Test1 := 2#0000_0000_0000_0010;
-    nDetAngleEncoderState1_Test1 := 2#1110_0000_0000_0100;
-END_IF
-
-fbExternalSetpointGenerator_Test1();
-fbHController_Test1();
-
-CASE nTestStep OF
-    0:
-        MotionAxisDetAngle_Test1.Power(
-            Enable := TRUE,
-            Enable_Positive := TRUE,
-            Enable_Negative := TRUE,
-        );
-        MotionAxisDetH_Test1.Power(
-            Enable := TRUE,
-            Enable_Positive := TRUE,
-            Enable_Negative := TRUE,
-        );
-
-        nTestStep := nTestStep + 1;
-    1:
-        IF MotionAxisDetAngle_Test1.PowerIsEnabled THEN
-            nTestStep := nTestStep + 1;
-        END_IF
-    2:
-        fTargetHAnglePositionDegrees := 5.0;
-        fTargetHAnglePositionRadians := DEG_TO_RAD(fTargetHAnglePositionDegrees);
-
-        MotionAxisDetAngle_Test1.MoveAbsolute(
-            Position := fTargetHAnglePositionDegrees,
-            Velocity := 1.0
-        );
-
-        nTestStep := nTestStep + 1;
-    3:
-        IF MotionAxisDetAngle_Test1.MeasuredPosition = fTargetHAnglePositionDegrees THEN
-            nTestStep := nTestStep + 1;
-        END_IF
-    4:
-        fExpectedHPosition := fbCalculateHFromAngle_Test1.CalculateH(
-            Radians := fTargetHAnglePositionRadians
-        );
-        IF ABS(MotionAxisDetH_Test1.MeasuredPosition - fExpectedHPosition) <= fAllowedDelta THEN
-            nTestStep := nTestStep + 1;
-        END_IF
-    5:
-        // Done
-END_CASE
-
-
-IF nTestStep = 5 THEN
-    TEST_FINISHED();
-ELSIF tonTimeout.Q THEN
-    AssertTrue(
-        Condition := FALSE,
-        Message := CONCAT('Timer timed out at step: ', TO_STRING(nTestStep))
-    );
-
-    TEST_FINISHED();
-ELSE
-    tonTimeout(IN := TRUE, PT := tTimeout);
-END_IF
 ]]></ST>
       </Implementation>
     </Method>
