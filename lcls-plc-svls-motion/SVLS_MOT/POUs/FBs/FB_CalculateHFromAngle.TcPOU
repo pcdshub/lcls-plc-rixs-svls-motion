@@ -78,7 +78,7 @@ CalculateH := R_a * SIN(Angle) - SQRT(sqrt_operand);
       <Declaration><![CDATA[
 METHOD CalculateHVelocity : LREAL
 VAR_INPUT
-	Radians : LREAL;
+    Radians : LREAL;
     RadiansPerSecond : LREAL;
 END_VAR
 VAR_OUTPUT
@@ -86,12 +86,12 @@ VAR_OUTPUT
     ErrorMsg : T_MaxString;
 END_VAR
 VAR
-	A : LREAL;
-	b : LREAL;
-	b_dot : LREAL;
-	C : LREAL;
-	D : LREAL;
-	fNumberToSqrt : LREAL;
+    A : LREAL;
+    b : LREAL;
+    b_dot : LREAL;
+    C : LREAL;
+    D : LREAL;
+    fNumberToSqrt : LREAL;
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -104,9 +104,9 @@ D := D_tu;
 fNumberToSqrt := 1 - EXPT((D - (A * COS(b))/C), 2);
 
 IF fNumberToSqrt <= 0 THEN
-	Error := TRUE;
-	ErrorMsg := 'number to sqrt was 0 or less than 0.';
-	RETURN;
+    Error := TRUE;
+    ErrorMsg := 'number to sqrt was 0 or less than 0.';
+    RETURN;
 END_IF
 
 CalculateHVelocity := A * b_dot * (COS(b) - (SIN(b)*(D - (COS(b))/C))/(SQRT(fNumberToSqrt)));
@@ -133,25 +133,5 @@ THIS^.R_a := R_a;
 ]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_CalculateHFromAngle">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle.CalculateH">
-      <LineId Id="3" Count="34" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle.CalculateHVelocity">
-      <LineId Id="1" Count="5" />
-      <LineId Id="10" Count="0" />
-      <LineId Id="12" Count="0" />
-      <LineId Id="11" Count="0" />
-      <LineId Id="15" Count="1" />
-      <LineId Id="13" Count="1" />
-      <LineId Id="7" Count="2" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle.FB_Init">
-      <LineId Id="3" Count="3" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

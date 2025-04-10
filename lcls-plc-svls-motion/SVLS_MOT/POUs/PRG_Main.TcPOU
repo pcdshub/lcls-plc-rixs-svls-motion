@@ -21,17 +21,12 @@ VAR
         R_a := 1200,
         R_c := 90
     );
-    fbExternalSetpointGeneratorDetH : FB_ExternalSetpointGenerator(
-        iMotionAxis := fbMotionAxisDetH
-    );
     fbHController : FB_HController(
         iMotionAxisDetAngle := fbMotionAxisDetAngle,
         iCalculateHFromAngle := fbCalculateHFromAngle,
-        iHAxisExternalSetpointGenerator := fbExternalSetpointGeneratorDetH
+        stMotionStageAxisDetAngle := Main.M1,
+        stMotionStageAxisDetH := Main.M8
     );
-	
-	nStep : INT;
-	rtMoveCmdTrigger : R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -60,110 +55,12 @@ IF bInit THEN
     Main.M8.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 END_IF
 
-// CASE nStep OF
-// 	0: 
-// 		IF Main.M1.bExecute THEN
-// 			Main.M1.bExecute := FALSE;
-// 			Main.M1.bReset := TRUE;
-// 			Main.M8.bReset := TRUE;
-// 			nStep := nStep + 1;
-// 		END_IF
-// 	1:
-//     	Main.M1.bPowerSelf := FALSE;
-//     	Main.M8.bPowerSelf := FALSE;
-// 		nStep := nStep + 1;
-// 	2:
-// 		fbMotionAxisDetAngle.Power(
-// 			Enable := TRUE,
-// 			Enable_Positive := Main.M1.bLimitForwardEnable,
-// 			Enable_Negative := Main.M1.bLimitBackwardEnable
-// 		);
-// 		fbMotionAxisDetH.Power(
-// 			Enable := TRUE,
-// 			Enable_Positive := Main.M8.bLimitForwardEnable,
-// 			Enable_Negative := Main.M8.bLimitBackwardEnable
-// 		);
-// 		nStep := nStep + 1;
-// 	3:
-//         IF fbMotionAxisDetAngle.PowerIsEnabled AND 
-// 			fbMotionAxisDetAngle.PositiveMotionIsEnabled AND 
-// 			fbMotionAxisDetAngle.NegativeMotionIsEnabled AND
-// 			fbMotionAxisDetH.PowerIsEnabled AND
-// 			fbMotionAxisDetH.PositiveMotionIsEnabled AND 
-// 			fbMotionAxisDetH.NegativeMotionIsEnabled THEN
-//             nStep := nStep + 1;
-//         END_IF
-// 	4:
-// 		fbMotionAxisDetAngle.MoveAbsolute(
-// 			Position := Main.M1.fPosition,
-// 			Velocity := Main.M1.fVelocity,
-// 			Acceleration := Main.M1.fAcceleration,
-// 			Deceleration := Main.M1.fAcceleration
-// 		);
-// 		nStep := nStep + 1;
-// 	5:
-// 		IF fbMotionAxisDetAngle.MoveAbsoluteBusy THEN
-// 			nStep := nStep + 1;
-// 		END_IF
-// 	6: 
-// 		IF NOT fbMotionAxisDetAngle.MoveAbsoluteBusy AND NOT fbExternalSetpointGeneratorDetH.IsEnabled() THEN
-// 			Main.M1.bExecute := FALSE;
-// 			Main.M1.bPowerSelf := TRUE;
-// 			Main.M8.bPowerSelf := TRUE;
-// 			nStep := 0;
-// 		END_IF
-// END_CASE
-// 
-// IF Main.M1.bReset OR Main.M8.bReset AND nStep >= 3 THEN
-// 	Main.M1.bPowerSelf := TRUE;
-// 	Main.M8.bPowerSelf := TRUE;
-// END_IF
-
 fbDetYAngle(stMotionStage:=Main.M1);
-rtMoveCmdTrigger(CLK := Main.M1.bExecute);
-
-IF rtMoveCmdTrigger.Q THEN
-	Main.M8.bMoveCmd := TRUE;
-	Main.M8.fPosition := fbCalculateHFromAngle.CalculateH(
-    	Radians := DEG_TO_RAD(Main.M1.fPosition)
-	);
-	Main.M8.fVelocity := 0.25;
-END_IF
-
+fbHController();
 fbDetYH(stMotionStage:=Main.M8);
-
-IF NOT Main.M8.bBusy THEN
-	Main.M1.bExecute := FALSE;
-END_IF
-// fbMotionAxisDetAngle();
-// fbMotionAxisDetH();
-
 fbDetZ(stMotionStage:=Main.M2);
 fbGraY(stMotionStage:=Main.M3);
-// fbExternalSetpointGeneratorDetH();
-fbHController();
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_Main">
-      <LineId Id="2" Count="27" />
-      <LineId Id="238" Count="0" />
-      <LineId Id="31" Count="3" />
-      <LineId Id="37" Count="38" />
-      <LineId Id="233" Count="0" />
-      <LineId Id="77" Count="7" />
-      <LineId Id="235" Count="0" />
-      <LineId Id="86" Count="2" />
-      <LineId Id="250" Count="0" />
-      <LineId Id="240" Count="2" />
-      <LineId Id="246" Count="3" />
-      <LineId Id="243" Count="0" />
-      <LineId Id="239" Count="0" />
-      <LineId Id="89" Count="0" />
-      <LineId Id="252" Count="0" />
-      <LineId Id="251" Count="0" />
-      <LineId Id="256" Count="0" />
-      <LineId Id="254" Count="0" />
-      <LineId Id="90" Count="7" />
-    </LineIds>
   </POU>
 </TcPlcObject>

@@ -10,16 +10,16 @@ VAR
     iMotionAxis : I_MotionAxis;
 
     AxisReference : REFERENCE TO AXIS_REF;
-	
+
     AxisReference_NcToPlc_StateDWord : NCTOPLC_AXIS_REF_STATE;
 
-	bEnableCommanded : BOOL;
+    bEnableCommanded : BOOL;
     fbEnableSetPointGenerator : MC_ExtSetPointGenEnable;
-	
-	bDisableCommanded : BOOL;
+
+    bDisableCommanded : BOOL;
     fbDisableSetPointGenerator : MC_ExtSetPointGenDisable;
-	
-	bHaltCommanded : BOOL;
+
+    bHaltCommanded : BOOL;
     fbHalt : MC_Halt;
 
     bEnableBusy : BOOL;
@@ -68,8 +68,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[
-bDisableCommanded := TRUE;	
-	
+bDisableCommanded := TRUE;
+
 fbDisableSetPointGenerator(
     Axis := THIS^.AxisReference,
     Done => Done,
@@ -82,7 +82,7 @@ fbDisableSetPointGenerator(
       </Implementation>
     </Method>
     <Property Name="DisableBusy" Id="{ebc0196e-70f0-4ec8-8965-7bf2af41f9a7}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY DisableBusy : BOOL
 ]]></Declaration>
       <Get Name="Get" Id="{3c34d3c2-fdc1-4919-924d-806fc91e5052}">
@@ -95,7 +95,7 @@ DisableBusy := fbDisableSetPointGenerator.Busy;
       </Get>
     </Property>
     <Property Name="DisableDone" Id="{3ede6098-89b4-4dc5-b10f-3f70168e307e}">
-      <Declaration><![CDATA[{warning 'Add property implementation'}
+      <Declaration><![CDATA[
 PROPERTY DisableDone : BOOL
 ]]></Declaration>
       <Get Name="Get" Id="{ac9144d6-7b29-46a3-b5ef-645b7d85779a}">
@@ -121,17 +121,17 @@ END_VAR
       <Implementation>
         <ST><![CDATA[
 IF iMotionAxis.PowerIsEnabled AND iMotionAxis.PositiveMotionIsEnabled AND iMotionAxis.NegativeMotionIsEnabled THEN
-	bEnableCommanded := TRUE;
-END_IF	
+    bEnableCommanded := TRUE;
+END_IF
 
 fbEnableSetPointGenerator(
-	Axis := THIS^.AxisReference,
-	PositionType := E_PositionType.POSITIONTYPE_ABSOLUTE,
-	Done => bEnableDone,
-	Busy => bEnableBusy,
-	Error => Error,
-	ErrorID => ErrorID,
-	Enabled => Enabled
+    Axis := THIS^.AxisReference,
+    PositionType := E_PositionType.POSITIONTYPE_ABSOLUTE,
+    Done => bEnableDone,
+    Busy => bEnableBusy,
+    Error => Error,
+    ErrorID => ErrorID,
+    Enabled => Enabled
 );
 ]]></ST>
       </Implementation>
@@ -257,8 +257,8 @@ VAR_INPUT
     Setpoint : LREAL;
 END_VAR
 VAR_OUTPUT
-	Error : BOOL;
-	ErrorMsg : T_MaxString;
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -267,8 +267,8 @@ SetSetpoints(
     PositionSetpoint := THIS^.AxisReference.NcToPlc.SetPos,
     VelocitySetpoint := THIS^.AxisReference.NcToPlc.SetVelo,
     AcceleraSetpoint := Setpoint,
-	Error => Error,
-	ErrorMsg => ErrorMsg
+    Error => Error,
+    ErrorMsg => ErrorMsg
 );
 ]]></ST>
       </Implementation>
@@ -280,8 +280,8 @@ VAR_INPUT
     Setpoint : LREAL;
 END_VAR
 VAR_OUTPUT
-	Error : BOOL;
-	ErrorMsg : T_MaxString;
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -290,8 +290,8 @@ SetSetpoints(
     PositionSetpoint := Setpoint,
     VelocitySetpoint := THIS^.AxisReference.NcToPlc.SetVelo,
     AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc,
-	Error => Error,
-	ErrorMsg => ErrorMsg
+    Error => Error,
+    ErrorMsg => ErrorMsg
 );
 ]]></ST>
       </Implementation>
@@ -305,8 +305,8 @@ VAR_INPUT
     AcceleraSetpoint : LREAL;
 END_VAR
 VAR_OUTPUT
-	Error : BOOL;
-	ErrorMsg : T_MaxString;
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
 END_VAR
 VAR
     nDirection : DINT;
@@ -315,9 +315,9 @@ END_VAR
       <Implementation>
         <ST><![CDATA[
 IF NOT THIS^.iMotionAxis.PowerIsEnabled THEN
-	Error := TRUE;
-	ErrorMsg := 'Cannot set external setpoint due to axis power being disabled.';
-	RETURN;
+    Error := TRUE;
+    ErrorMsg := 'Cannot set external setpoint due to axis power being disabled.';
+    RETURN;
 END_IF
 
 IF PositionSetpoint < THIS^.AxisReference.NcToPlc.ActPos THEN
@@ -327,15 +327,15 @@ ELSE
 END_IF
 
 IF nDirection = 1 AND NOT THIS^.iMotionAxis.PositiveMotionIsEnabled THEN
-	Error := TRUE;
-	ErrorMsg := 'Cannot set setpoint in the positive direction because positive motion is disabled.';
-	RETURN;
+    Error := TRUE;
+    ErrorMsg := 'Cannot set setpoint in the positive direction because positive motion is disabled.';
+    RETURN;
 END_IF
 
 IF nDirection = -1 AND NOT THIS^.iMotionAxis.NegativeMotionIsEnabled THEN
-	Error := TRUE;
-	ErrorMsg := 'Cannot set setpoint in the negative direction because negative motion is disabled.';
-	RETURN;
+    Error := TRUE;
+    ErrorMsg := 'Cannot set setpoint in the negative direction because negative motion is disabled.';
+    RETURN;
 END_IF
 
 MC_ExtSetPointGenFeed(
@@ -355,8 +355,8 @@ VAR_INPUT
     Setpoint : LREAL;
 END_VAR
 VAR_OUTPUT
-	Error : BOOL;
-	ErrorMsg : T_MaxString;
+    Error : BOOL;
+    ErrorMsg : T_MaxString;
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -365,110 +365,11 @@ SetSetpoints(
     PositionSetpoint := THIS^.AxisReference.NcToPlc.SetPos,
     VelocitySetpoint := Setpoint,
     AcceleraSetpoint := THIS^.AxisReference.NcToPlc.SetAcc,
-	Error => Error,
-	ErrorMsg => ErrorMsg
+    Error => Error,
+    ErrorMsg => ErrorMsg
 );
 ]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_ExternalSetpointGenerator">
-      <LineId Id="3" Count="0" />
-      <LineId Id="20" Count="0" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="21" Count="3" />
-      <LineId Id="4" Count="5" />
-      <LineId Id="26" Count="0" />
-      <LineId Id="10" Count="4" />
-      <LineId Id="27" Count="0" />
-      <LineId Id="15" Count="4" />
-      <LineId Id="28" Count="0" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.Disable">
-      <LineId Id="13" Count="0" />
-      <LineId Id="3" Count="0" />
-      <LineId Id="14" Count="0" />
-      <LineId Id="4" Count="1" />
-      <LineId Id="7" Count="5" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.DisableBusy.Get">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.DisableDone.Get">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.Enable">
-      <LineId Id="6" Count="1" />
-      <LineId Id="17" Count="0" />
-      <LineId Id="22" Count="9" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.EnableBusy.Get">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.EnableDone.Get">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.EnableError.Get">
-      <LineId Id="1" Count="2" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.FB_Init">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.Halt">
-      <LineId Id="3" Count="10" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.HaltBusy.Get">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.HaltDone.Get">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.IsEnabled">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.SetAcceleraSetpoint">
-      <LineId Id="3" Count="3" />
-      <LineId Id="9" Count="1" />
-      <LineId Id="7" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.SetPositionSetpoint">
-      <LineId Id="3" Count="3" />
-      <LineId Id="9" Count="1" />
-      <LineId Id="7" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.SetSetpoints">
-      <LineId Id="17" Count="0" />
-      <LineId Id="33" Count="2" />
-      <LineId Id="18" Count="0" />
-      <LineId Id="32" Count="0" />
-      <LineId Id="3" Count="5" />
-      <LineId Id="20" Count="0" />
-      <LineId Id="19" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="23" Count="7" />
-      <LineId Id="22" Count="0" />
-      <LineId Id="9" Count="7" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_ExternalSetpointGenerator.SetVelocitySetpoint">
-      <LineId Id="3" Count="4" />
-      <LineId Id="9" Count="1" />
-      <LineId Id="8" Count="0" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

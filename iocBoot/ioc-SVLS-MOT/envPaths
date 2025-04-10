@@ -1,0 +1,2 @@
+epicsEnvSet("IOC_TOP", "/c/Users/nlentz/Documents/PLC/lcls-plc-rixs-svls-motion/iocBoot/ioc-SVLS-MOT")
+epicsEnvSet("IOC_DATA", "/cds/data/iocData")
