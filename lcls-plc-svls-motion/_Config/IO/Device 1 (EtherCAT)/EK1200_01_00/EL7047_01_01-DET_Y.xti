@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13" ClassName="CFlbTermDef" SubType="9099" TcProjectVariant="Production">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.13" ClassName="CFlbTermDef" SubType="9099">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000002}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BIT</Name>
@@ -98,6 +98,7 @@
 			<MBoxUserCmdData>020003000a0000000f00000003000000000000000000000000000000000000002010800302000000c0124e6f6d696e616c20766f6c7461676500</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a00000015000000030000000000000000000000000000000000000020108004020000004e004d6f746f7220636f696c20726573697374616e636500</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000001500000003000000000000000000000000000000000000002010800a02000000b2024d6f746f7220636f696c20696e64756374616e636500</MBoxUserCmdData>
+			<MBoxUserCmdData>02000300090000000b000000030000000000000000000000000000000000000020128005010000000053706565642072616e676500</MBoxUserCmdData>
 			<Pdo Name="ENC Status compact" Index="#x1a00" Flags="#x0010" SyncMan="3">
 				<ExcludePdo>#x1a01</ExcludePdo>
 				<Entry Name="Status__Latch C valid" Index="#x6000" Sub="#x01">
