@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="FB_CalculateHFromAngle" Id="{74d36053-ce73-4c0d-83ef-36d44fd8b264}" SpecialFunc="None">
     <Declaration><![CDATA[
 {attribute 'no_explicit_call' := 'Do not call this POU directly'}
@@ -133,5 +133,20 @@ THIS^.R_a := R_a;
 ]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_CalculateHFromAngle">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle.CalculateH">
+      <LineId Id="3" Count="34" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle.CalculateHVelocity">
+      <LineId Id="3" Count="14" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle.FB_Init">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

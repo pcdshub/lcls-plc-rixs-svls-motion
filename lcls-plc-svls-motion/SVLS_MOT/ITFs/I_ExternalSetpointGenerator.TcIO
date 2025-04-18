@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+<TcPlcObject Version="1.1.0.1">
   <Itf Name="I_ExternalSetpointGenerator" Id="{256ff4ab-16a6-4272-805e-f8c2c4343ca7}">
     <Declaration><![CDATA[INTERFACE I_ExternalSetpointGenerator
 ]]></Declaration>

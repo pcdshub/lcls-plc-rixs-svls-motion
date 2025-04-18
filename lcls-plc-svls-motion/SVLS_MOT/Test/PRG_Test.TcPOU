@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="PRG_Test" Id="{520dd319-32a4-44da-81fb-95c6b30f9a52}" SpecialFunc="None">
     <Declaration><![CDATA[
 PROGRAM PRG_Test
@@ -51,5 +51,9 @@ fbMotionStage_HControllerDetH_Test1(stMotionStage := stMotionStage_HControllerDe
 TcUnit.RUN();
 ]]></ST>
     </Implementation>
+    <LineIds Name="PRG_Test">
+      <LineId Id="3" Count="9" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
