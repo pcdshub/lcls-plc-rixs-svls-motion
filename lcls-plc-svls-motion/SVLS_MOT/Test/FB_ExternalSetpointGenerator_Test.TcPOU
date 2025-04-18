@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="FB_ExternalSetpointGenerator_Test" Id="{7ed145d7-0ddc-4b18-b40e-a62840fa4cec}" SpecialFunc="None">
     <Declaration><![CDATA[
 FUNCTION_BLOCK FB_ExternalSetpointGenerator_Test EXTENDS FB_TestSuite
@@ -206,5 +206,21 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_ExternalSetpointGenerator_Test">
+      <LineId Id="3" Count="3" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_ExternalSetpointGenerator_Test.FB_init">
+      <LineId Id="3" Count="13" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_ExternalSetpointGenerator_Test.TestEnableDisableExpectEnabledDisabled_Test1">
+      <LineId Id="3" Count="51" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_ExternalSetpointGenerator_Test.TestSetSetpointsExpectSetpointsSet_Test2">
+      <LineId Id="3" Count="70" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

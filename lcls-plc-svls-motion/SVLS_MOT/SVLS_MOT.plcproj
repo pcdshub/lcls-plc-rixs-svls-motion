@@ -5,16 +5,20 @@
     <ProjectGuid>{15b19755-1f5e-40dc-80ba-f2cfa02cc9d5}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
-    <WriteProductVersion>true</WriteProductVersion>
+    <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>SVLS_MOT</Name>
-    <ProgramVersion>3.1.4026.13</ProgramVersion>
+    <ProgramVersion>3.1.4026.15</ProgramVersion>
     <Application>{9bbdba73-a4f3-4f47-8782-6bc087c9a6b9}</Application>
     <TypeSystem>{ca18ef81-31dc-4ea1-9374-d96176155149}</TypeSystem>
     <Implicit_Task_Info>{998f0a09-43e7-4097-9591-2671ccbfa752}</Implicit_Task_Info>
     <Implicit_KindOfTask>{7e71db0b-6322-4e6d-bcc5-a0b9f4da024a}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{fa2f24b4-ff4a-4694-8173-c32a063630e0}</Implicit_Jitter_Distribution>
     <LibraryReferences>{76e57d37-1119-4dc6-88c1-6802f2b187c3}</LibraryReferences>
+    <Released>false</Released>
+    <AllowChecksForLibrary>false</AllowChecksForLibrary>
+    <POUsForPropertyAccessIncluded>false</POUsForPropertyAccessIncluded>
+    <GlobalVersionStructureIncluded>false</GlobalVersionStructureIncluded>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GVLs\Main.TcGVL">

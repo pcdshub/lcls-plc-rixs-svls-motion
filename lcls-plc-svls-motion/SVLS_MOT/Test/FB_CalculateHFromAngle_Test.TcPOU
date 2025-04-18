@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="FB_CalculateHFromAngle_Test" Id="{51828bbd-f723-449b-aaed-90018a20dbd1}" SpecialFunc="None">
     <Declaration><![CDATA[
 FUNCTION_BLOCK FB_CalculateHFromAngle_Test EXTENDS FB_TestSuite
@@ -204,5 +204,13 @@ TEST_FINISHED();
 ]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_CalculateHFromAngle_Test">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_CalculateHFromAngle_Test.TestCalculateHExpectCorrectValue">
+      <LineId Id="3" Count="173" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
