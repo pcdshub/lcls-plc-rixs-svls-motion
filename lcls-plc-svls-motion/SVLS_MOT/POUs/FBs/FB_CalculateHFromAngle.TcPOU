@@ -133,20 +133,5 @@ THIS^.R_a := R_a;
 ]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_CalculateHFromAngle">
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle.CalculateH">
-      <LineId Id="3" Count="34" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle.CalculateHVelocity">
-      <LineId Id="3" Count="14" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle.FB_Init">
-      <LineId Id="3" Count="3" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

@@ -78,13 +78,5 @@ THIS^.bDetHMoveAbsoluteBusy REF= bDetHMoveAbsoluteBusy;
 ]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_HController">
-      <LineId Id="3" Count="27" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_HController.FB_Init">
-      <LineId Id="3" Count="5" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

@@ -204,13 +204,5 @@ TEST_FINISHED();
 ]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_CalculateHFromAngle_Test">
-      <LineId Id="3" Count="1" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_CalculateHFromAngle_Test.TestCalculateHExpectCorrectValue">
-      <LineId Id="3" Count="173" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
