@@ -17,10 +17,11 @@ VAR
         AxisReference := Main.M8.Axis
     );
     fbCalculateHFromAngle : FB_CalculateHFromAngle(
-        D_tu := 1239.5,
-        R_a := 1200,
-        R_c := 90
+        D_tu := 1238.29,
+        R_a := 1200.10,
+        R_c := 89.78
     );
+    {attribute 'TcLinkTo' := '.nEncoderCount := TINC^SVLS_MOTION SAF^Axes^M8_Det_Y_H^Enc^Inputs^In^nDataIn1'}
     fbHController : FB_HController(
         iMotionAxisDetAngle := fbMotionAxisDetAngle,
         iCalculateHFromAngle := fbCalculateHFromAngle,
@@ -63,9 +64,5 @@ fbDetZ(stMotionStage:=Main.M2);
 fbGraY(stMotionStage:=Main.M3);
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_Main">
-      <LineId Id="3" Count="29" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

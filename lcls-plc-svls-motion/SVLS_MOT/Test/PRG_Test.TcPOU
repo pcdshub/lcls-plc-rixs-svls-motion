@@ -51,9 +51,5 @@ fbMotionStage_HControllerDetH_Test1(stMotionStage := stMotionStage_HControllerDe
 TcUnit.RUN();
 ]]></ST>
     </Implementation>
-    <LineIds Name="PRG_Test">
-      <LineId Id="3" Count="9" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

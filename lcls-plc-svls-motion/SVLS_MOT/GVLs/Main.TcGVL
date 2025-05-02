@@ -27,6 +27,7 @@ VAR_GLOBAL
                               .bLimitBackwardEnable := TIIB[EL7047_01_01-DET_Y]^STM Status^Status^Digital input 2;
                               .nRawEncoderULINT     := TIPC^SVLS_MOT^SVLS_MOT Instance^ProductionPlcTask Outputs^PRG_Main.fbHController.nEncoderCounts'}
     M8 : ST_MotionStage := (sName := 'CRIXS:SVLS:DET:MMS:Y_H');
+	
 END_VAR
 ]]></Declaration>
   </GVL>
