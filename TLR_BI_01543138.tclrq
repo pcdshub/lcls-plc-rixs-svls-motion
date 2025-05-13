@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<TcLicenseInfo xmlns:xsi="http:\\www.w3.org\2001\XMLSchema-instance" xsi:noNamespaceSchemaLocation="http:\\www.beckhoff.com\schemas\2011\11\TcLicenseInfo">
+	<TargetInfo>
+		<TcTargetDesc>
+			<TargetType>TC/BSD-OS</TargetType>
+			<TargetVersion>
+				<Version>3</Version>
+				<Revision>1</Revision>
+				<Build>4026</Build>
+			</TargetVersion>
+			<TargetFeatures>
+				<NetId>172.21.140.150.1.1</NetId>
+			</TargetFeatures>
+			<Hardware>
+				<Model>CX5240-0185</Model>
+				<SerialNo>000t9uyo</SerialNo>
+				<CPUVersion>2.8</CPUVersion>
+				<Date>30.10.23</Date>
+				<CPUArchitecture>9</CPUArchitecture>
+			</Hardware>
+			<OsImage>
+				<ImageDevice>CX5240-0185</ImageDevice>
+				<ImageVersion>13.2.2.0,2</ImageVersion>
+				<OsName>TwinCAT/BSD</OsName>
+				<OsVersion>13.2</OsVersion>
+			</OsImage>
+		</TcTargetDesc>
+	</TargetInfo>
+	<LicenseInfo>
+		<SystemId Level="50" SerialNo="000t9uyo" MacAddress="0001058f9d96">{AD24DBEF-EBD5-6063-C74E-B19BDE2EEE1C}</SystemId>
+		<PurchaseOrder><![CDATA[01543138]]></PurchaseOrder>
+		<IssueTime>2025-05-12T18:20:00</IssueTime>
+		<License ManuallyAdded="true">
+			<LicenseId>{8C57D0A8-BD63-4554-BAE1-E9C797EF0D0E}</LicenseId>
+			<Name>TC3 PLC / NC PTP 10</Name>
+			<OrderNo>TC1250</OrderNo>
+		</License>
+	</LicenseInfo>
+</TcLicenseInfo>
