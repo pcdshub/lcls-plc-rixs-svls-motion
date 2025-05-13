@@ -21,6 +21,9 @@
     <GlobalVersionStructureIncluded>false</GlobalVersionStructureIncluded>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\ST_EPSLimits.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\Main.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -38,6 +41,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\EPS\FB_CheckEPS.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\EPS\FB_RestTimer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\EPS\F_InRange.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\EPS\PRG_DET_Z_EPS.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FBs\FB_ExternalSetpointGenerator.TcPOU">
@@ -79,6 +94,7 @@
     <Folder Include="GVLs" />
     <Folder Include="ITFs" />
     <Folder Include="POUs\FBs" />
+    <Folder Include="POUs\EPS" />
     <Folder Include="Test" />
     <Folder Include="Test\TestDoubles" />
     <Folder Include="POUs" />

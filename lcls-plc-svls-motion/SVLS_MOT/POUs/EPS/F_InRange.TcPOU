@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_InRange" Id="{4657ece0-e5a2-4b60-99c7-98cbe76d1b78}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_InRange : BOOL
+// Determine if value is between the lower and upper limit
+VAR_INPUT
+    value 		: LREAL;
+    lower_limit : LREAL;
+    upper_limit : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[F_InRange := (lower_limit < value) AND (value < upper_limit);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
