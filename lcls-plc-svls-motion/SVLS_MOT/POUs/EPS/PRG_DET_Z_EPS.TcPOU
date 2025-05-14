@@ -6,9 +6,9 @@ VAR
 	{attribute 'pytmc' := 'pv: SVLS:DET:MMS:Z:EPS'}
     aDET_Z_EPS		: ARRAY [1 .. 2] OF ST_EPSLimits;
 	
-    {attribute 'pytmc' := 'pv: CRIX:DPL:MMS:X:EPS:OVRD_MODE'}
+    {attribute 'pytmc' := 'pv: SVLS:DET:MMS:Z:EPS:OVRD_MODE'}
     bEPS_Override : BOOL := FALSE;
-    {attribute 'pytmc' := 'pv: CRIX:DPL:MMS:X:EPS:OVRD_COUNTDOWN'}
+    {attribute 'pytmc' := 'pv: SVLS:DET:MMS:Z:EPS:OVRD_COUNTDOWN'}
     tEPS_TimerCountDown : STRING := TIME_TO_STRING(T#0S);
 	tEPS_OVRD_RESET_TIME : TIME := T#5M;
     fbResetTimer : FB_RestTimer;
