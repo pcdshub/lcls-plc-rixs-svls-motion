@@ -43,8 +43,8 @@ END_IF
 aDET_Z_EPS[1].fBwd_Limits := LIMIT(-53.8, aDET_Z_EPS[1].fBwd_Limits, 35);
 aDET_Z_EPS[1].fFwd_Limits := LIMIT(-53.8, aDET_Z_EPS[1].fFwd_Limits, 35);
 
-aDET_Z_EPS[2].fBwd_Limits := LIMIT(-45, aDET_Z_EPS[1].fBwd_Limits, 51.3);
-aDET_Z_EPS[2].fFwd_Limits := LIMIT(-45, aDET_Z_EPS[1].fFwd_Limits, 51.3);
+aDET_Z_EPS[2].fBwd_Limits := LIMIT(-45, aDET_Z_EPS[2].fBwd_Limits, 51.3);
+aDET_Z_EPS[2].fFwd_Limits := LIMIT(-45, aDET_Z_EPS[2].fFwd_Limits, 51.3);
 
 IF fDET_Y_ANGLE > fDET_Y_ANGLE_VALUE THEN bYAngleBelow := FALSE; ELSE bYAngleBelow := TRUE; END_IF
 	
