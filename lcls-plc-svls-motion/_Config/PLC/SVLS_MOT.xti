@@ -983,7 +983,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{15B19755-1F5E-40DC-80BA-F2CFA02CC9D5}" Name="SVLS_MOT" PrjFilePath="..\..\SVLS_MOT\SVLS_MOT.plcproj" TmcFilePath="..\..\SVLS_MOT\SVLS_MOT.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{7EA19F0D-B6E6-ED14-7A7F-B7CF57BB144A}" TmcPath="SVLS_MOT\SVLS_MOT.tmc">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{F69BA678-D6C2-6123-3D9C-ADC343EFE3BF}" TmcPath="SVLS_MOT\SVLS_MOT.tmc">
 			<Name>SVLS_MOT Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="8" ContextId="2" AreaNo="36">

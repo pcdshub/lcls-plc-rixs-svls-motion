@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="ST_EPSLimits" Id="{4ee57205-73a9-412c-b8d8-c1dfce7e0790}">
+    <Declaration><![CDATA[TYPE ST_EPSLimits :
+    // Defines the PLC limits and EPS structure where these limits are valid
+STRUCT
+    {attribute 'pytmc' := 'pv: FwdLimit'}
+    // Forward Limit
+    fFwd_Limits : LREAL;
+    {attribute 'pytmc' := 'pv: BwdLimit'}
+    // Backward Limit
+    fBwd_Limits	: LREAL;
+    {attribute 'pytmc' := 'pv: ST'}
+    // EPS_OK - TRUE, Use limits as 'plc limits'; EPS_OK - FALSE, DO not use limits
+    stEPS 		: DUT_EPS;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

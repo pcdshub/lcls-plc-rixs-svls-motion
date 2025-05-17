@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PRG_DET_Z_EPS" Id="{10ab1ab3-0451-4682-bb1d-5c6d8b3cb537}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_DET_Z_EPS
+VAR
+	{attribute 'pytmc' := 'pv: SVLS:DET:MMS:Z:EPS'}
+    aDET_Z_EPS		: ARRAY [1 .. 2] OF ST_EPSLimits;
+	
+    {attribute 'pytmc' := 'pv: SVLS:DET:MMS:Z:EPS:OVRD_MODE'}
+    bEPS_Override : BOOL := FALSE;
+    {attribute 'pytmc' := 'pv: SVLS:DET:MMS:Z:EPS:OVRD_COUNTDOWN'}
+    tEPS_TimerCountDown : STRING := TIME_TO_STRING(T#0S);
+	tEPS_OVRD_RESET_TIME : TIME := T#5M;
+    fbResetTimer : FB_RestTimer;
+	
+	
+	bInit : BOOL := TRUE;
+	
+	fDET_Z : LREAL;
+	fDET_Y_ANGLE : LREAL ;
+	fDET_Y_ANGLE_VALUE : LREAL := 6;
+	bYAngleBelow : BOOL;
+
+    fbEPS : FB_EPS;
+    fbCheckEPS : FB_CheckEPS;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fDET_Y_ANGLE := Main.M1.stAxisStatus.fActPosition;
+fDET_Z := Main.M2.stAxisStatus.fActPosition;
+
+IF bInit THEN
+    // Set Inital Values
+    aDET_Z_EPS[1].fBwd_Limits := -53.8;
+    aDET_Z_EPS[1].fFwd_Limits := 35;
+	
+    aDET_Z_EPS[2].fBwd_Limits := -45;
+    aDET_Z_EPS[2].fFwd_Limits := 51.3;
+
+    bInit := FALSE;
+END_IF
+
+aDET_Z_EPS[1].fBwd_Limits := LIMIT(-53.8, aDET_Z_EPS[1].fBwd_Limits, 35);
+aDET_Z_EPS[1].fFwd_Limits := LIMIT(-53.8, aDET_Z_EPS[1].fFwd_Limits, 35);
+
+aDET_Z_EPS[2].fBwd_Limits := LIMIT(-45, aDET_Z_EPS[2].fBwd_Limits, 51.3);
+aDET_Z_EPS[2].fFwd_Limits := LIMIT(-45, aDET_Z_EPS[2].fFwd_Limits, 51.3);
+
+IF fDET_Y_ANGLE > fDET_Y_ANGLE_VALUE THEN bYAngleBelow := FALSE; ELSE bYAngleBelow := TRUE; END_IF
+	
+fbEPS(eps:=aDET_Z_EPS[1].stEPS);
+fbEPS.setMessage('DET_Y_ANGLE < 6');
+fbEPS.setBit(0, bYAngleBelow);
+
+fbEPS(eps:=aDET_Z_EPS[2].stEPS);
+fbEPS.setMessage('DET_Y_ANGLE > 6');
+fbEPS.setBit(0, NOT bYAngleBelow);
+
+
+fbResetTimer(bInput:=bEPS_Override, tElapseTime:=tEPS_OVRD_RESET_TIME, tCountDown:=tEPS_TimerCountDown);
+fbCheckEPS(stMotor:= Main.M2, fPosition:=fDET_Z, aEPSLimits:= aDET_Z_EPS, stForwardMotorEPS:=Main.M2.stEPSForwardEnable, stBackwardMotorEPS:= Main.M2.stEPSBackwardEnable, bEPS_Override:=bEPS_Override);]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_DET_Z_EPS">
+      <LineId Id="1" Count="12" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="33" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="14" Count="13" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

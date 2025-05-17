@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_CheckEPS" Id="{34d78ab9-508b-476a-b7bf-433873b84d5d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_CheckEPS
+VAR_IN_OUT
+    stMotor	: ST_MotionStage;
+    aEPSLimits : ARRAY [*] OF ST_EPSLimits;
+    // Allows for user to define what is 'forward' and what is 'backward'. In most cases, use the in_out stMotor as default.
+    stForwardMotorEPS : DUT_EPS;
+    stBackwardMotorEPS: DUT_EPS;
+
+END_VAR
+VAR_INPUT
+    // Encoder Position, Current position of motor. Needed for the case where the motor and encoders are seperate. Default use stMotor Position
+    fPosition : LREAL;
+    // Ignores EPS
+    bEPS_Override : BOOL;
+
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    nPreviousState : DINT;
+    nIndex: DINT;
+    nEPSIndex: DINT;
+    bUnknownState: BOOL;
+    fbBwdEPS: FB_EPS;
+    fbFwdEPS: FB_EPS;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbBwdEps(eps:=stBackwardMotorEPS);
+fbFwdEPS(eps:=stForwardMotorEPS);
+
+// Look through possible states to see which state we are in
+bUnknownState := TRUE;
+FOR nIndex := LOWER_BOUND(aEPSLimits, 1) TO UPPER_BOUND(aEPSLimits, 1) BY 1 DO
+    IF aEPSLimits[nIndex].stEPS.bEPS_OK THEN
+        nEPSIndex := nIndex;
+        bUnknownState := FALSE; // Known State
+        exit; // stop when found state
+    END_IF
+END_FOR
+
+IF (nPreviousState <> nEPSIndex) THEN
+    // only clear stMotor eps from previous state.
+    fbBwdEPS.setBit(DINT_TO_BYTE(0), TRUE);
+    fbFwdEPS.setBit(DINT_TO_BYTE(0), TRUE);
+END_IF
+
+// Check if position is in plc limit rage, Stop motor if out of Upper/Lower bounds
+IF fPosition > aEPSLimits[nEPSIndex].fBwd_Limits THEN
+    fbBwdEPS.setBit(DINT_TO_BYTE(0), TRUE);
+ELSE
+    fbBwdEPS.setBit(DINT_TO_BYTE(0), FALSE);
+END_IF
+
+IF fPosition < aEPSLimits[nEPSIndex].fFwd_Limits THEN
+    fbFwdEPS.setBit(DINT_TO_BYTE(0), TRUE);
+ELSE
+    fbFwdEPS.setBit(DINT_TO_BYTE(0), FALSE);
+END_IF
+
+IF bUnknownState THEN
+    stBackwardMotorEPS.bEPS_OK := FALSE;
+    stForwardMotorEPS.bEPS_OK := FALSE;
+
+    stBackwardMotorEPS.sMessage := 'UNKNOWN STATE';
+    stForwardMotorEPS.sMessage := 'UNKNOWN STATE';
+    ELSE
+    // Update Labels
+    stBackwardMotorEPS.sMessage := aEPSLimits[nEPSIndex].stEPS.sMessage;
+    stForwardMotorEPS.sMessage := aEPSLimits[nEPSIndex].stEPS.sMessage;
+END_IF
+
+IF bEPS_Override THEN
+    stBackwardMotorEPS.bEPS_OK := TRUE;
+    stForwardMotorEPS.bEPS_OK := TRUE;
+END_IF
+
+nPreviousState := nEPSIndex; // Update Previous State]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

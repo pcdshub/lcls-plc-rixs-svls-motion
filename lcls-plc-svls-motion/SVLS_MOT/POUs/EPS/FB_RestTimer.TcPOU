@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_RestTimer" Id="{1db109a2-39f6-4851-98e9-e4f5441e8a1b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RestTimer
+// Resets value of input after some time
+// bInput 	: Value that will reset when set to true after some time passes
+// tCountdown : count down when input will be rest
+// tElapseTime : Time before input is reset
+
+VAR_IN_OUT
+    bInput : BOOL;
+    tCountDown : STRING;
+END_VAR
+VAR_INPUT
+    tElapseTime : TIME;
+END_VAR
+VAR
+    fbTimer : TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbTimer(IN := bInput, PT:= tElapseTime);
+
+IF bInput THEN
+    tCountDown := TIME_TO_STRING(tElapseTime - fbTimer.ET);
+END_IF
+
+IF fbTimer.Q THEN
+    bInput := FALSE;
+    tCountDown := TIME_TO_STRING(T#0s);
+END_IF
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
